@@ -1,0 +1,11 @@
+{
+  "VideoCallTest": {
+    "phoneNumberDev1":"8660131780",
+    "otp":"000000",
+    "phoneNumberDev2": "7725924830",
+    "partialPhNo": "772592",
+    "expectedCoins": "90",
+    "nickName": "Daniel",
+    "portNumber": "8088"
+  }
+}
