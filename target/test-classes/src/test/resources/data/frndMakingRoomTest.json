@@ -1,0 +1,31 @@
+{
+  "FrndMakingRoomTest": {
+    "hostPhoneNumber": "9764072776",
+    "userPhoneNumber": "7725924830",
+    "user2PhoneNumber": "8464919464",
+    "otp": "000000",
+    "wrongPassword": "Test@15643"
+  },
+  "Headers": {
+    "createMakingRoomPopupHeader": "Be FRND Making Expert",
+    "frndMakingRoomsPagePopupHeader": "FRND Making Rooms",
+    "frndMakingLiveRoomsPageHeader": "FRND RJ",
+    "closeLiveRoomPopupHeader": "Close Room",
+    "frndPageTitleForUser": "Experts will make your FRND",
+    "removeUserPopupHeader": "Are you sure, you want to remove user",
+    "banUserPopupHeader": "Be responsible and ban only if misbehaved",
+    "bannedUserToastMessage": "No game available right now"
+  },
+  "Ports": {
+    "port8080": "8080",
+    "port8081": "8081",
+    "port8082": "8082",
+    "port8083": "8083",
+    "port8084": "8084",
+    "port8085": "8085",
+    "port8086": "8086",
+    "port8087": "8087",
+    "port8088": "8088",
+    "port8089": "8089"
+  }
+}

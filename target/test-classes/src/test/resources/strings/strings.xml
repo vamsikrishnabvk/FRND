@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Error Text -->
+	<string name="Title">New purchase</string>
+	<string name="PurchasePageTitle">New material</string>
+
+</resources>

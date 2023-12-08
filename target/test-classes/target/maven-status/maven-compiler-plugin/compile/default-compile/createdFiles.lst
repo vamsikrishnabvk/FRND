@@ -1,0 +1,14 @@
+com\QA\Base\BaseTest.class
+com\QA\Pages\FrndCoinPage.class
+com\QA\Pages\HostedVivoCallPage.class
+com\QA\Pages\WhatsappPage.class
+com\QA\Pages\HomePage.class
+com\QA\Pages\PrivateTrainingRoomPage.class
+com\QA\Pages\PaymentPage.class
+com\QA\reports\ExtentReport.class
+com\QA\Base\BaseTest$1.class
+com\QA\Pages\LandingPage.class
+com\QA\utlis\TestUtils.class
+com\QA\listeners\TestListener.class
+com\QA\Base\BaseTest$Direction.class
+com\QA\Pages\SelectTagScreenPage.class
