@@ -1,6 +1,10 @@
 package com.QA.Test;
 
+<<<<<<< HEAD
 import com.QA.Base.BaseTest;
+=======
+import com.QA.Base.BaseTest2;
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 import com.QA.Pages.*;
 import com.QA.utlis.TestUtils;
 import org.json.JSONObject;
@@ -10,7 +14,11 @@ import org.testng.annotations.*;
 import java.io.InputStream;
 import java.lang.reflect.Method;
 
+<<<<<<< HEAD
 public class PaymentTest extends BaseTest {
+=======
+public class PaymentTest extends BaseTest2 {
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 
     LandingPage landingPage1,landingPage2;
     HomePage homePage1,homePage2;
@@ -78,7 +86,11 @@ public class PaymentTest extends BaseTest {
     }
 
     //-------------------------- Test Below -----------------------------------------
+<<<<<<< HEAD
     @Test(priority = 0, enabled = true, description = "LT-01: Verify User able to Host Voice call")
+=======
+    @Test(priority = 1, enabled = true, description = "LT-01: Verify User able to Host Voice call")
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     public void verifyThatCoinsShouldBeAddedProperlyInUserCoinWalletAfterSuccesfullyPurchaseTheCoins() throws InterruptedException {
         String phoneNumber = LoginDetails.getJSONObject("LoginDetails").getString("phoneNumber");
         String otp = LoginDetails.getJSONObject("LoginDetails").getString("otp");
@@ -99,7 +111,10 @@ public class PaymentTest extends BaseTest {
         homePage1.verifyCoinsAddedAfterPayment(availableCoin,coinsAfterPayement,getCoinsToBeAdded);
     }
 
+<<<<<<< HEAD
     @Test(priority = 1, enabled = true)
+=======
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     public void paymentThroughPhonePay() throws InterruptedException {
         String phoneNumber = LoginDetails.getJSONObject("LoginDetails").getString("phoneNumber");
         String otp = LoginDetails.getJSONObject("LoginDetails").getString("otp");

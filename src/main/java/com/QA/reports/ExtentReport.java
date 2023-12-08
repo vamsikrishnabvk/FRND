@@ -1,15 +1,30 @@
 package com.QA.reports;
 
+<<<<<<< HEAD
+=======
+import java.io.*;
+import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 import com.QA.Base.BaseTest;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+<<<<<<< HEAD
 import org.apache.commons.io.FileUtils;
+=======
+import io.appium.java_client.android.AndroidDriver;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Capabilities;
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 import org.openqa.selenium.io.Zip;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
+<<<<<<< HEAD
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -19,6 +34,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+=======
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 
 public class ExtentReport extends BaseTest {
 	/**
@@ -185,4 +202,14 @@ public class ExtentReport extends BaseTest {
 //
 //		return extent;
 //	}
+<<<<<<< HEAD
 //
+=======
+//
+
+
+
+
+
+
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271

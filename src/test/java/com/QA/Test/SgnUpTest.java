@@ -1,7 +1,11 @@
 package com.QA.Test;
 
 import com.QA.API.ApiUdateData;
+<<<<<<< HEAD
 import com.QA.Base.BaseTest;
+=======
+import com.QA.Base.BaseTest2;
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 import com.QA.DataBase.FetchValue;
 import com.QA.Pages.*;
 import com.QA.utlis.TestUtils;
@@ -12,7 +16,11 @@ import org.testng.annotations.*;
 import java.io.InputStream;
 import java.lang.reflect.Method;
 
+<<<<<<< HEAD
 public class SgnUpTest extends BaseTest {
+=======
+public class SgnUpTest extends BaseTest2 {
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     LandingPage landingPage1,landingPage2;
     HomePage homePage1,homePage2;
     PrivateTrainingRoomPage trainingRoomPage1,trainingRoomPage2;
@@ -82,9 +90,15 @@ public class SgnUpTest extends BaseTest {
 
     //-------------------------- Test Below -----------------------------------------
 
+<<<<<<< HEAD
     @Test(priority =  0, enabled = true)
     public void verifyMaleSignUp() throws InterruptedException {
         String phoneNumber = SignUpTest.getJSONObject("SignUpTest").getString("phoneNumberDev1");
+=======
+    @Test(enabled = true)
+    public void verifyMaleSignUp() throws InterruptedException {
+        String phoneNumber = SignUpTest.getJSONObject("SignUpTest").getString("phoneNumber");
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         String otp = SignUpTest.getJSONObject("SignUpTest").getString("otp");
         String partialNum = SignUpTest.getJSONObject("SignUpTest").getString("partialPhNo");
         String nickName = SignUpTest.getJSONObject("SignUpTest").getString("nickName");
@@ -112,9 +126,15 @@ public class SgnUpTest extends BaseTest {
         landingPage1.selectAppLanguage(getDriver1());
         homePage1.handlingPopup(getDriver1());
     }
+<<<<<<< HEAD
     @Test(priority = 1, enabled = true)
     public void verifyMaleRetentionSignUp() throws InterruptedException {
         String phoneNumber = SignUpTest.getJSONObject("SignUpTest").getString("phoneNumberDev1");
+=======
+    @Test(enabled = true)
+    public void verifyMaleRetentionSignUp() throws InterruptedException {
+        String phoneNumber = SignUpTest.getJSONObject("SignUpTest").getString("phoneNumber");
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         String otp = SignUpTest.getJSONObject("SignUpTest").getString("otp");
         String partialNum = SignUpTest.getJSONObject("SignUpTest").getString("partialPhNo");
         String nickName = SignUpTest.getJSONObject("SignUpTest").getString("nickName");
@@ -157,6 +177,7 @@ public class SgnUpTest extends BaseTest {
         homePage1.handlingPopup(getDriver1());
         homePage1.checkFreeMinuteAndConnect(getDriver1());
         Thread.sleep(5000);
+<<<<<<< HEAD
         vivoCallPage1.verifyUserNotAbleToJoinSecTimeAfter5min(getDriver1());
         //trainingRoomPage1.checkFiveMinuteCallButton(getDriver1());
     }
@@ -164,6 +185,15 @@ public class SgnUpTest extends BaseTest {
     @Test(priority =  2, enabled = true)
     public void verifyPaidMaleSignup() throws InterruptedException {
         String phoneNumber = SignUpTest.getJSONObject("SignUpTest").getString("phoneNumberDev1");
+=======
+        vivoCallPage1.clickOnExitButton(getDriver1());
+        trainingRoomPage1.checkFiveMinuteCallButton(getDriver1());
+    }
+
+    @Test(enabled = false)
+    public void verifyPaidMaleSignup() throws InterruptedException {
+        String phoneNumber = SignUpTest.getJSONObject("SignUpTest").getString("phoneNumber");
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         String otp = SignUpTest.getJSONObject("SignUpTest").getString("otp");
         String partialNum = SignUpTest.getJSONObject("SignUpTest").getString("partialPhNo");
         String nickName = SignUpTest.getJSONObject("SignUpTest").getString("nickName");
@@ -212,9 +242,15 @@ public class SgnUpTest extends BaseTest {
         trainingRoomPage1.checkFiveMinuteCallButton(getDriver1());
     }
 
+<<<<<<< HEAD
     @Test(priority =  3, enabled = true)
     public void verifyGirlSignUp() throws InterruptedException {
         String phoneNumber = SignUpTest.getJSONObject("SignUpTest").getString("phoneNumberDev1");
+=======
+    @Test(enabled = true)
+    public void verifyGirlSignUp() throws InterruptedException {
+        String phoneNumber = SignUpTest.getJSONObject("SignUpTest").getString("phoneNumber");
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         String otp = SignUpTest.getJSONObject("SignUpTest").getString("otp");
         String partialNum = SignUpTest.getJSONObject("SignUpTest").getString("partialPhNo");
         String nickName = SignUpTest.getJSONObject("SignUpTest").getString("nickName");
@@ -244,10 +280,13 @@ public class SgnUpTest extends BaseTest {
         landingPage1.clickOnVoiceRecordButton(getDriver1());
         landingPage1.selectAppLanguage(getDriver1());
     }
+<<<<<<< HEAD
 
     @Test(enabled = false)
     public void verifyTheMaleRetentionsUsersShouldBeableToUserFree5MinFirst3days()
     {
 
     }
+=======
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 }

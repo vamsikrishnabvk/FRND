@@ -66,7 +66,11 @@ public class ApiUdateData {
         //   RestAssured.port = 8088;
 
         RestAssured.given()
+<<<<<<< HEAD
                 .body(requestBody).header("AppVersion",465)
+=======
+                .body(requestBody).header("AppVersion",457)
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
                 .contentType(ContentType.JSON)
 
                 .when()

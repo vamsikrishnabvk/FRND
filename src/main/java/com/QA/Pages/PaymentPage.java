@@ -1,6 +1,10 @@
 package com.QA.Pages;
 
+<<<<<<< HEAD
 import com.QA.Base.BaseTest;
+=======
+import com.QA.Base.BaseTest2;
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 import com.QA.utlis.TestUtils;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -8,12 +12,19 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
+<<<<<<< HEAD
 public class PaymentPage extends BaseTest {
 
     public PaymentPage(AppiumDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
+=======
+public class PaymentPage extends BaseTest2 {
+
+    public PaymentPage(AppiumDriver driver) {
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);   }
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     TestUtils utils = new TestUtils();
 //*************** Keep Elements Here ******************************************
 
@@ -50,6 +61,7 @@ public class PaymentPage extends BaseTest {
 
     //*********************** End Elements *************************************************
 
+<<<<<<< HEAD
     public void makePaymentThroughGpay(AppiumDriver driver) {
         if (paymentMethodFrndApp.isDisplayed()) {
             click(paymentMethodFrndApp, "Clicked on PayemntMethod with Frnd App", driver);
@@ -97,5 +109,63 @@ public class PaymentPage extends BaseTest {
 
     public void clickOnProceedToPay(AppiumDriver driver) {
         click(proceedToPayButton, "Clicked on Proceed to Pay Button", driver);
+=======
+    public void makePaymentThroughGpay(AppiumDriver driver)
+    {
+        if(paymentMethodFrndApp.isDisplayed())
+        {
+            click(paymentMethodFrndApp,"Clicked on PayemntMethod with Frnd App", driver);
+            click(dropdownIcon,"clicked on dropdown icon",driver);
+            click(googlePayIcon,"Clicked on PhonePay icon",driver);
+            click(proceedToPayButton,"Clicked on Proceed to Pay Button", driver);
+        }
+        else {
+            clickOnGooglePayIcon(driver);
+            click(payRs1Button,"Clicked on Google Pay option", driver);
+            sendKeys(enterPinField,"7071","Enter the pin",driver);
+            click(pinConfirmButton,"Click on Pin confirm Button", driver);
+            click(okayButton,"Click on okay Button",driver);
+        }
+    }
+    public void makePaymentThroughPhonePay(AppiumDriver driver)
+    {
+        if(paymentMethodFrndApp.isDisplayed())
+        {
+            click(paymentMethodFrndApp,"Clicked on PayemntMethod with Frnd App", driver);
+            click(dropdownIcon,"clicked on dropdown icon",driver);
+            click(phonePayIcon,"Clicked on PhonePay icon",driver);
+            click(proceedToPayButton,"Clicked on Proceed to Pay Button", driver);
+        }
+        else {
+            clickOnPhonePayIcon(driver);
+            click(payRs1Button,"Clicked on Google Pay option", driver);
+            sendKeys(enterPinField,"7071","Enter the pin",driver);
+            click(pinConfirmButton,"Click on Pin confirm Button", driver);
+            click(okayButton,"Click on okay Button",driver);
+        }
+    }
+
+    public void clickOnGooglePayIcon(AppiumDriver driver)
+    {
+        click(googlePayIcon,"Clicked on Google Pay Icon", driver);
+    }
+
+    public void selectPaymentMethod(AppiumDriver driver)
+    {
+        if(paymentMethodFrndApp.isDisplayed())
+        {
+            click(paymentMethodFrndApp,"Clicked on PayemntMethod with Frnd App", driver);
+            click(dropdownIcon,"clicked on dropdown icon",driver);
+        }
+    }
+
+    public void clickOnPhonePayIcon(AppiumDriver driver)
+    {
+        click(phonePayIcon,"Clicked on PhonePay icon",driver);
+    }
+    public void clickOnProceedToPay(AppiumDriver driver)
+    {
+        click(proceedToPayButton,"Clicked on Proceed to Pay Button", driver);
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     }
 }

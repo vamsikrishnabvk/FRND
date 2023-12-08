@@ -1,6 +1,10 @@
 package com.QA.Test;
 
+<<<<<<< HEAD
 import com.QA.Base.BaseTest;
+=======
+import com.QA.Base.BaseTest2;
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 import com.QA.Pages.*;
 import com.QA.utlis.TestUtils;
 import org.json.JSONObject;
@@ -10,12 +14,21 @@ import org.testng.annotations.*;
 import java.io.InputStream;
 import java.lang.reflect.Method;
 
+<<<<<<< HEAD
 public class VideoCallTest extends BaseTest {
     LandingPage landingPage1, landingPage2;
     HomePage homePage1, homePage2;
     PrivateTrainingRoomPage trainingRoomPage1, trainingRoomPage2;
     SelectTagScreenPage tagScreenPage1, tagScreenPage2;
     HostedVideoCallPage hostedVideoCallPage1, hostedVideoCallPage2;
+=======
+public class VideoCallTest extends BaseTest2 {
+    LandingPage landingPage1,landingPage2;
+    HomePage homePage1,homePage2;
+    PrivateTrainingRoomPage trainingRoomPage1,trainingRoomPage2;
+    SelectTagScreenPage tagScreenPage1,tagScreenPage2;
+    HostedVideoCallPage hostedVideoCallPage1,hostedVideoCallPage2;
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     JSONObject VideoCallTest;
     TestUtils utils = new TestUtils();
 
@@ -35,13 +48,22 @@ public class VideoCallTest extends BaseTest {
                 datais.close();
             }
         }
+<<<<<<< HEAD
         //  closeApp();
         //    launchApp();
+=======
+      //  closeApp();
+    //    launchApp();
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     }
 
     @AfterClass
     public void afterClass() {
+<<<<<<< HEAD
         // getDriver().quit();
+=======
+       // getDriver().quit();
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     }
 
     @BeforeMethod
@@ -71,15 +93,24 @@ public class VideoCallTest extends BaseTest {
     //-------------------------- Test Below -----------------------------------------
 
 
+<<<<<<< HEAD
     @Test(priority = 0, enabled = true)
+=======
+    @Test(priority = 4,enabled = true)
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     public void verifyThatUserAbleToHostAndExitRoom() throws InterruptedException {
         String phoneNumber = VideoCallTest.getJSONObject("VideoCallTest").getString("phoneNumberDev1");
         String otp = VideoCallTest.getJSONObject("VideoCallTest").getString("otp");
         String portNumber = VideoCallTest.getJSONObject("VideoCallTest").getString("portNumber");
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
+<<<<<<< HEAD
         landingPage1.changingPort(portNumber, getDriver1());
         landingPage1.loginToApplication(phoneNumber, otp, getDriver1());
+=======
+        landingPage1.changingPort(portNumber,getDriver1());
+        landingPage1.loginToApplication(phoneNumber,otp,getDriver1());
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         homePage1.handlingPopup(getDriver1());
         homePage1.clickOnTrainingTab(getDriver1());
         trainingRoomPage1.clickOnPlusIcon(getDriver1());
@@ -91,15 +122,24 @@ public class VideoCallTest extends BaseTest {
         homePage1.verifyHostExitTheRoom(getDriver1());
     }
 
+<<<<<<< HEAD
     @Test(priority = 1, enabled = true)
+=======
+    @Test(enabled = true)
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     public void checkThatMuteUnmuteFunctionalityIsWorkingAsExpected() throws InterruptedException {
         String phoneNumber = VideoCallTest.getJSONObject("VideoCallTest").getString("phoneNumberDev1");
         String otp = VideoCallTest.getJSONObject("VideoCallTest").getString("otp");
         String portNumber = VideoCallTest.getJSONObject("VideoCallTest").getString("portNumber");
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
+<<<<<<< HEAD
         landingPage1.changingPort(portNumber, getDriver1());
         landingPage1.loginToApplication(phoneNumber, otp, getDriver1());
+=======
+        landingPage1.changingPort(portNumber,getDriver1());
+        landingPage1.loginToApplication(phoneNumber,otp,getDriver1());
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         homePage1.handlingPopup(getDriver1());
         homePage1.clickOnTrainingTab(getDriver1());
         trainingRoomPage1.clickOnPlusIcon(getDriver1());
@@ -111,7 +151,11 @@ public class VideoCallTest extends BaseTest {
     }
 
 
+<<<<<<< HEAD
     @Test(priority = 2, enabled = true)
+=======
+    @Test(enabled = true)
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     public void verifyThatUsersAreAbleToJoinInVideoCallAccordingCoinBalance() throws InterruptedException {
         String phoneNumber = VideoCallTest.getJSONObject("VideoCallTest").getString("phoneNumberDev1");
         String otp = VideoCallTest.getJSONObject("VideoCallTest").getString("otp");
@@ -122,12 +166,21 @@ public class VideoCallTest extends BaseTest {
         String portNumber = VideoCallTest.getJSONObject("VideoCallTest").getString("portNumber");
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
+<<<<<<< HEAD
         landingPage1.changingPort(portNumber, getDriver1());
         landingPage1.handlingUpdatePopup(getDriver2());
         landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
         landingPage2.changingPort(portNumber, getDriver2());
         landingPage1.loginToApplication(phoneNumber, otp, getDriver1());
         landingPage2.loginToApplication(phoneNumber2, otp, getDriver2());
+=======
+        landingPage1.changingPort(portNumber,getDriver1());
+        landingPage1.handlingUpdatePopup(getDriver2());
+        landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
+        landingPage2.changingPort(portNumber,getDriver2());
+        landingPage1.loginToApplication(phoneNumber,otp,getDriver1());
+        landingPage2.loginToApplication(phoneNumber2,otp,getDriver2());
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         homePage1.handlingPopup(getDriver1());
         homePage2.handlingPopup(getDriver2());
         String text = homePage1.getAvailableCoin(getDriver1());
@@ -139,10 +192,17 @@ public class VideoCallTest extends BaseTest {
         tagScreenPage2.clickOnLoveTag(getDriver2());
         tagScreenPage2.verifyUerAbleToHost(getDriver2());
         homePage1.clickOnTrainingTab(getDriver1());
+<<<<<<< HEAD
         trainingRoomPage1.checkCoinAndEnterRoom(text, expectedCoins, getDriver1());
     }
 
     @Test(priority = 3, enabled = true)
+=======
+        trainingRoomPage1.checkCoinAndEnterRoom(text,expectedCoins,getDriver1());
+    }
+
+    @Test(enabled = true)
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     public void VerifyCoinBalanceAfterUserSendsGiftAccordingToTimer() throws InterruptedException {
         String phoneNumber = VideoCallTest.getJSONObject("VideoCallTest").getString("phoneNumberDev1");
         String otp = VideoCallTest.getJSONObject("VideoCallTest").getString("otp");
@@ -153,12 +213,21 @@ public class VideoCallTest extends BaseTest {
         String portNumber = VideoCallTest.getJSONObject("VideoCallTest").getString("portNumber");
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
+<<<<<<< HEAD
         landingPage1.changingPort(portNumber, getDriver1());
         landingPage1.handlingUpdatePopup(getDriver2());
         landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
         landingPage2.changingPort(portNumber, getDriver2());
         landingPage1.loginToApplication(phoneNumber, otp, getDriver1());
         landingPage2.loginToApplication(phoneNumber2, otp, getDriver2());
+=======
+        landingPage1.changingPort(portNumber,getDriver1());
+        landingPage1.handlingUpdatePopup(getDriver2());
+        landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
+        landingPage2.changingPort(portNumber,getDriver2());
+        landingPage1.loginToApplication(phoneNumber,otp,getDriver1());
+        landingPage2.loginToApplication(phoneNumber2,otp,getDriver2());
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         homePage1.handlingPopup(getDriver1());
         homePage2.handlingPopup(getDriver2());
         String text = homePage1.getAvailableCoin(getDriver1());
@@ -169,17 +238,29 @@ public class VideoCallTest extends BaseTest {
         trainingRoomPage2.clickOnVideoRoomButton(getDriver2());
         tagScreenPage2.clickOnLoveTag(getDriver2());
         tagScreenPage2.verifyUerAbleToHost(getDriver2());
+<<<<<<< HEAD
         trainingRoomPage1.checkCoinAndEnterRoom(text, expectedCoins, getDriver1());
         hostedVideoCallPage1.verfiyTimerAndGiftCoinAfterSendsGift(text, getDriver1());
+=======
+        trainingRoomPage1.checkCoinAndEnterRoom(text,expectedCoins,getDriver1());
+        hostedVideoCallPage1.verfiyTimerAndGiftCoinAfterSendsGift(text,getDriver1());
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         hostedVideoCallPage1.clickOnExitButton(getDriver1());
         hostedVideoCallPage1.clickOnStarRating(getDriver1());
         hostedVideoCallPage1.giveReviewMessage(getDriver1());
         hostedVideoCallPage1.clickOnSubmitButton(getDriver1());
         hostedVideoCallPage1.shareAppExperienceRating(getDriver1());
+<<<<<<< HEAD
         trainingRoomPage1.checkCoinsDeducted(text, getDriver1());
     }
 
     @Test(priority = 4, enabled = true)
+=======
+        trainingRoomPage1.checkCoinsDeducted(text,getDriver1());
+    }
+
+    @Test(enabled = true)
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     public void verifyThatHostAbleToOpenUserProfileDuringCallByClickingOnUserAvatar() throws InterruptedException {
         String phoneNumber = VideoCallTest.getJSONObject("VideoCallTest").getString("phoneNumberDev1");
         String otp = VideoCallTest.getJSONObject("VideoCallTest").getString("otp");
@@ -189,8 +270,13 @@ public class VideoCallTest extends BaseTest {
         String nickName = VideoCallTest.getJSONObject("VideoCallTest").getString("nickName");
         String portNumber = VideoCallTest.getJSONObject("VideoCallTest").getString("portNumber");
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
+<<<<<<< HEAD
         landingPage1.changingPort(portNumber, getDriver1());
         landingPage1.loginToApplication(phoneNumber, otp, getDriver1());
+=======
+        landingPage1.changingPort(portNumber,getDriver1());
+        landingPage1.loginToApplication(phoneNumber,otp,getDriver1());
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         homePage1.handlingPopup(getDriver1());
         homePage1.clickOnTrainingTab(getDriver1());
         trainingRoomPage1.clickOnPlusIcon(getDriver1());
@@ -200,7 +286,11 @@ public class VideoCallTest extends BaseTest {
         hostedVideoCallPage1.verifyHostAbleToClickOnUserAvatar(getDriver1());
     }
 
+<<<<<<< HEAD
     @Test(priority = 5, enabled = true)
+=======
+    @Test(enabled = true)
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     public void verifyThatUserAbleToRemoveTheVideoCallWhenHostRemoveParticularUsers() throws InterruptedException {
         String phoneNumber = VideoCallTest.getJSONObject("VideoCallTest").getString("phoneNumberDev1");
         String otp = VideoCallTest.getJSONObject("VideoCallTest").getString("otp");
@@ -211,12 +301,21 @@ public class VideoCallTest extends BaseTest {
         String portNumber = VideoCallTest.getJSONObject("VideoCallTest").getString("portNumber");
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
+<<<<<<< HEAD
         landingPage1.changingPort(portNumber, getDriver1());
         landingPage2.handlingUpdatePopup(getDriver2());
         landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
         landingPage2.changingPort(portNumber, getDriver2());
         landingPage1.loginToApplication(phoneNumber, otp, getDriver1());
         landingPage2.loginToApplication(phoneNumber2, otp, getDriver2());
+=======
+        landingPage1.changingPort(portNumber,getDriver1());
+        landingPage2.handlingUpdatePopup(getDriver2());
+        landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
+        landingPage2.changingPort(portNumber,getDriver2());
+        landingPage1.loginToApplication(phoneNumber,otp,getDriver1());
+        landingPage2.loginToApplication(phoneNumber2,otp,getDriver2());
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         homePage1.handlingPopup(getDriver1());
         homePage2.handlingPopup(getDriver2());
         String text = homePage1.getAvailableCoin(getDriver1());
@@ -227,12 +326,20 @@ public class VideoCallTest extends BaseTest {
         trainingRoomPage2.clickOnVideoRoomButton(getDriver2());
         tagScreenPage2.clickOnLoveTag(getDriver2());
         tagScreenPage2.verifyUerAbleToHost(getDriver2());
+<<<<<<< HEAD
         trainingRoomPage1.checkCoinAndEnterRoom(text, expectedCoins, getDriver1());
+=======
+        trainingRoomPage1.checkCoinAndEnterRoom(text,expectedCoins,getDriver1());
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         hostedVideoCallPage2.hostRemoveUserFromTheRoom(getDriver2());
         hostedVideoCallPage1.verfiyUserGotRemoveFromVideoCall(getDriver1());
     }
 
+<<<<<<< HEAD
     @Test(priority = 6, enabled = true)
+=======
+    @Test(enabled = false)
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     public void userNotAbleToJoinRoomWhenHostBanUser() throws InterruptedException {
         String phoneNumber = VideoCallTest.getJSONObject("VideoCallTest").getString("phoneNumberDev1");
         String otp = VideoCallTest.getJSONObject("VideoCallTest").getString("otp");
@@ -243,6 +350,7 @@ public class VideoCallTest extends BaseTest {
         String portNumber = VideoCallTest.getJSONObject("VideoCallTest").getString("portNumber");
         landingPage2.handlingUpdatePopup(getDriver2());
         landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
+<<<<<<< HEAD
         landingPage2.changingPort(portNumber, getDriver2());
         int i = getRandomNum();
         String phonNum = partialum + Integer.toString(i);
@@ -252,6 +360,17 @@ public class VideoCallTest extends BaseTest {
         landingPage2.enterOTPNumber(otp, getDriver2());
         landingPage2.clickOnSubmitButton(getDriver2());
         landingPage2.enterNickName(getDriver2(), nickName);
+=======
+        landingPage2.changingPort(portNumber,getDriver2());
+        int i = getRandomNum();
+        String phonNum = partialum+Integer.toString(i);
+        landingPage2.clickOnLetsGoButton(getDriver2());
+        landingPage2.enterMobileNumber(phonNum,getDriver2());
+        landingPage2.clickOnGetOTPButton(getDriver2());
+        landingPage2.enterOTPNumber(otp,getDriver2());
+        landingPage2.clickOnSubmitButton(getDriver2());
+        landingPage2.enterNickName(getDriver2(),nickName);
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         landingPage2.clickOnSelectGenderButton(getDriver2());
         landingPage2.clickOnBoyGender(getDriver2());
         landingPage2.clickOnDateOfBirthButtonAndOkButton(getDriver2());
@@ -262,8 +381,13 @@ public class VideoCallTest extends BaseTest {
         homePage2.handlingPopup(getDriver2());
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
+<<<<<<< HEAD
         landingPage1.changingPort(portNumber, getDriver1());
         landingPage1.loginToApplication(phoneNumber, otp, getDriver1());
+=======
+        landingPage1.changingPort(portNumber,getDriver1());
+        landingPage1.loginToApplication(phoneNumber,otp,getDriver1());
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         homePage1.handlingPopup(getDriver1());
         String text = homePage1.getAvailableCoin(getDriver1());
         homePage2.clickOnTrainingTab(getDriver2());
@@ -273,13 +397,21 @@ public class VideoCallTest extends BaseTest {
         trainingRoomPage2.clickOnVideoRoomButton(getDriver2());
         tagScreenPage2.clickOnLoveTag(getDriver2());
         tagScreenPage2.verifyUerAbleToHost(getDriver2());
+<<<<<<< HEAD
         trainingRoomPage1.checkCoinAndEnterRoom(text, expectedCoins, getDriver1());
+=======
+        trainingRoomPage1.checkCoinAndEnterRoom(text,expectedCoins,getDriver1());
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         hostedVideoCallPage2.hostBanTheUser(getDriver2());
         hostedVideoCallPage1.userGotTheWarning(getDriver1());
         trainingRoomPage1.verifyUserNotJoinRoomAfterBan(getDriver1());
     }
 
+<<<<<<< HEAD
     @Test(priority = 7, enabled = true)
+=======
+    @Test(enabled = true)
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     public void verifyThatUserAbleToLeaveThatGameDuringONGame() throws InterruptedException {
         String phoneNumber = VideoCallTest.getJSONObject("VideoCallTest").getString("phoneNumberDev1");
         String otp = VideoCallTest.getJSONObject("VideoCallTest").getString("otp");
@@ -290,12 +422,21 @@ public class VideoCallTest extends BaseTest {
         String portNumber = VideoCallTest.getJSONObject("VideoCallTest").getString("portNumber");
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
+<<<<<<< HEAD
         landingPage1.changingPort(portNumber, getDriver1());
         landingPage2.handlingUpdatePopup(getDriver2());
         landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
         landingPage2.changingPort(portNumber, getDriver2());
         landingPage1.loginToApplication(phoneNumber, otp, getDriver1());
         landingPage2.loginToApplication(phoneNumber2, otp, getDriver2());
+=======
+        landingPage1.changingPort(portNumber,getDriver1());
+        landingPage2.handlingUpdatePopup(getDriver2());
+        landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
+        landingPage2.changingPort(portNumber,getDriver2());
+        landingPage1.loginToApplication(phoneNumber,otp,getDriver1());
+        landingPage2.loginToApplication(phoneNumber2,otp,getDriver2());
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         homePage1.handlingPopup(getDriver1());
         homePage2.handlingPopup(getDriver2());
         String text = homePage1.getAvailableCoin(getDriver1());
@@ -306,7 +447,11 @@ public class VideoCallTest extends BaseTest {
         trainingRoomPage2.clickOnVideoRoomButton(getDriver2());
         tagScreenPage2.clickOnLoveTag(getDriver2());
         tagScreenPage2.verifyUerAbleToHost(getDriver2());
+<<<<<<< HEAD
         trainingRoomPage1.checkCoinAndEnterRoom(text, expectedCoins, getDriver1());
+=======
+        trainingRoomPage1.checkCoinAndEnterRoom(text,expectedCoins,getDriver1());
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         hostedVideoCallPage1.clickOnExitButton(getDriver1());
         hostedVideoCallPage1.verfiyUserGotRemoveFromVoiceCall(getDriver1());
     }

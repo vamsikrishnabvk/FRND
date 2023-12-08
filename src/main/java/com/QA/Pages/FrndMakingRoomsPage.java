@@ -1,16 +1,24 @@
 package com.QA.Pages;
 
+<<<<<<< HEAD
 import com.QA.Base.BaseTest;
 import com.QA.utlis.TestUtils;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+=======
+import com.QA.Base.BaseTest2;
+import com.QA.utlis.TestUtils;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+<<<<<<< HEAD
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -20,6 +28,12 @@ public class FrndMakingRoomsPage extends BaseTest {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
+=======
+public class FrndMakingRoomsPage extends BaseTest2 {
+
+    public FrndMakingRoomsPage(AppiumDriver driver) {
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);   }
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     TestUtils utils = new TestUtils();
     //*************** Keep Elements Here ******************************************
 
@@ -43,6 +57,7 @@ public class FrndMakingRoomsPage extends BaseTest {
     public MobileElement closeLiveRoomCrossButton;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Join Room']")
     public MobileElement joinRoom;
+<<<<<<< HEAD
     @AndroidFindBy(xpath = "  //android.widget.TextView[@text='Will']/following-sibling::android.view.View")
     public MobileElement joinRoomByUserName;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Experts will make your FRND']")
@@ -60,20 +75,32 @@ public class FrndMakingRoomsPage extends BaseTest {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Add Girl']")
     public MobileElement addGirlButton;
 
+=======
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Experts will make your FRND']")
+    public MobileElement frndPageTitleForUser;
+    @AndroidFindBy(xpath = "(//android.widget.FrameLayout/android.view.View)[2]")
+    public MobileElement joinWaitlistButton;
+    @AndroidFindBy(id = "com.dating.for.all:id/addUser")
+    public MobileElement addUserButton;
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     @AndroidFindBy(id = "com.dating.for.all:id/add")
     public MobileElement waitlistAddButton;
     @AndroidFindBy(id = "com.dating.for.all:id/avatar")
     public MobileElement userAvatar;
+<<<<<<< HEAD
     @AndroidFindBy(id = "//android.view.ViewGroup[@resource-id='com.dating.for.all:id/maleSeat']//android.widget.ImageView[@resource-id='com.dating.for.all:id/avatar']")
     public MobileElement maleUserAvatar;
     @AndroidFindBy(id = "//android.view.ViewGroup[@resource-id='com.dating.for.all:id/femaleSeat']//android.widget.ImageView[@resource-id='com.dating.for.all:id/avatar']")
     public MobileElement femaleUserAvatar;
+=======
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     @AndroidFindBy(id = "com.dating.for.all:id/menuOptions")
     public MobileElement threeDotsOption;
     @AndroidFindBy(id = "com.dating.for.all:id/mic")
     public MobileElement hostMicOption;
     @AndroidFindBy(id = "com.dating.for.all:id/speaker")
     public MobileElement hostSpeakerOption;
+<<<<<<< HEAD
     @AndroidFindBy(id = "com.dating.for.all:id/micIv")
     public MobileElement muteUnmuteUserButton;
     @AndroidFindBy(id = "com.dating.for.all:id/background")
@@ -130,11 +157,14 @@ public class FrndMakingRoomsPage extends BaseTest {
     public MobileElement exitButtonOnAdPopup;
     @AndroidFindBy(id = "com.dating.for.all:id/roomTimer")
     public MobileElement makingRoomTimer;
+=======
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 
 
     //*************** Elements Ends Here ******************************************
 
     public void clickOnPlusIcon(AppiumDriver driver) throws InterruptedException {
+<<<<<<< HEAD
         waitForVisibility(plusIcon, driver);
         click(plusIcon, "Clicked on Plus Icon", driver);
     }
@@ -404,10 +434,93 @@ public class FrndMakingRoomsPage extends BaseTest {
     }
 
     public void verifyCloseFRNDMakingRoomsPopupHeader(String expectedHeader, AppiumDriver driver) {
+=======
+        Thread.sleep(5000);
+        waitForVisibility(plusIcon,driver);
+        click(plusIcon, "Clicked on Plus Icon",driver);
+    }
+    public void clickOnCreateRoomButton(AppiumDriver driver) throws InterruptedException {
+        Thread.sleep(5000);
+        waitForVisibility(createRoomButton,driver);
+        click(createRoomButton, "Clicked on Plus Icon",driver);
+    }
+    public void allowAudioRecordAllowPopup(AppiumDriver driver)
+    {
+        waitForVisibility(audioRecordAllowPopup, driver);
+        if(audioRecordAllowPopup.isDisplayed())
+        {
+            click(audioRecordAllowPopup,"Clicked on Audio record allow popup",driver);
+        }
+        try {
+            click(audioRecordConfirmAllowPopup, driver);
+        }catch (Exception e)
+        {
+
+        }
+    }
+    public void clickOnBackButtonOnLiveCall(AppiumDriver driver){
+        clickBackButton(driver);
+    }
+    public void closeLiveRoomCrossButton(AppiumDriver driver) {
+           click(closeLiveRoomCrossButton, driver);
+    }
+    public void clickOnJoinRoom(AppiumDriver driver){
+        waitForVisibility(joinRoom, driver);
+              click(joinRoom, driver);
+    }
+    public void clickOnJoinWaitlistButton(AppiumDriver driver){
+        waitForVisibility(joinWaitlistButton, driver);
+        click(joinWaitlistButton, driver);
+    }
+    public void clickOnAddUserButton(AppiumDriver driver){
+        waitForVisibility(addUserButton, driver);
+        click(addUserButton, driver);
+    }
+    public void clickOnWatchlistAddButton(AppiumDriver driver){
+        waitForVisibility(waitlistAddButton, driver);
+        click(waitlistAddButton, driver);
+    }
+    public void clickOnOptionsButton(AppiumDriver driver){
+        waitForVisibility(threeDotsOption, driver);
+        click(threeDotsOption, driver);
+    }
+    public void clickOnMicButton(AppiumDriver driver){
+        waitForVisibility(hostMicOption, driver);
+        click(hostMicOption, driver);
+    }
+    public void clickOnSpeakerButton(AppiumDriver driver) {
+        waitForVisibility(hostSpeakerOption, driver);
+        try {
+            click(hostSpeakerOption, driver);
+        } catch (StaleElementReferenceException e) {
+            click(hostSpeakerOption, driver);
+        }
+    }
+
+
+    //*************** Assert Methods ******************************************
+    public void verifyFRNDMakingRoomsPageHeader(String expectedHeader, AppiumDriver driver) throws InterruptedException {
+        Thread.sleep(5000);
+        String actualPageHeader = frndMakingRoomsPageHeader.getText();
+        Assert.assertEquals(actualPageHeader, expectedHeader, "Popup header is not as expected");
+    }
+    public void verifyBeFRNDMakingExpertPopup(String expectedHeader, AppiumDriver driver) throws InterruptedException {
+        Thread.sleep(5000);
+        String actualPopupHeader = beFRNDMakingExpertPopup.getText();
+        Assert.assertEquals(actualPopupHeader, expectedHeader, "Popup header is not as expected");
+    }
+    public void verifyCreatedFrndMeetingRoom(String expectedHeader, AppiumDriver driver) throws InterruptedException {
+        waitForVisibility(fRNDMakingLiveRoom, driver);
+        String actualLiveRoomHeader = fRNDMakingLiveRoom.getText();
+        Assert.assertEquals(actualLiveRoomHeader, expectedHeader, "Popup header is not as expected");
+    }
+    public void verifyCloseFRNDMakingRoomsPopupHeader(String expectedHeader, AppiumDriver driver) throws InterruptedException {
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         waitForVisibility(closeLiveRoomPopup, driver);
         String actualPageHeader = closeLiveRoomPopup.getText();
         Assert.assertEquals(actualPageHeader, expectedHeader, "Header is not as expected");
     }
+<<<<<<< HEAD
 
     public void verifyFrndPageTitleForUser(String expectedHeader, AppiumDriver driver) {
         fluentVisibility(frndPageTitleForUser, driver);
@@ -601,5 +714,20 @@ public class FrndMakingRoomsPage extends BaseTest {
     public void verifyThatUserIsAbleToExitAfterFmrCall(AppiumDriver driver) {
         clickBackButton(driver);
         closeLiveRoomCrossButton(driver);
+=======
+    public void verifyFrndPageTitleForUser(String expectedHeader, AppiumDriver driver) {
+        waitForVisibility(frndPageTitleForUser, driver);
+        try {
+            String actualPageHeader = frndPageTitleForUser.getText();
+            Assert.assertEquals(actualPageHeader, expectedHeader, "Header is not as expected");
+        } catch(StaleElementReferenceException e){
+            String actualPageHeader = frndPageTitleForUser.getText();
+            Assert.assertEquals(actualPageHeader, expectedHeader, "Header is not as expected");
+        }
+    }
+    public void verifyUserAddedToGame(AppiumDriver driver){
+        waitForVisibility(userAvatar, driver);
+        Assert.assertTrue(userAvatar.isDisplayed());
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     }
 }

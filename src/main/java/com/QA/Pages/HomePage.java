@@ -1,10 +1,17 @@
 package com.QA.Pages;
 
+<<<<<<< HEAD
 import com.QA.Base.BaseTest;
 import com.QA.utlis.TestUtils;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+=======
+import com.QA.Base.BaseTest2;
+import com.QA.utlis.TestUtils;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
@@ -12,6 +19,7 @@ import org.testng.Assert;
 
 import java.util.List;
 
+<<<<<<< HEAD
 public class HomePage extends BaseTest {
 
     public HomePage(AppiumDriver driver) {
@@ -22,6 +30,16 @@ public class HomePage extends BaseTest {
     //*************** Keep Elements Here ******************************************
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.widget.ImageView")
     public MobileElement tainingTab;
+=======
+public class HomePage extends BaseTest2 {
+
+    public HomePage(AppiumDriver driver) {
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);   }
+    TestUtils utils = new TestUtils();
+    //*************** Keep Elements Here ******************************************
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.widget.ImageView")
+    public  MobileElement tainingTab;
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 
     @AndroidFindBy(id = "com.dating.for.all:id/coins")
     private MobileElement availableCoins;
@@ -63,6 +81,7 @@ public class HomePage extends BaseTest {
     @AndroidFindBy(xpath = "//android.widget.LinearLayout[3]/android.widget.FrameLayout/android.widget.ImageView")
     public MobileElement frndTab;
 
+<<<<<<< HEAD
     @AndroidFindBy(id = "com.dating.for.all:id/carouselIv")
     private MobileElement callNowBanner;
 
@@ -74,10 +93,13 @@ public class HomePage extends BaseTest {
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"FRND Making Rooms\"]")
     private MobileElement frndMakingRoom;
+=======
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 
 
 //*********************** End Elements *************************************************
 
+<<<<<<< HEAD
     public void clickOnHomeTab(AppiumDriver driver) {
         click(homeTab, "Click on HomeTab", driver);
     }
@@ -155,11 +177,92 @@ public class HomePage extends BaseTest {
         int coinAfterPayment = Integer.parseInt(coinsAfterPayment);
         int sumOfCoins = availableCoin + coinAferPayemnt;
         Assert.assertEquals(coinAfterPayment, sumOfCoins, "Coins After payment have not been added");
+=======
+    public void clickOnTrainingTab(AppiumDriver driver) throws InterruptedException {
+        Thread.sleep(5000);
+        waitForVisibility(tainingTab,driver);
+        click(tainingTab, "Clicked on Training Tab",driver);
+    }
+    public void handlingPopup(AppiumDriver driver) throws InterruptedException {
+
+        if(updateCrossButton.size()==1)
+        {
+            clickBackButton(driver);
+        }
+//        waitForVisibility(crossButton.get(0));
+            Thread.sleep(5000);
+            if (crossButton.size() == 1) {
+                click(crossButton.get(0), "Clicked on Cross Button", driver);
+                Thread.sleep(2000);
+                click(cancelButton.get(0), "Clicked on Cancel Button", driver);
+            } else if (cancelButton.size() == 1) {
+                click(cancelButton.get(0), "Clicked on cancel button", driver);
+            }
+
+        if(updateCrossButton.size()==1)
+        {
+            clickBackButton(driver);
+        }
+
+        if(titlePopup.size()==1) {
+            clickBackButton(driver);
+            utils.log().info("Clicked on Back button");
+        }
+        if(updateCrossButton.size()==1)
+        {
+            clickBackButton(driver);
+        }
+    }
+    public  String getAvailableCoin(AppiumDriver driver) throws InterruptedException {
+            click(homeTab,"Clicked on HomeTab",driver);
+            waitForVisibility(availableCoins,driver);
+            return getText(availableCoins,"Get available coin package", driver);
+    }
+
+    public void clickOnCoins(AppiumDriver driver)
+    {
+        click(availableCoins,"Clicked on available coins",driver);
+    }
+
+    public void clickOnAvailableCoinValueSymbol(AppiumDriver driver)
+    {
+        click(availableCoins,"Clicked on Coin Package", driver);
+    }
+    public void verifyHostExitTheRoom(AppiumDriver driver)
+    {
+        waitForVisibility(homeTab, driver);
+        Assert.assertTrue(homeTab.isDisplayed(),"Host is not able to exit the room");
+        utils.log().info("Host have exit the room");
+    }
+    public void checkFreeMinuteAndConnect(AppiumDriver driver)
+    {
+        waitForVisibility(freeMintCall,driver);
+        Assert.assertTrue(freeMintCall.isDisplayed(),"Free minute label is not displayed");
+        click(callNowButton,"Clicked on call now button",driver);
+        if(audioRecordAllowPopup.size()==1)
+        {
+            click(audioRecordAllowPopup.get(0),"Clicked on Audio record allow popup",driver);
+        }
+    }
+    public void clickOnAddCoinsNowButton(AppiumDriver driver)
+    {
+        click(addCoinsNowButton,"Click on Add Coins Now Button", driver);
+    }
+
+    public void verifyCoinsAddedAfterPayment(String availableCoins,String coinsAfterPayment,String coinsToBeAdded)
+    {
+        int availableCoin = Integer.parseInt(availableCoins);
+        int coinAferPayemnt = Integer.parseInt(coinsAfterPayment);
+        int coinAfterPayment = Integer.parseInt(coinsAfterPayment);
+        int sumOfCoins = availableCoin+coinAferPayemnt;
+        Assert.assertEquals(coinAfterPayment,sumOfCoins,"Coins After payment have not been added");
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         utils.log().info("Coins After Payment have been added successfully");
     }
 
     public void clickOnFrndTab(AppiumDriver driver) {
         waitForVisibility(frndTab, driver);
+<<<<<<< HEAD
         waitForVisibility(frndTab, driver);
         click(frndTab, "Clicked on Frnd Tab", driver);
     }
@@ -178,4 +281,10 @@ public class HomePage extends BaseTest {
         }
         click(groupRoom.get(0), "clicked on GroupRoom", driver);
     }
+=======
+        waitForVisibility(frndTab,driver);
+        click(frndTab, "Clicked on Frnd Tab",driver);
+    }
+
+>>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 }
