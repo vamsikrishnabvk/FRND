@@ -1,10 +1,6 @@
 package com.QA.Test;
 
-<<<<<<< HEAD
 import com.QA.Base.BaseTest;
-=======
-import com.QA.Base.BaseTest2;
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 import com.QA.Pages.*;
 import com.QA.utlis.TestUtils;
 import org.json.JSONObject;
@@ -14,7 +10,6 @@ import org.testng.annotations.*;
 import java.io.InputStream;
 import java.lang.reflect.Method;
 
-<<<<<<< HEAD
 public class AudioCallTest extends BaseTest {
 
 
@@ -25,18 +20,8 @@ public class AudioCallTest extends BaseTest {
     HostedAudioCallPage vivoCallPage1, vivoCallPage2;
     JSONObject AudioCallTest;
     ProfilePage profilePage1, profilePage2;
-=======
-public class AudioCallTest extends BaseTest2 {
-
-
-    LandingPage landingPage1,landingPage2;
-    HomePage homePage1,homePage2;
-    PrivateTrainingRoomPage trainingRoomPage1,trainingRoomPage2;
-    SelectTagScreenPage tagScreenPage1,tagScreenPage2;
-    HostedAudioCallPage vivoCallPage1,vivoCallPage2;
-    JSONObject AudioCallTest;
-    ProfilePage profilePage1,profilePage2;
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
+    FrndCoinPage frndCoinPage1,frndCoinPage2;
+    PaymentPage paymentPage1, paymentPage2;
     TestUtils utils = new TestUtils();
 
     @BeforeClass
@@ -55,22 +40,13 @@ public class AudioCallTest extends BaseTest2 {
                 datais.close();
             }
         }
-<<<<<<< HEAD
         //    closeApp();
         //    launchApp();
-=======
-    //    closeApp();
-    //    launchApp();
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     }
 
     @AfterClass
     public void afterClass() {
-<<<<<<< HEAD
         //   getDriver().quit();
-=======
-     //   getDriver().quit();
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     }
 
     @BeforeMethod
@@ -88,6 +64,10 @@ public class AudioCallTest extends BaseTest2 {
         vivoCallPage2 = new HostedAudioCallPage(getDriver2());
         profilePage1 = new ProfilePage(getDriver1());
         profilePage2 = new ProfilePage(getDriver2());
+        frndCoinPage1 = new FrndCoinPage(getDriver1());
+        frndCoinPage2 = new FrndCoinPage(getDriver2());
+        paymentPage1 = new PaymentPage(getDriver1());
+        paymentPage2 = new PaymentPage(getDriver2());
     }
 
     @AfterMethod
@@ -100,11 +80,13 @@ public class AudioCallTest extends BaseTest2 {
     }
 
     //-------------------------- Test Below -----------------------------------------
-<<<<<<< HEAD
+
+    /**
+     *Verify that users able to host that voice call room.
+     * Verify that Host able to close the hosted room before start the game.
+     * @throws InterruptedException
+     */
     @Test(priority = 0, enabled = true, description = "LT-01: Verify User able to Host Voice call")
-=======
-    @Test(priority = 1, enabled = false, description = "LT-01: Verify User able to Host Voice call")
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     public void verifyUserAbleToHostVoiceCallAndExitFromRoom() throws InterruptedException {
         String phoneNumber1 = AudioCallTest.getJSONObject("AudioCallTest").getString("phoneNumberDev1");
         String otp = AudioCallTest.getJSONObject("AudioCallTest").getString("otp");
@@ -114,15 +96,9 @@ public class AudioCallTest extends BaseTest2 {
         String nickName = AudioCallTest.getJSONObject("AudioCallTest").getString("nickName");
         String portNumber = AudioCallTest.getJSONObject("AudioCallTest").getString("portNumber");
         landingPage1.handlingUpdatePopup(getDriver1());
-<<<<<<< HEAD
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
         landingPage1.changingPort(portNumber, getDriver1());
         landingPage1.loginToApplication(phoneNumber1, otp, getDriver1());
-=======
-       landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
-       landingPage1.changingPort(portNumber,getDriver1());
-        landingPage1.loginToApplication(phoneNumber1,otp,getDriver1());
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         homePage1.handlingPopup(getDriver1());
         homePage1.clickOnTrainingTab(getDriver1());
         trainingRoomPage1.clickOnPlusIcon(getDriver1());
@@ -134,11 +110,15 @@ public class AudioCallTest extends BaseTest2 {
         homePage1.verifyHostExitTheRoom(getDriver1());
     }
 
-<<<<<<< HEAD
+    /**
+     * Verify that coin balance is deducted when user send that YR/Gifts according to timer.
+     * Verify that game timer is start properly according user coins.
+     * Verify that user able to leave that game during ON game.
+     * Verify that user able to leave that game during ON game.
+     * Verify that Gift animation is working as expected.
+     * @throws InterruptedException
+     */
     @Test(priority = 1, enabled = true)
-=======
-    @Test(priority = 0, enabled = false)
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     public void VerifyCoinBalanceAfterUserSendsGiftAccordingToTimer() throws InterruptedException {
         String phoneNumber1 = AudioCallTest.getJSONObject("AudioCallTest").getString("phoneNumberDev1");
         String otp = AudioCallTest.getJSONObject("AudioCallTest").getString("otp");
@@ -149,21 +129,12 @@ public class AudioCallTest extends BaseTest2 {
         String portNumber = AudioCallTest.getJSONObject("AudioCallTest").getString("portNumber");
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
-<<<<<<< HEAD
         landingPage1.changingPort(portNumber, getDriver1());
-        landingPage1.handlingUpdatePopup(getDriver1());
+        landingPage2.handlingUpdatePopup(getDriver2());
         landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
         landingPage2.changingPort(portNumber, getDriver2());
         landingPage1.loginToApplication(phoneNumber1, otp, getDriver1());
         landingPage2.loginToApplication(phoneNumber2, otp, getDriver2());
-=======
-        landingPage1.changingPort(portNumber,getDriver1());
-        landingPage1.handlingUpdatePopup(getDriver1());
-        landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
-        landingPage2.changingPort(portNumber,getDriver2());
-        landingPage1.loginToApplication(phoneNumber1,otp,getDriver1());
-        landingPage2.loginToApplication(phoneNumber2,otp,getDriver2());
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         homePage1.handlingPopup(getDriver1());
         homePage2.handlingPopup(getDriver2());
         String text = homePage1.getAvailableCoin(getDriver1());
@@ -174,28 +145,22 @@ public class AudioCallTest extends BaseTest2 {
         trainingRoomPage2.clickOnAudioRoomButton(getDriver2());
         tagScreenPage2.clickOnLoveTag(getDriver2());
         tagScreenPage2.verifyUerAbleToHost(getDriver2());
-<<<<<<< HEAD
         trainingRoomPage1.checkCoinAndEnterRoom(text, expectedCoins, getDriver1());
         vivoCallPage1.verfiyTimerAndGiftCoinAfterSendsGift(text, getDriver1());
-=======
-        trainingRoomPage1.checkCoinAndEnterRoom(text,expectedCoins,getDriver1());
-        vivoCallPage1.verfiyTimerAndGiftCoinAfterSendsGift(text,getDriver1());
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         vivoCallPage1.clickOnExitButton(getDriver1());
         vivoCallPage1.clickOnStarRating(getDriver1());
         vivoCallPage1.giveReviewMessage(getDriver1());
         vivoCallPage1.clickOnSubmitButton(getDriver1());
         vivoCallPage1.shareAppExperienceRating(getDriver1());
-<<<<<<< HEAD
         trainingRoomPage1.checkCoinsDeducted(text, getDriver1());
     }
 
+    /**
+     * Verify that users are able to join in voice call with sufficient requird balance.[ ≥ 20 coins].
+     * Verify that users are not able to join in voice call with Insufficient  balance.[ < 20 coins].
+     * @throws InterruptedException
+     */
     @Test(priority = 2, enabled = true)
-=======
-        trainingRoomPage1.checkCoinsDeducted(text,getDriver1());
-    }
-    @Test(priority =  1,enabled = false)
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     public void verifyThatUsersAreAbleToJoinInVoiceCallAccordingCoinBalance() throws InterruptedException {
         String phoneNumber1 = AudioCallTest.getJSONObject("AudioCallTest").getString("phoneNumberDev1");
         String otp = AudioCallTest.getJSONObject("AudioCallTest").getString("otp");
@@ -206,21 +171,12 @@ public class AudioCallTest extends BaseTest2 {
         String portNumber = AudioCallTest.getJSONObject("AudioCallTest").getString("portNumber");
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
-<<<<<<< HEAD
         landingPage1.changingPort(portNumber, getDriver1());
-        landingPage1.handlingUpdatePopup(getDriver2());
+        landingPage2.handlingUpdatePopup(getDriver2());
         landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
         landingPage2.changingPort(portNumber, getDriver2());
         landingPage1.loginToApplication(phoneNumber1, otp, getDriver1());
         landingPage2.loginToApplication(phoneNumber2, otp, getDriver2());
-=======
-        landingPage1.changingPort(portNumber,getDriver1());
-        landingPage1.handlingUpdatePopup(getDriver2());
-        landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
-        landingPage2.changingPort(portNumber,getDriver2());
-        landingPage1.loginToApplication(phoneNumber1,otp,getDriver1());
-        landingPage2.loginToApplication(phoneNumber2,otp,getDriver2());
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         homePage1.handlingPopup(getDriver1());
         homePage2.handlingPopup(getDriver2());
         String text = homePage1.getAvailableCoin(getDriver1());
@@ -231,16 +187,17 @@ public class AudioCallTest extends BaseTest2 {
         trainingRoomPage2.clickOnAudioRoomButton(getDriver2());
         tagScreenPage2.clickOnLoveTag(getDriver2());
         tagScreenPage2.verifyUerAbleToHost(getDriver2());
-<<<<<<< HEAD
         trainingRoomPage1.checkCoinAndEnterRoom(text, expectedCoins, getDriver1());
+        vivoCallPage2.hostExitGameRoom(getDriver2());
     }
 
+    /**
+     * Check that mute/unmute functionality is working as expected.
+     *
+     * @throws InterruptedException
+     */
+
     @Test(priority = 3, enabled = true)
-=======
-        trainingRoomPage1.checkCoinAndEnterRoom(text,expectedCoins,getDriver1());
-    }
-    @Test(enabled = false)
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     public void checkThatMuteUnmuteFunctionalityIsWorkingAsExpected() throws InterruptedException {
         String phoneNumber1 = AudioCallTest.getJSONObject("AudioCallTest").getString("phoneNumberDev1");
         String otp = AudioCallTest.getJSONObject("AudioCallTest").getString("otp");
@@ -251,13 +208,8 @@ public class AudioCallTest extends BaseTest2 {
         String portNumber = AudioCallTest.getJSONObject("AudioCallTest").getString("portNumber");
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
-<<<<<<< HEAD
         landingPage1.changingPort(portNumber, getDriver1());
         landingPage1.loginToApplication(phoneNumber1, otp, getDriver1());
-=======
-        landingPage1.changingPort(portNumber,getDriver1());
-        landingPage1.loginToApplication(phoneNumber1,otp,getDriver1());
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         homePage1.handlingPopup(getDriver1());
         homePage1.clickOnTrainingTab(getDriver1());
         trainingRoomPage1.clickOnPlusIcon(getDriver1());
@@ -268,64 +220,12 @@ public class AudioCallTest extends BaseTest2 {
         vivoCallPage1.checkMuteUnmuteFunctionality(getDriver1());
     }
 
-<<<<<<< HEAD
-    @Test(priority = 4, enabled = true, description = "LT-01: Verify User able to Host Voice call")
-=======
-    @Test(priority = 1, enabled = true, description = "LT-01: Verify User able to Host Voice call")
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
-    public void withDrawAmount() throws InterruptedException {
-        String phoneNumber1 = AudioCallTest.getJSONObject("AudioCallTest").getString("phoneNumberDev1");
-        String otp = AudioCallTest.getJSONObject("AudioCallTest").getString("otp");
-        String phoneNumber2 = AudioCallTest.getJSONObject("AudioCallTest").getString("phoneNumberDev2");
-        String partialPhNum = AudioCallTest.getJSONObject("AudioCallTest").getString("partialPhNo");
-        String expectedCoins = AudioCallTest.getJSONObject("AudioCallTest").getString("expectedCoins");
-        String nickName = AudioCallTest.getJSONObject("AudioCallTest").getString("nickName");
-        String portNumber = AudioCallTest.getJSONObject("AudioCallTest").getString("portNumber");
-        landingPage2.handlingUpdatePopup(getDriver2());
-        landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
-<<<<<<< HEAD
-        landingPage2.changingPort(portNumber, getDriver2());
-        landingPage1.handlingUpdatePopup(getDriver1());
-        landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
-        landingPage1.changingPort(portNumber, getDriver1());
-        landingPage2.loginToApplication(phoneNumber1, otp, getDriver2());
-        landingPage1.loginToApplication(phoneNumber2, otp, getDriver1());
-=======
-        landingPage2.changingPort(portNumber,getDriver2());
-        landingPage1.handlingUpdatePopup(getDriver1());
-        landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
-        landingPage1.changingPort(portNumber,getDriver1());
-        landingPage2.loginToApplication(phoneNumber1,otp,getDriver2());
-        landingPage1.loginToApplication(phoneNumber2,otp,getDriver1());
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
-        homePage2.handlingPopup(getDriver2());
-        homePage1.handlingPopup(getDriver1());
-        String text = homePage2.getAvailableCoin(getDriver2());
-        homePage1.clickOnTrainingTab(getDriver1());
-        homePage2.clickOnTrainingTab(getDriver2());
-        trainingRoomPage1.clickOnPlusIcon(getDriver1());
-        trainingRoomPage1.clickOnCreateRoomIcon(getDriver1());
-        trainingRoomPage1.clickOnAudioRoomButton(getDriver1());
-        tagScreenPage1.clickOnLoveTag(getDriver1());
-        tagScreenPage1.verifyUerAbleToHost(getDriver1());
-<<<<<<< HEAD
-        trainingRoomPage2.checkCoinAndEnterRoom(text, expectedCoins, getDriver2());
-=======
-        trainingRoomPage2.checkCoinAndEnterRoom(text,expectedCoins,getDriver2());
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
-        vivoCallPage1.requestForGiftFor10Roses(getDriver1());
-        vivoCallPage2.userSendGiftToHost(getDriver2());
-        vivoCallPage1.clickOnExitButton(getDriver1());
-        trainingRoomPage1.clickOnProfileIcon(getDriver1());
-        profilePage1.clikcOnWinMoneyButton(getDriver1());
-        profilePage1.withDrawMoney(getDriver1());
-    }
-
-<<<<<<< HEAD
-    @Test(priority = 5, enabled = true)
-=======
-    @Test(enabled = false)
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
+    /**
+     * Verify that host able to open user profile during call by clicking on user avatar.
+     * Verify that user able to remove the voice call when host remove particular users.
+     * @throws InterruptedException
+     */
+    @Test(priority = 4, enabled = true)
     public void verifyThatUserAbleToRemoveTheVoiceCallWhenHostRemoveParticularUsers() throws InterruptedException {
         String phoneNumber1 = AudioCallTest.getJSONObject("AudioCallTest").getString("phoneNumberDev1");
         String otp = AudioCallTest.getJSONObject("AudioCallTest").getString("otp");
@@ -336,21 +236,12 @@ public class AudioCallTest extends BaseTest2 {
         String portNumber = AudioCallTest.getJSONObject("AudioCallTest").getString("portNumber");
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
-<<<<<<< HEAD
         landingPage1.changingPort(portNumber, getDriver1());
         landingPage2.handlingUpdatePopup(getDriver2());
         landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
         landingPage2.changingPort(portNumber, getDriver2());
         landingPage1.loginToApplication(phoneNumber1, otp, getDriver1());
         landingPage2.loginToApplication(phoneNumber2, otp, getDriver2());
-=======
-        landingPage1.changingPort(portNumber,getDriver1());
-        landingPage2.handlingUpdatePopup(getDriver2());
-        landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
-        landingPage2.changingPort(portNumber,getDriver2());
-        landingPage1.loginToApplication(phoneNumber1,otp,getDriver1());
-        landingPage2.loginToApplication(phoneNumber2,otp,getDriver2());
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         homePage1.handlingPopup(getDriver1());
         homePage2.handlingPopup(getDriver2());
         String text = homePage1.getAvailableCoin(getDriver1());
@@ -361,20 +252,18 @@ public class AudioCallTest extends BaseTest2 {
         trainingRoomPage2.clickOnAudioRoomButton(getDriver2());
         tagScreenPage2.clickOnLoveTag(getDriver2());
         tagScreenPage2.verifyUerAbleToHost(getDriver2());
-<<<<<<< HEAD
         trainingRoomPage1.checkCoinAndEnterRoom(text, expectedCoins, getDriver1());
-=======
-        trainingRoomPage1.checkCoinAndEnterRoom(text,expectedCoins,getDriver1());
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         vivoCallPage2.hostRemoveUserFromTheRoom(getDriver2());
         vivoCallPage1.verfiyUserGotRemoveFromVoiceCall(getDriver1());
     }
 
-<<<<<<< HEAD
-    @Test(priority = 6, enabled = true)
-=======
-    @Test(enabled = false)
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
+    /**
+     * Verify that user gets remove from the voice call when host kick out particular users.
+     * Verify if user is not able to join the hosted VIVO room again if host ban the user with warning.
+     *
+     * @throws InterruptedException
+     */
+    @Test(priority = 5, enabled = false)
     public void verifyUserNotAbleToJoinRoomWhenHostBanUser() throws InterruptedException {
         String phoneNumber1 = AudioCallTest.getJSONObject("AudioCallTest").getString("phoneNumberDev1");
         String otp = AudioCallTest.getJSONObject("AudioCallTest").getString("otp");
@@ -385,7 +274,6 @@ public class AudioCallTest extends BaseTest2 {
         String portNumber = AudioCallTest.getJSONObject("AudioCallTest").getString("portNumber");
         landingPage2.handlingUpdatePopup(getDriver2());
         landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
-<<<<<<< HEAD
         landingPage2.changingPort(portNumber, getDriver2());
         int i = getRandomNum();
         String phonNum = partialPhNum + Integer.toString(i);
@@ -395,17 +283,6 @@ public class AudioCallTest extends BaseTest2 {
         landingPage2.enterOTPNumber(otp, getDriver2());
         landingPage2.clickOnSubmitButton(getDriver2());
         landingPage2.enterNickName(getDriver2(), nickName);
-=======
-        landingPage2.changingPort(portNumber,getDriver2());
-        int i = getRandomNum();
-        String phonNum = partialPhNum+Integer.toString(i);
-        landingPage2.clickOnLetsGoButton(getDriver2());
-        landingPage2.enterMobileNumber(phonNum,getDriver2());
-        landingPage2.clickOnGetOTPButton(getDriver2());
-        landingPage2.enterOTPNumber(otp,getDriver2());
-        landingPage2.clickOnSubmitButton(getDriver2());
-        landingPage2.enterNickName(getDriver2(),nickName);
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         landingPage2.clickOnSelectGenderButton(getDriver2());
         landingPage2.clickOnBoyGender(getDriver2());
         landingPage2.clickOnDateOfBirthButtonAndOkButton(getDriver2());
@@ -416,13 +293,8 @@ public class AudioCallTest extends BaseTest2 {
         homePage2.handlingPopup(getDriver2());
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
-<<<<<<< HEAD
         landingPage1.changingPort(portNumber, getDriver1());
         landingPage1.loginToApplication(phoneNumber1, otp, getDriver1());
-=======
-        landingPage1.changingPort(portNumber,getDriver1());
-        landingPage1.loginToApplication(phoneNumber1,otp,getDriver1());
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         homePage1.handlingPopup(getDriver1());
         String text = homePage1.getAvailableCoin(getDriver1());
         homePage2.clickOnTrainingTab(getDriver2());
@@ -432,21 +304,13 @@ public class AudioCallTest extends BaseTest2 {
         trainingRoomPage2.clickOnAudioRoomButton(getDriver2());
         tagScreenPage2.clickOnLoveTag(getDriver2());
         tagScreenPage2.verifyUerAbleToHost(getDriver2());
-<<<<<<< HEAD
         trainingRoomPage1.checkCoinAndEnterRoom(text, expectedCoins, getDriver1());
-=======
-        trainingRoomPage1.checkCoinAndEnterRoom(text,expectedCoins,getDriver1());
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         vivoCallPage2.hostBanTheUser(getDriver2());
         vivoCallPage1.userGotTheWarning(getDriver1());
         trainingRoomPage1.verifyUserNotJoinRoomAfterBan(getDriver1());
     }
 
-<<<<<<< HEAD
-    @Test(priority = 7, enabled = true)
-=======
-    @Test(enabled = false)
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
+    @Test(priority = 6, enabled = true)
     public void verifyThatUserAbleToLeaveThatGameDuringONGame() throws InterruptedException {
         String phoneNumber1 = AudioCallTest.getJSONObject("AudioCallTest").getString("phoneNumberDev1");
         String otp = AudioCallTest.getJSONObject("AudioCallTest").getString("otp");
@@ -457,21 +321,12 @@ public class AudioCallTest extends BaseTest2 {
         String portNumber = AudioCallTest.getJSONObject("AudioCallTest").getString("portNumber");
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
-<<<<<<< HEAD
         landingPage1.changingPort(portNumber, getDriver1());
         landingPage2.handlingUpdatePopup(getDriver2());
         landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
         landingPage2.changingPort(portNumber, getDriver2());
         landingPage1.loginToApplication(phoneNumber1, otp, getDriver1());
         landingPage2.loginToApplication(phoneNumber2, otp, getDriver2());
-=======
-        landingPage1.changingPort(portNumber,getDriver1());
-        landingPage2.handlingUpdatePopup(getDriver2());
-        landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
-        landingPage2.changingPort(portNumber,getDriver2());
-        landingPage1.loginToApplication(phoneNumber1,otp,getDriver1());
-        landingPage2.loginToApplication(phoneNumber2,otp,getDriver2());
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         homePage1.handlingPopup(getDriver1());
         homePage2.handlingPopup(getDriver2());
         String text = homePage1.getAvailableCoin(getDriver1());
@@ -482,12 +337,63 @@ public class AudioCallTest extends BaseTest2 {
         trainingRoomPage2.clickOnAudioRoomButton(getDriver2());
         tagScreenPage2.clickOnLoveTag(getDriver2());
         tagScreenPage2.verifyUerAbleToHost(getDriver2());
-<<<<<<< HEAD
         trainingRoomPage1.checkCoinAndEnterRoom(text, expectedCoins, getDriver1());
-=======
-        trainingRoomPage1.checkCoinAndEnterRoom(text,expectedCoins,getDriver1());
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         vivoCallPage1.clickOnExitButton(getDriver1());
         vivoCallPage1.verfiyUserGotRemoveFromVoiceCall(getDriver1());
+    }
+
+    @Test(priority = 7,enabled = true)
+    public void verifyThatUserIsAbleToExitTheGameAutomaticallyAfterEndOfGameTimer() throws InterruptedException {
+        String phoneNumber1 = AudioCallTest.getJSONObject("AudioCallTest").getString("phoneNumberDev1");
+        String otp = AudioCallTest.getJSONObject("AudioCallTest").getString("otp");
+        String phoneNumber2 = AudioCallTest.getJSONObject("AudioCallTest").getString("phoneNumberDev2");
+        String partialPhNum = AudioCallTest.getJSONObject("AudioCallTest").getString("partialPhNo");
+        String expectedCoins = AudioCallTest.getJSONObject("AudioCallTest").getString("expectedCoins");
+        String nickName = AudioCallTest.getJSONObject("AudioCallTest").getString("nickName");
+        String portNumber = AudioCallTest.getJSONObject("AudioCallTest").getString("portNumber");
+        landingPage2.handlingUpdatePopup(getDriver2());
+        landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
+        landingPage2.changingPort(portNumber, getDriver2());
+        int i = getRandomNum();
+        String phonNum = partialPhNum + Integer.toString(i);
+        landingPage2.clickOnLetsGoButton(getDriver2());
+        landingPage2.enterMobileNumber(phonNum, getDriver2());
+        landingPage2.clickOnGetOTPButton(getDriver2());
+        landingPage2.enterOTPNumber(otp, getDriver2());
+        landingPage2.clickOnSubmitButton(getDriver2());
+        landingPage2.enterNickName(getDriver2(), nickName);
+        landingPage2.clickOnSelectGenderButton(getDriver2());
+        landingPage2.clickOnBoyGender(getDriver2());
+        landingPage2.clickOnDateOfBirthButtonAndOkButton(getDriver2());
+        landingPage2.clickOnSignInSubmitButton(getDriver2());
+        landingPage2.selectLanguage(getDriver2());
+        landingPage2.checkCyberManifestoPolicies(getDriver2());
+        landingPage2.selectAppLanguage(getDriver2());
+        homePage2.handlingPopup(getDriver2());
+        landingPage1.handlingUpdatePopup(getDriver1());
+        landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
+        landingPage1.changingPort(portNumber, getDriver1());
+        landingPage1.loginToApplication(phoneNumber1, otp, getDriver1());
+        homePage1.handlingPopup(getDriver1());
+        String text = homePage1.getAvailableCoin(getDriver1());
+        homePage1.clickOnTrainingTab(getDriver1());
+        trainingRoomPage1.clickOnPlusIcon(getDriver1());
+        trainingRoomPage1.clickOnCreateRoomIcon(getDriver1());
+        trainingRoomPage1.clickOnAudioRoomButton(getDriver1());
+        tagScreenPage1.clickOnLoveTag(getDriver1());
+        tagScreenPage1.verifyUerAbleToHost(getDriver1());
+        homePage2.clickOnCoins(getDriver1());
+        String getCoinsToBeAdded = frndCoinPage2.getCoinsToBeAdded(getDriver2());
+        frndCoinPage2.clickOnTwentyCoinPackage(getDriver2());
+        paymentPage2.selectFrndAppPaymentMethod(getDriver2());
+        paymentPage2.clickOnGooglePayIcon(getDriver2());
+        paymentPage2.enterOTPAndMakePayment(getDriver2(),"111000");
+        trainingRoomPage2.clickOnIAgreeButton(getDriver2());
+        String availableCoin = homePage2.getAvailableCoin(getDriver2());
+        homePage2.clickOnTrainingTab(getDriver2());
+        trainingRoomPage2.checkCoinAndEnterRoom(availableCoin, "20", getDriver2());
+        Thread.sleep(125000);
+        vivoCallPage2.clickOnStarRating(getDriver2());
+        vivoCallPage2.checkUserHaveExitRoomAutomatically(getDriver2());
     }
 }

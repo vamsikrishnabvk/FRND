@@ -1,41 +1,21 @@
 package com.QA.reports;
 
-<<<<<<< HEAD
-=======
-import java.io.*;
-import java.util.Base64;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 import com.QA.Base.BaseTest;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-<<<<<<< HEAD
 import org.apache.commons.io.FileUtils;
-=======
-import io.appium.java_client.android.AndroidDriver;
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.Capabilities;
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 import org.openqa.selenium.io.Zip;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
-<<<<<<< HEAD
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-=======
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 
 public class ExtentReport extends BaseTest {
 	/**
@@ -47,14 +27,15 @@ public class ExtentReport extends BaseTest {
 	static final String filePath = "Extent.html";
 	@SuppressWarnings({"unchecked", "rawtypes"})
 	static Map<Integer, ExtentTest> extentTestMap = new HashMap();
-@BeforeSuite
+
+	@BeforeSuite
 	public synchronized static ExtentReports getReporter() throws IOException {
 
 
 		Properties prop = new Properties();
 		File files = new File(System.getProperty("user.dir") + "/src/main/resources/config.properties");
-//		FileInputStream fis = new FileInputStream(files);
-//		prop.load(fis);
+		FileInputStream fis = new FileInputStream(files);
+		prop.load(fis);
 		try {
 			if (extent == null) {
 				String filepath = "./TestReport";
@@ -74,10 +55,7 @@ public class ExtentReport extends BaseTest {
 				extent.setSystemInfo("Android App package Name", prop.getProperty("androidAppPackage"));
 				extent.setSystemInfo("Android App activity Name", prop.getProperty("androidAppActivity"));
 				extent.setSystemInfo("Android OS", prop.getProperty("androidOS"));
-				extent.setSystemInfo("Operating System: ", System.getProperty("os.name"));
 				extent.setSystemInfo("Java Version: ", System.getProperty("java.version"));
-
-
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -108,7 +86,7 @@ public class ExtentReport extends BaseTest {
 //			env = "KSA-test";
 //		}
 
-		extentSparkReporter.config().setReportName("Frnd Automation Report = "+environment);
+	//	extentSparkReporter.config().setReportName("Frnd Automation Report = " + environment);
 
 //	Capabilities browserCap = getDriver().getCapabilities();
 //		String browserName = browserCap.getBrowserName();
@@ -117,39 +95,31 @@ public class ExtentReport extends BaseTest {
 //		extent.setSystemInfo("Browser Resolution",screenSize);
 
 //        videoRecording.stopRecording();
-//		extent.flush();
+		extent.flush();
 
-	// Open the hmtl
-	// Find all and replace ../TestReport/screenshots to ../screenshots
-	File textFile = new File("./TestReport/screenshots/Frnd_AppAutomation_ExecutionReport.html");
-		try
-
-	{
-		String data = FileUtils.readFileToString(textFile);
-		data = data.replace("..\\TestReport\\screenshots\\", "..\\screenshots\\");
-		FileUtils.writeStringToFile(textFile, data);
-	} catch(
-	IOException e)
-
-	{
-		e.printStackTrace();
+		// Open the hmtl
+		// Find all and replace ../TestReport/screenshots to ../screenshots
+		File textFile = new File("./TestReport/screenshots/Frnd_AppAutomation_ExecutionReport.html");
+		try {
+			String data = FileUtils.readFileToString(textFile);
+			data = data.replace("..\\TestReport\\screenshots\\", "..\\screenshots\\");
+			FileUtils.writeStringToFile(textFile, data);
+		} catch (
+				IOException e) {
+			e.printStackTrace();
+		}
+		//Create zip report folder
+		try {
+			String zip = Zip.zip(new File("./TestReport"));
+			BufferedOutputStream s = new BufferedOutputStream(new FileOutputStream("./TestReportZip/TestReports.zip"), 10000);
+			byte[] b = Base64.getDecoder().decode(zip);
+			s.write(b);
+			s.close();
+		} catch (
+				IOException e) {
+			e.printStackTrace();
+		}
 	}
-	//Create zip report folder
-		try
-
-	{
-		String zip = Zip.zip(new File("./TestReport"));
-		BufferedOutputStream s = new BufferedOutputStream(new FileOutputStream("./TestReportZip/TestReports.zip"), 10000);
-		byte[] b = Base64.getDecoder().decode(zip);
-		s.write(b);
-		s.close();
-	} catch(
-	IOException e)
-
-	{
-		e.printStackTrace();
-	}
-}
 
 	public static void deleteScreenshotsFolder(File file) {
 		try {
@@ -164,6 +134,7 @@ public class ExtentReport extends BaseTest {
 
 		}
 	}
+
 	public static synchronized ExtentTest getTest() {
 		return extentTestMap.get((int) (Thread.currentThread().getId()));
 	}
@@ -174,12 +145,6 @@ public class ExtentReport extends BaseTest {
 		return test;
 	}
 
-
-
-}
-
-
-//
 //	public static synchronized ExtentReports getReporter() throws IOException {
 //		Properties prop = new Properties();
 //		File file = new File(System.getProperty("user.dir") + "/src/main/resources/config.properties");
@@ -202,14 +167,5 @@ public class ExtentReport extends BaseTest {
 //
 //		return extent;
 //	}
-<<<<<<< HEAD
 //
-=======
-//
-
-
-
-
-
-
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
+}

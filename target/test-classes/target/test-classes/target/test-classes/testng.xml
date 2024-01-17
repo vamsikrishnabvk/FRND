@@ -1,54 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Parallel_Testing" parallel="tests" thread-count="2">
+<suite name="Frnd_Test_Automation">
 	<listeners>
 		<listener class-name="com.QA.listeners.TestListener" />
 	</listeners>
 	<test name="moto g62 5G">
-		<parameter name="emulator" value="false" />
-		<parameter name="platformName" value="Android" />
-		<parameter name="udid" value="ZD2227CVBC" />
-		<parameter name="deviceName" value="device1" />
-		<parameter name="systemPort" value="10000" />
-		<parameter name="chromeDriverPort" value="11000" />
-
-	<classes>
-			<class name="com.QA.Test.VideoCallTest">
-				<methods>
-					<include name="user1"/>
-					<include name="user4"/>
-				</methods>
-			</class>
-		</classes>
-	</test>
-	<test name="Redmi Note 8">
-		<parameter name="emulator" value="false" />
-		<parameter name="platformName" value="Android" />
-		<parameter name="udid" value="c8dae4de" />
-		<parameter name="deviceName" value="device2" />
-		<parameter name="systemPort" value="10002" />
-		<parameter name="chromeDriverPort" value="11002" />
-
 		<classes>
-			<class name="com.QA.Test.AudioCallTest">
-				<methods>
-					<include name="user2"/>
-					<include name="user2"/>
-				</methods>
-			</class>
+			<class name="com.QA.Test.AudioCallTest"/>
+			<class name="com.QA.Test.VideoCallTest"/>
+			<class name="com.QA.Test.YrRedeemTest"/>
+			<class name="com.QA.Test.SgnUpTest"/>
+			<class name="com.QA.Test.FrndMakingRoomTest"/>
+			<class name="com.QA.Test.FrndRadioTest"/>
+			<class name="com.QA.Test.PaymentTest"/>
 		</classes>
 	</test>
-<!--	   <test name="NextCare Automation iOS">-->
-<!--	        <listeners>-->
-<!--	            <listener class-name="com.qa.listeners.TestListener" />-->
-<!--	       </listeners>-->
-<!--	       <parameter name="platformName" value="iOS" />-->
-<!--	        <parameter name="udid" value="68F76A66-54B6-45E8-B57B-602C83B2ED52" />-->
-<!--	        <parameter name="deviceName" value="iPhone 14 Pro" />-->
-<!--	       <parameter name="wdaLocalPort" value="10001" />-->
-<!--	       <parameter name="webkitDebugProxyPort" value="11001" />-->
-<!--	        <classes>-->
-<!--	          <class name="com.QA.Test.LandingPageTest" />-->
-<!--	       </classes>-->
-<!--	   </test>-->
+	<!--	   <test name="FRND Automation iOS">-->
+	<!--	        <listeners>-->
+	<!--	            <listener class-name="com.qa.listeners.TestListener" />-->
+	<!--	       </listeners>-->
+	<!--	       <parameter name="platformName" value="iOS" />-->
+	<!--	        <parameter name="udid" value="68F76A66-54B6-45E8-B57B-602C83B2ED52" />-->
+	<!--	        <parameter name="deviceName" value="iPhone 14 Pro" />-->
+	<!--	       <parameter name="wdaLocalPort" value="10001" />-->
+	<!--	       <parameter name="webkitDebugProxyPort" value="11001" />-->
+	<!--	        <classes>-->
+	<!--	          <class name="com.QA.Test.LandingPageTest" />-->
+	<!--	       </classes>-->
+	<!--	   </test>-->
 </suite> <!-- Suite -->

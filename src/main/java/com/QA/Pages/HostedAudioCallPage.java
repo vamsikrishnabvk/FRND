@@ -1,38 +1,24 @@
 package com.QA.Pages;
 
-<<<<<<< HEAD
 import com.QA.Base.BaseTest;
-=======
-import com.QA.Base.BaseTest2;
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
+import com.QA.reports.ExtentReport;
 import com.QA.utlis.TestUtils;
+import com.aventstack.extentreports.Status;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
-<<<<<<< HEAD
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-=======
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 import org.testng.Assert;
 
 import java.util.List;
 
-<<<<<<< HEAD
 public class HostedAudioCallPage extends BaseTest {
 
     public HostedAudioCallPage(AppiumDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-=======
-public class HostedAudioCallPage extends BaseTest2 {
-
-    public HostedAudioCallPage(AppiumDriver driver) {
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);   }
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     TestUtils utils = new TestUtils();
     //*************** Keep Elements Here ******************************************
     @AndroidFindBy(id = "com.dating.for.all:id/gift")
@@ -50,15 +36,14 @@ public class HostedAudioCallPage extends BaseTest2 {
     @AndroidFindBy(id = "com.dating.for.all:id/close")
     private MobileElement exitButton;
 
+    @AndroidFindBy(id = "com.dating.for.all:id/close")
+    private List<MobileElement> exitButton1;
+
     @AndroidFindBy(id = "com.dating.for.all:id/askYr")
     private MobileElement askYrIcon;
 
     @AndroidFindBy(id = "com.dating.for.all:id/star5")
-<<<<<<< HEAD
     private MobileElement fifthStarRating;
-=======
-    private  MobileElement fifthStarRating;
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 
     @AndroidFindBy(id = "com.dating.for.all:id/reviewTV")
     private MobileElement reviewTextBox;
@@ -69,11 +54,7 @@ public class HostedAudioCallPage extends BaseTest2 {
     @AndroidFindBy(id = "com.dating.for.all:id/star51")
     private MobileElement experienceStarRating;
 
-<<<<<<< HEAD
     @AndroidFindBy(id = "com.dating.for.all:id/callAgain")
-=======
-    @AndroidFindBy(id="com.dating.for.all:id/callAgain")
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     private List<MobileElement> callAgainButton;
 
     @AndroidFindBy(id = "com.dating.for.all:id/back")
@@ -83,11 +64,7 @@ public class HostedAudioCallPage extends BaseTest2 {
     private List<MobileElement> goOffLineCrossButton;
 
     @AndroidFindBy(id = "com.dating.for.all:id/timer")
-<<<<<<< HEAD
     private MobileElement timer;
-=======
-     private MobileElement timer;
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 
     @AndroidFindBy(id = "com.dating.for.all:id/menu")
     private MobileElement menu;
@@ -120,11 +97,7 @@ public class HostedAudioCallPage extends BaseTest2 {
     private MobileElement removeLayout;
 
     @AndroidFindBy(id = "com.dating.for.all:id/positiveActionBtv")
-<<<<<<< HEAD
     private MobileElement removeButton;
-=======
-    private  MobileElement removeButton;
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 
     @AndroidFindBy(id = "com.dating.for.all:id/kickOutIv")
     private MobileElement banIcon;
@@ -147,7 +120,7 @@ public class HostedAudioCallPage extends BaseTest2 {
     @AndroidFindBy(xpath = "//android.widget.ImageView[@resource-id=\"com.dating.for.all:id/skip\"]")
     private MobileElement skipCrossButton;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/title")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Start training with Popular Girl Experts\"]")
     private List<MobileElement> startTrainingLabel;
 
     @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_foreground_only_button")
@@ -165,9 +138,41 @@ public class HostedAudioCallPage extends BaseTest2 {
     @AndroidFindBy(id = "com.dating.for.all:id/totalRoses")
     private MobileElement userTotalRoseGited;
 
-<<<<<<< HEAD
     @AndroidFindBy(id = "com.dating.for.all:id/addCoinsBtv")
     private MobileElement addCoinsButton;
+
+    @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.dating.for.all:id/playerAvatar\"])[1]")
+    private MobileElement giftAnimation;
+
+    @AndroidFindBy(id = "com.dating.for.all:id/exitRoomRoot")
+    private List<MobileElement> hostExitRoomButton;
+
+    @AndroidFindBy(id = "com.dating.for.all:id/skip")
+    private MobileElement getSkipCrossButton;
+
+    @AndroidFindBy(id = "com.dating.for.all:id/addCoinsBtv")
+    private MobileElement addcoinsNowButton;
+
+    @AndroidFindBy(id = "com.dating.for.all:id/actualPriceTv")
+    private MobileElement actualPriceValue;
+
+    @AndroidFindBy(id = "com.dating.for.all:id/discountPriceTv")
+    private MobileElement discountedPriceValue;
+
+    @AndroidFindBy(id = "com.dating.for.all:id/applyDiscount2")
+    private MobileElement appliedDiscountLabel;
+
+    @AndroidFindBy(id = "com.dating.for.all:id/couponCodeDetail")
+    private MobileElement coupounCodeDetail;
+
+    @AndroidFindBy(id = "com.dating.for.all:id/title")
+    private MobileElement startTrainingWithGirlTitle;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"5 mins added to your call\"]")
+    private MobileElement fiveMinuteAddCallPopup;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Okay\"]")
+    private MobileElement okayButton;
 
     //*********************** End Elements *************************************************
 
@@ -181,6 +186,11 @@ public class HostedAudioCallPage extends BaseTest2 {
         click(askYrIcon, "Clicked on AskYr Icon", driver);
         click(roses2, "Selected 10 Roses option", driver);
         click(requestButton, "Clicked on Request Button", driver);
+    }
+
+    public void skipCrossButton(AppiumDriver driver)
+    {
+        click(skipCrossButton,"Clicked on Skip Cross Button", driver);
     }
 
     public void userSendGiftToHost(AppiumDriver driver) {
@@ -197,12 +207,17 @@ public class HostedAudioCallPage extends BaseTest2 {
         Assert.assertTrue(n < m, "Gift Coins values is not less than Actual Coins value So cannot send gift");
         click(punjabHelmetGift, "Clicked on punjabHelmetGift", driver);
         click(sendButton, "Clicked on Send Button", driver);
+        waitForVisibility(giftAnimation,driver);
+        Assert.assertTrue(giftAnimation.isDisplayed(),"Gift Animation not displayed");
+        ExtentReport.getTest().log(Status.INFO, "Gift Animation is visible");
+        utils.log().info("Gift Animation is visible");
         String timerValueAfterGift = getTimerValue(driver);
         int a = Integer.parseInt(actualTimerValue);
         System.out.println(a);
         int b = Integer.parseInt(timerValueAfterGift);
         System.out.println(b);
         Assert.assertTrue(a > b, "TimerValue is not less than the timerValue after sending gift");
+        ExtentReport.getTest().log(Status.INFO, "TimerValue is less than the timerValue after sending gift");
     }
 
 
@@ -210,64 +225,18 @@ public class HostedAudioCallPage extends BaseTest2 {
         click(menu, "Cliked on menu", driver);
         click(mic, "Clicked on Mic", driver);
         Assert.assertTrue(soundOffSymbol.get(0).isDisplayed(), " Mic is not mute");
+        ExtentReport.getTest().log(Status.INFO, "Mic is mute");
         click(mic, " Clicked on mic", driver);
-=======
-
-
-    //*********************** End Elements *************************************************
-
-public void requestForGiftFor10Roses(AppiumDriver driver)
-{
-    click(askYrIcon,"Clicked on AskYr Icon",driver);
-    click(roses10,"Selected 10 Roses option", driver);
-    click(requestButton,"Clicked on Request Button", driver);
-}
-
-public void requestForGiftFor2Roses(AppiumDriver driver)
-{
-    click(askYrIcon,"Clicked on AskYr Icon",driver);
-    click(roses2,"Selected 10 Roses option", driver);
-    click(requestButton,"Clicked on Request Button", driver);
-}
-
-public void userSendGiftToHost(AppiumDriver driver)
-{
-    click(giftNowButton,"Sended gift to owner", driver);
-}
-public void verfiyTimerAndGiftCoinAfterSendsGift(String actualCoinValue, AppiumDriver driver) throws InterruptedException {
-    String actualTimerValue = getTimerValue(driver);
-    click(giftBox,"Clicked on Gift Box",driver);
-    click(iPLGiftOption,"Clicked on iplGiftOption", driver);
-    String giftCoinValue= getText(punjabHelmetGift," Get coins value of selected gift", driver);
-    int m = Integer.parseInt(actualCoinValue);
-    int n = Integer.parseInt(giftCoinValue);
-    Assert.assertTrue(n<m,"Gift Coins values is not less than Actual Coins value So cannot send gift");
-    click(punjabHelmetGift,"Clicked on punjabHelmetGift",driver);
-    click(sendButton,"Clicked on Send Button", driver);
-    String timerValueAfterGift = getTimerValue(driver);
-    int a = Integer.parseInt(actualTimerValue);
-    System.out.println(a);
-    int b = Integer.parseInt(timerValueAfterGift);
-    System.out.println(b);
-    Assert.assertTrue(a>b,"TimerValue is not less than the timerValue after sending gift");
-    }
-
-
-    public void checkMuteUnmuteFunctionality(AppiumDriver driver)
-    {
-        click(menu,"Cliked on menu",driver);
-        click(mic, "Clicked on Mic", driver);
-        Assert.assertTrue(soundOffSymbol.get(0).isDisplayed()," Mic is not mute");
-        click(mic," Clicked on mic",driver);
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         Assert.assertEquals(soundOffSymbol.size(), 0, "Mic is mute");
+        ExtentReport.getTest().log(Status.INFO, "Mic is not mute");
         utils.log().info("Mute Unmute functionality working fine");
+        ExtentReport.getTest().log(Status.INFO, "Mute Unmute Functionality working fine");
     }
 
-<<<<<<< HEAD
     public void verifyUserHaveEnteredRoom(AppiumDriver driver) {
         waitForVisibility(giftBox, driver);
         utils.log().info("Gift box is displayed and User Have Entered in Room");
+        ExtentReport.getTest().log(Status.INFO, "Gift box is displayed and user have entered in room");
     }
 
     public String getTimerValue(AppiumDriver driver) {
@@ -275,50 +244,28 @@ public void verfiyTimerAndGiftCoinAfterSendsGift(String actualCoinValue, AppiumD
         return getText(timer, "get timer value", driver).replace(":", "");
     }
 
-=======
-    public void verifyUserHaveEnteredRoom(AppiumDriver driver)
-    {
-        waitForVisibility(giftBox, driver);
-        utils.log().info("Gift box is displayed and User Have Entered in Room");
-    }
-    public String getTimerValue(AppiumDriver driver)
-    {
-        waitForVisibility(timer,driver);
-        return getText(timer,"get timer value", driver).replace(":","");
-    }
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     public void selectGiftAndClickonSendButton(AppiumDriver driver) throws InterruptedException {
 
     }
 
-<<<<<<< HEAD
     public void checkGiftCoinLessThanActualCoin(String actualCoinValue, AppiumDriver driver) {
         click(iPLGiftOption, "Clicked on iplGiftOption", driver);
         String giftCoinValue = getText(punjabHelmetGift, " Get coins value of selected gift", driver);
         int m = Integer.parseInt(actualCoinValue);
         int n = Integer.parseInt(giftCoinValue);
         Assert.assertTrue(n < m, "Gift Coins values is not less than Actual Coins value So cannot send gift");
+        ExtentReport.getTest().log(Status.INFO, "Gift Coins value is less than the Actual Coins So user  can send gift");
         click(punjabHelmetGift, "Clicked on punjabHelmetGift", driver);
         click(sendButton, "Clicked on Send Button", driver);
-=======
-    public void checkGiftCoinLessThanActualCoin(String actualCoinValue, AppiumDriver driver)
-    {
-        click(iPLGiftOption,"Clicked on iplGiftOption", driver);
-         String giftCoinValue= getText(punjabHelmetGift," Get coins value of selected gift", driver);
-         int m = Integer.parseInt(actualCoinValue);
-         int n = Integer.parseInt(giftCoinValue);
-         Assert.assertTrue(n<m,"Gift Coins values is not less than Actual Coins value So cannot send gift");
-        click(punjabHelmetGift,"Clicked on punjabHelmetGift", driver);
-        click(sendButton,"Clicked on Send Button", driver);
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
+
     }
 
     public void clickOnExitButton(AppiumDriver driver) throws InterruptedException {
 
-<<<<<<< HEAD
         Thread.sleep(2000);
         if (whileUsingAppButton.size() == 1) {
             click(whileUsingAppButton.get(0), "Clicked on whileUsingAppButton", driver);
+
         }
 
         Thread.sleep(3000);
@@ -329,6 +276,8 @@ public void verfiyTimerAndGiftCoinAfterSendsGift(String actualCoinValue, AppiumD
         }
         Thread.sleep(2000);
         click(exitButton, "Clicked on exit Button", driver);
+        ExtentReport.getTest().log(Status.INFO, "Clicked on exit Button");
+
 
         if (callAgainButton.size() == 1) {
             clickBackButton(driver);
@@ -337,67 +286,37 @@ public void verfiyTimerAndGiftCoinAfterSendsGift(String actualCoinValue, AppiumD
             click(popupBackButton.get(0), driver);
         }
         if (startTrainingLabel.size() == 1) {
-=======
-    Thread.sleep(2000);
-    if(whileUsingAppButton.size()==1)
-    {
-        click(whileUsingAppButton.get(0),"Clicked on whileUsingAppButton",driver);
-    }
-
-      Thread.sleep(3000);
-    try {
-        clickBackButton(driver);
-    }catch (Exception e)
-    {
-        clickBackButton(driver);
-    }
-
-        Thread.sleep(2000);
-        click(exitButton,"Clicked on exit Button",driver);
-
-        if(callAgainButton.size()==1)
-        {
-            clickBackButton(driver);
-        }
-        if(popupBackButton.size()==1)
-        {
-            click(popupBackButton.get(0),driver);
-        }
-        if(startTrainingLabel.size()==1)
-        {
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
             clickBackButton(driver);
         }
 //
+    }
+    public  void handlingExitPopup(AppiumDriver driver) throws InterruptedException {
+        if (callAgainButton.size() == 1) {
+            clickBackButton(driver);
+        }
+        if (popupBackButton.size() == 1) {
+            click(popupBackButton.get(0), driver);
+        }
+        if (startTrainingLabel.size() == 1) {
+            clickBackButton(driver);
+        }
     }
 
     public void clickOnExitButton1(AppiumDriver driver) throws InterruptedException {
 
         Thread.sleep(2000);
-<<<<<<< HEAD
         if (whileUsingAppButton.size() == 1) {
             click(whileUsingAppButton.get(0), "Clicked on whileUsingAppButton", driver);
-=======
-        if(whileUsingAppButton.size()==1)
-        {
-            click(whileUsingAppButton.get(0),"Clicked on whileUsingAppButton",driver);
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         }
 
         Thread.sleep(3000);
         try {
             clickBackButton(driver);
-<<<<<<< HEAD
         } catch (Exception e) {
-=======
-        }catch (Exception e)
-        {
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
             clickBackButton(driver);
         }
 
         Thread.sleep(2000);
-<<<<<<< HEAD
         click(exitButton, "Clicked on exit Button", driver);
     }
 
@@ -406,28 +325,40 @@ public void verfiyTimerAndGiftCoinAfterSendsGift(String actualCoinValue, AppiumD
             clickBackButton(driver);
         }
         click(goOffLineCrossButton.get(0), "Clcked on goOfflineButton", driver);
-=======
-        click(exitButton,"Clicked on exit Button",driver);
-    }
-    public void hostExitRoom(AppiumDriver driver) throws InterruptedException {
-        while (goOffLineCrossButton.size() < 1)
-        {
-            clickBackButton(driver);
-        }
-        click(goOffLineCrossButton.get(0),"Clcked on goOfflineButton",driver);
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         utils.log().info("clicked on goOffline Button and return to training tab page");
+        ExtentReport.getTest().log(Status.INFO, "Clicked on goOffline Button and return to training tab page");
+
     }
 
     public void clickOnStarRating(AppiumDriver driver) throws InterruptedException {
-<<<<<<< HEAD
-        if (callAgainButton.size() == 1) {
+        try {
+            if (callAgainButton.size() == 1) {
+                clickBackButton(driver);
+            }
+            if (popupBackButton.size() == 1) {
+                click(popupBackButton.get(0), driver);
+            }
+        }catch(Exception e)
+        {
+
+        }
+        if (startTrainingLabel.size() == 1) {
             clickBackButton(driver);
         }
-        if (popupBackButton.size() == 1) {
-            click(popupBackButton.get(0), driver);
-        }
         click(fifthStarRating, "Given Rating", driver);
+    }
+
+    public void clickOnStarRating1(AppiumDriver driver) throws InterruptedException {
+        click(fifthStarRating, "Given Rating", driver);
+    }
+    public void checkUserHaveExitRoomAutomatically(AppiumDriver driver)
+    {
+        waitForVisibility(fifthStarRating,driver);
+        if(fifthStarRating.isDisplayed())
+        {
+            utils.log().info("User have exit the room Automatically");
+            ExtentReport.getTest().log(Status.INFO,"User have exit the room Automatically");
+        }
     }
 
     public void giveReviewMessage(AppiumDriver driver) throws InterruptedException {
@@ -449,6 +380,7 @@ public void verfiyTimerAndGiftCoinAfterSendsGift(String actualCoinValue, AppiumD
         waitForVisibility(profileLayout, driver);
         Assert.assertTrue(profileLayout.isDisplayed(), "Profile is not displayed");
         utils.log().info("Host is able to click on user Avatar");
+        ExtentReport.getTest().log(Status.INFO, "Host is able to click on user Avatar");
     }
 
     public void hostRemoveUserFromTheRoom(AppiumDriver driver) throws InterruptedException {
@@ -469,6 +401,7 @@ public void verfiyTimerAndGiftCoinAfterSendsGift(String actualCoinValue, AppiumD
         waitForVisibility(fifthStarRating, driver);
         Assert.assertTrue(fifthStarRating.isDisplayed(), "Host not able to remove user after clicking on remove button");
         utils.log().info("User have got removed from the voice call after host removed the user");
+        ExtentReport.getTest().log(Status.INFO, "User have got removed from the voice call after host removed the user");
     }
 
     public void hostBanTheUser(AppiumDriver driver) {
@@ -477,6 +410,7 @@ public void verfiyTimerAndGiftCoinAfterSendsGift(String actualCoinValue, AppiumD
         click(sexualTalkWarning, "Select sexual talk warning", driver);
         click(banButton, "Clicked on ban button", driver);
         click(punishButton, "Clicked on Punish Button", driver);
+        ExtentReport.getTest().log(Status.INFO, "Host ban the user");
     }
 
     public void userGotTheWarning(AppiumDriver driver) {
@@ -493,130 +427,77 @@ public void verfiyTimerAndGiftCoinAfterSendsGift(String actualCoinValue, AppiumD
         int yellowRoseCollcted = Integer.parseInt(totalYellowRoseCollected);
         if (calDuration > expectedTime) {
             Assert.assertEquals(yellowRoseCollcted, expectedRose, "Actual yellow rose collected is not equal to expected yellow rose collected");
-=======
-        if(callAgainButton.size()==1)
-        {
-            clickBackButton(driver);
-        }
-        if(popupBackButton.size()==1)
-        {
-            click(popupBackButton.get(0),driver);
-        }
-        click(fifthStarRating,"Given Rating", driver);
-    }
-
-    public void giveReviewMessage(AppiumDriver driver) throws InterruptedException {
-        click(reviewTextBox,"Clicked on review TextBox", driver);
-        sendKeys(reviewTextBox,"It was a great experience","Shared the feedabck",driver);
-    }
-
-    public void clickOnSubmitButton(AppiumDriver driver) throws InterruptedException {
-        click(submitButton,driver);
-    }
-
-    public void shareAppExperienceRating(AppiumDriver driver) throws InterruptedException {
-        click(experienceStarRating,"Shared App Experience Rating", driver);
-    }
-    public void verifyHostAbleToClickOnUserAvatar(AppiumDriver driver) throws InterruptedException {
-        waitForClickable(userAvatarIcon,driver);
-        click(userAvatarIcon,"Clicked on UserAvatarIcon", driver);
-        waitForVisibility(profileLayout, driver);
-        Assert.assertTrue(profileLayout.isDisplayed(),"Profile is not displayed");
-        utils.log().info("Host is able to click on user Avatar");
-    }
-    public void hostRemoveUserFromTheRoom(AppiumDriver driver) throws InterruptedException {
-        waitForClickable(userAvatarIcon, driver);
-        click(userAvatarIcon,"Clicked on UserAvatarIcon", driver);
-        click(removeLayout,"Clicked on remove layout", driver);
-        click(removeButton,"Clicked on Remove Button", driver);
-    }
-    public void verfiyUserGotRemoveFromVoiceCall(AppiumDriver driver) throws InterruptedException {
-        Thread.sleep(5000);
-        if(callAgainButton.size()==1)
-        {
-            clickBackButton(driver);
-        }
-        if(popupBackButton.size()==1)
-        {
-            click(popupBackButton.get(0),driver);
-        }
-        waitForVisibility(fifthStarRating,driver);
-        Assert.assertTrue(fifthStarRating.isDisplayed(),"Host not able to remove user after clicking on remove button");
-        utils.log().info("User have got removed from the voice call after host removed the user");
-    }
-
-    public void hostBanTheUser(AppiumDriver driver)
-    {
-        click(userAvatarIcon,"clicked on User Avatar Icon",driver);
-        click(banIcon,"Clicked on ban icon",driver);
-        click(sexualTalkWarning,"Select sexual talk warning",driver);
-        click(banButton,"Clicked on ban button",driver);
-        click(punishButton,"Clicked on Punish Button",driver);
-    }
-
-    public void userGotTheWarning(AppiumDriver driver)
-    {
-        click(checkBox,"Clicked on checkBox",driver);
-        click(iPromiseButton,"Clicked on iPromiseButton",driver);
-        click(skipCrossButton,"Clicked on skip cross button", driver);
-    }
-
-    public void verifyYrCreditShownToHost(AppiumDriver driver,int expectedTime, int expectedRose)
-    {
-        waitForVisibility(callDurationTime,driver);
-        String callDuration = getText(callDurationTime,"get call duration time", driver);
-        String totalYellowRoseCollected = getText(yellowRoseCollectedAmount,"Total yellow rose collected", driver);
-        int calDuration = Integer.parseInt(callDuration.replace(":",""));
-        int yellowRoseCollcted = Integer.parseInt(totalYellowRoseCollected);
-        if(calDuration>expectedTime)
-        {
-            Assert.assertEquals(yellowRoseCollcted,expectedRose,"Actual yellow rose collected is not equal to expected yellow rose collected");
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
             utils.log().info("Actual yellow rose is equal to expected yellow rose");
+            ExtentReport.getTest().log(Status.INFO, "Actual yellow rose is equal to expected yellow rose");
             utils.log().info("YrCredit screen shown to host");
+            ExtentReport.getTest().log(Status.INFO, "YrCredit shown to host");
         }
     }
 
-<<<<<<< HEAD
     public void verifyUserEndDeductYRAutomatically(AppiumDriver driver, int expectedTime, int expectedGiftedRose) {
         waitForVisibility(userCallDuration, driver);
         int userCallDurtionTime = Integer.parseInt(getText(userCallDuration, "Get user call duration time", driver).replace(":", ""));
         int totalRoseGifted = Integer.parseInt(getText(userTotalRoseGited, "Total rose gifted by User", driver));
         if (userCallDurtionTime > expectedTime) {
             Assert.assertEquals(totalRoseGifted, expectedGiftedRose, "Actual Gifted rose is not equal to expected gifted rose");
-=======
-    public void verifyUserEndDeductYRAutomatically(AppiumDriver driver,int expectedTime,int expectedGiftedRose)
-    {
+            utils.log().info("Actual and expected gifted rose are equals");
+            ExtentReport.getTest().log(Status.INFO, "Actual and expected gifted rose are equals");
+        }
+    }
+    public void verifyUserEndDeductYRAutomatically1(AppiumDriver driver, int expectedTime, int expectedGiftedRose) {
         waitForVisibility(userCallDuration, driver);
-        int userCallDurtionTime  = Integer.parseInt(getText(userCallDuration,"Get user call duration time",driver).replace(":",""));
-        int totalRoseGifted = Integer.parseInt(getText(userTotalRoseGited,"Total rose gifted by User",driver));
-        if(userCallDurtionTime>expectedTime)
-        {
-            Assert.assertEquals(totalRoseGifted,expectedGiftedRose,"Actual Gifted rose is not equal to expected gifted rose");
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
-            utils.log().info("Actual and expected gidted rose are equals");
+        int userCallDurtionTime = Integer.parseInt(getText(userCallDuration, "Get user call duration time", driver).replace(":", ""));
+        int totalRoseGifted = Integer.parseInt(getText(userTotalRoseGited, "Total rose gifted by User", driver));
+        if (userCallDurtionTime > expectedTime) {
+            Assert.assertTrue(totalRoseGifted>expectedGiftedRose, "Actual Gifted rose is not equal to expected gifted rose");
+            utils.log().info("Actual and expected gifted rose are equals");
+            ExtentReport.getTest().log(Status.INFO, "Actual and expected gifted rose are equals");
         }
     }
 
-<<<<<<< HEAD
     public String getTotalRosesGifted(AppiumDriver driver) {
         waitForVisibility(userTotalRoseGited, driver);
         return getText(userTotalRoseGited, "Getting total rose gifted by user", driver);
     }
-
     public void verifyUserNotAbleToJoinSecTimeAfter5min(AppiumDriver driver)
     {
-        WebDriverWait wait = new WebDriverWait(driver, 360);
-        wait.until(ExpectedConditions.visibilityOf(callAgainButton.get(0)));
+        waitForVisibility1(callAgainButton.get(0),driver);
         click(callAgainButton.get(0),"Clicked on call again button",driver);
         waitForVisibility(addCoinsButton,driver);
         Assert.assertTrue(addCoinsButton.isDisplayed(),"User is able to join after 5 minutes free call");
         utils.log().info("User is not able to join after 5 minutes of free call");
-=======
-    public String getTotalRosesGifted(AppiumDriver driver)
+        ExtentReport.getTest().log(Status.INFO, "User is not able to join after 5 minute of free call");
+    }
+    public void hostExitGameRoom(AppiumDriver driver)
     {
-        waitForVisibility(userTotalRoseGited,driver);
-        return getText(userTotalRoseGited,"Getting total rose gifted by user",driver);
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
+        while (hostExitRoomButton.size()<1)
+        {
+            clickBackButton(driver);
+        }
+        click(hostExitRoomButton.get(0),"Clicked on Exit Button",driver);
+    }
+    public void verifyDiscountLabel(AppiumDriver driver)
+    {
+        waitForVisibility(actualPriceValue,driver);
+        Assert.assertTrue(actualPriceValue.isDisplayed(),"ActualPrice Value is not displayed");
+        Assert.assertTrue(discountedPriceValue.isDisplayed(),"DiscountedPrice value is not displayed");
+        Assert.assertTrue(appliedDiscountLabel.isDisplayed(),"AppliedDiscountLabel is not displayed");
+        utils.log().info("Discount Popup is displayed");
+        ExtentReport.getTest().log(Status.INFO,"Discount Popup is displayed");
+    }
+
+    public void verifyUserGotRemovedAferFreeFiveMinuteCall(AppiumDriver driver)
+    {
+        waitForVisibility(startTrainingWithGirlTitle,driver);
+        utils.log().info("User have got removed after using five minute call");
+        ExtentReport.getTest().log(Status.INFO,"User have got removed after using five minute call");
+        clickBackButton(driver);
+    }
+
+    public void verify5MinAddedToCall(AppiumDriver driver)
+    {
+        waitForVisibility(fiveMinuteAddCallPopup,driver);
+        Assert.assertTrue(fiveMinuteAddCallPopup.isDisplayed(),"User didn't get Five Minute Free Call");
+        click(okayButton,"Clicked on Okay Button",driver);
     }
 }

@@ -7,7 +7,7 @@ public class FetchValue {
     public String fetchValue(String phoneNumber) {
         String id = null;
         // JDBC URL, username, and password of PostgreSQL server
-        String url = "jdbc:postgresql://172.31.35.41:5432/frnd_main";
+        String url = "jdbc:postgresql://172.31.2.61:5432/frnd_main";
         String user = "coldbrewtech";
         String password = "Frnd@Dev@Database@468@##";
 

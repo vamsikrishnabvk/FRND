@@ -1,11 +1,9 @@
 package com.QA.Pages;
 
-<<<<<<< HEAD
 import com.QA.Base.BaseTest;
-=======
-import com.QA.Base.BaseTest2;
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
+import com.QA.reports.ExtentReport;
 import com.QA.utlis.TestUtils;
+import com.aventstack.extentreports.Status;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
@@ -17,7 +15,6 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-<<<<<<< HEAD
 public class LandingPage extends BaseTest {
 
     public LandingPage(AppiumDriver driver) {
@@ -39,38 +36,12 @@ public class LandingPage extends BaseTest {
     private MobileElement otpTextBox;
     @AndroidFindBy(id = "com.dating.for.all:id/submitBtv")
     private MobileElement submitButton;
-=======
-public class LandingPage extends BaseTest2 {
-
-    public LandingPage(AppiumDriver driver) {
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);   }
-	TestUtils utils = new TestUtils();
-//*************** Keep Elements Here ******************************************
-    @AndroidFindBy(id = "com.dating.for.all:id/join")
-    private MobileElement letsGoButton;
-	@AndroidFindBy(id = "com.dating.for.all:id/numberEt")
-	private MobileElement mobileNumberTextBox;
-
-    @AndroidFindBy(id="android:id/text1")
-    private MobileElement autoSuggestedNum;
-	@AndroidFindBy(id = "com.dating.for.all:id/getOtp")
-	private MobileElement getOTPButton;
-	@AndroidFindBy(id = "com.dating.for.all:id/otpEt")
-	private MobileElement otpTextBox;
-	@AndroidFindBy(id = "com.dating.for.all:id/submitBtv")
-	private MobileElement submitButton;
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 
     @AndroidFindBy(id = "com.dating.for.all:id/genderCl")
     private MobileElement selectGenderButton;
 
-<<<<<<< HEAD
     @AndroidFindBy(id = "com.dating.for.all:id/boySelectBgCv")
     private MobileElement boyGender;
-=======
-    @AndroidFindBy(id="com.dating.for.all:id/boySelectBgCv")
-    private  MobileElement boyGender;
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 
     @AndroidFindBy(id = "com.dating.for.all:id/girlSelectBgCv")
     private MobileElement girlGender;
@@ -78,27 +49,16 @@ public class LandingPage extends BaseTest2 {
     @AndroidFindBy(id = "com.dating.for.all:id/recordBt")
     private MobileElement voiceRecordButton;
 
-<<<<<<< HEAD
     @AndroidFindBy(id = "com.dating.for.all:id/ageEt")
     private MobileElement dateOfBirthButton;
 
     @AndroidFindBy(id = "android:id/button1")
-=======
-    @AndroidFindBy(id="com.dating.for.all:id/ageEt")
-    private MobileElement dateOfBirthButton;
-
-    @AndroidFindBy(id="android:id/button1")
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
     private MobileElement okButton;
 
     @AndroidFindBy(id = "com.dating.for.all:id/nextUpdateProfileBt")
     private MobileElement submitButtonSignIn;
 
-<<<<<<< HEAD
-    @AndroidFindBy(id = "com.dating.for.all:id/nameEt")
-=======
-    @AndroidFindBy(id="com.dating.for.all:id/nameEt")
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
+    @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id=\"com.dating.for.all:id/nameEt\"]")
     private MobileElement nickNameField;
 
     @AndroidFindBy(xpath = "(//android.widget.FrameLayout[@resource-id=\"com.dating.for.all:id/imageFl\"])[1]")
@@ -113,7 +73,7 @@ public class LandingPage extends BaseTest2 {
     @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"android:id/button1\"]")
     private MobileElement serverOkButton;
 
-    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"Dismiss update dialogue\"]")
+    @AndroidFindBy(id = "Dismiss update dialogue")
     private static MobileElement updateCrossButton;
 
     @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_button")
@@ -146,169 +106,127 @@ public class LandingPage extends BaseTest2 {
     @AndroidFindBy(xpath = "//android.widget.CheckedTextView[@resource-id=\"android:id/text1\"]")
     private List<MobileElement> devServer;
 
+    @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"android:id/aerr_close\"]")
+    private MobileElement closeAppCrossButton;
 
-<<<<<<< HEAD
-=======
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Private Training Rooms\"]")
+    private MobileElement privateTrainingRooms;
 
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
+
 //*********************** End Elements *************************************************
 
 //   public void verifySignIn()
 //   {
 //	   isDisplayed(signInButton, "checking Sign In button");
 //   }
-<<<<<<< HEAD
     //public void clickSignIn()
-=======
-   //public void clickSignIn()
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 //   {
 //	   click(signInButton,"click on Sign In button");
 //   }
 
-<<<<<<< HEAD
-    public void handlingUpdatePopup(AppiumDriver driver) throws InterruptedException {
-=======
-    public void handlingUpdatePopup(AppiumDriver driver)
+    public void clickOnActionBarRoot(AppiumDriver driver)
     {
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
+        try {
+            click(privateTrainingRooms, driver);
+        }catch (Exception e)
+        {
+
+        }
+    }
+
+    public void handlingUpdatePopup(AppiumDriver driver) throws InterruptedException {
+        Thread.sleep(2000);
+        //System.out.println(updateCrossButton.size());
         try {
             if (updateCrossButton.isDisplayed()) {
-                clickBackButton(driver);
+                click(updateCrossButton,driver);
             }
-<<<<<<< HEAD
+        } catch (Exception e) {
+
+        }
+        Thread.sleep(1000);
+        try {
+            if (closeAppCrossButton.isDisplayed()) {
+                click(closeAppCrossButton, "Clicked on Restart Button", driver);
+            }
         } catch (Exception e) {
 
         }
 
         Thread.sleep(2000);
-=======
-        }catch (Exception e)
-        {
-
-        }
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         try {
             if (restartButton.isDisplayed()) {
                 click(restartButton, "Clicked on Restart Button", driver);
             }
-<<<<<<< HEAD
         } catch (Exception e) {
 
         }
-        Thread.sleep(2000);
-=======
-        }catch (Exception e)
-        {
-
-        }
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
+        Thread.sleep(3000);
     }
 
     public static final void KEYCODE_VOLUME_DOWN(AppiumDriver driver) throws InterruptedException {
         Thread.sleep(2000);
-<<<<<<< HEAD
         AndroidDriver driver1 = (AndroidDriver) driver;
-=======
-        AndroidDriver driver1= (AndroidDriver)driver;
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
         //driver.pressKey(new KeyEvent(AndroidKey.VOLUME_DOWN));
         driver1.longPressKey(new KeyEvent(AndroidKey.VOLUME_DOWN));
     }
 
-<<<<<<< HEAD
-    public void changingPort(String portNumber, AppiumDriver driver) {
+    public void changingPort(String portNumber, AppiumDriver driver) throws InterruptedException {
         click(selectServerButton, "Select server Button", driver);
         for (int i = 0; i < devServer.size(); i++) {
             String actualPort = getText(devServer.get(i), "Getting Port number", driver);
             System.out.println(i + ":" + actualPort);
-=======
-    public  void changingPort(String portNumber, AppiumDriver driver)
-    {
-        click(selectServerButton,"Select server Button", driver);
-        for (int i=0;i<devServer.size();i++) {
-            String actualPort = getText(devServer.get(i), "Getting Port number", driver);
-            System.out.println(i+":"+actualPort);
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
             if (actualPort.equals(portNumber)) {
                 click(devServer.get(i), "Select dev server", driver);
+                ExtentReport.getTest().log(Status.INFO, "Clicked on Dev Server");
                 click(serverOkButton, "Clicked on Ok button", driver);
+                ExtentReport.getTest().log(Status.INFO, "Clicked on Ok Button");
                 break;
             }
         }
     }
 
-<<<<<<< HEAD
     public void clickOnLetsGoButton(AppiumDriver driver) {
         click(letsGoButton, "Click on LetsGoButton", driver);
+        ExtentReport.getTest().log(Status.INFO, "Clicked on LetsGo Button");
     }
 
     public void enterMobileNumber(String phoneNumber, AppiumDriver driver) {
         sendKeys(mobileNumberTextBox, phoneNumber, driver);
+        ExtentReport.getTest().log(Status.INFO, "Entered Phone NUmber");
     }
 
     public void clickOnGetOTPButton(AppiumDriver driver) {
         click(getOTPButton, "Clicked on getOtp button", driver);
+        ExtentReport.getTest().log(Status.INFO, "Clicked on Get OTP Button");
     }
 
     public void enterOTPNumber(String otpNUm, AppiumDriver driver) {
         sendKeys(otpTextBox, otpNUm, driver);
+        ExtentReport.getTest().log(Status.INFO, "Entered OTP");
     }
 
     public void clickOnSubmitButton(AppiumDriver driver) {
         click(submitButton, "Click on Submit Button", driver);
+        ExtentReport.getTest().log(Status.INFO, "Clicked on Submit Button");
     }
 
-    public void loginToApplication(String mobileNumber, String otpNumber, AppiumDriver driver) {
-=======
-    public void clickOnLetsGoButton(AppiumDriver driver)
-    {
-        click(letsGoButton,"Click on LetsGoButton",driver);
-    }
-
-    public void enterMobileNumber(String phoneNumber,AppiumDriver driver)
-    {
-        sendKeys(mobileNumberTextBox,phoneNumber,driver);
-    }
-
-    public void clickOnGetOTPButton(AppiumDriver driver)
-    {
-        click(getOTPButton,"Clicked on getOtp button", driver);
-    }
-
-    public void enterOTPNumber(String otpNUm,AppiumDriver driver)
-    {
-        sendKeys(otpTextBox,otpNUm,driver);
-    }
-
-    public void clickOnSubmitButton(AppiumDriver driver)
-    {
-        click(submitButton,"Click on Submit Button",driver);
-    }
-
-    public void loginToApplication(String mobileNumber, String otpNumber, AppiumDriver driver)
-    {
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
+    public void loginToApplication(String mobileNumber, String otpNumber, AppiumDriver driver) throws InterruptedException {
         try {
             if (updateCrossButton.isDisplayed()) {
-                clickBackButton(driver);
+                click(updateCrossButton,driver);
             }
-<<<<<<< HEAD
         } catch (Exception e) {
-=======
-        }catch (Exception e)
-        {
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 
         }
 
         waitForVisibility(letsGoButton, driver);
-<<<<<<< HEAD
         click(letsGoButton, "Clicked on Let's Go Button", driver);
         sendKeys(mobileNumberTextBox, mobileNumber, "Enter Mobile number in Mobile text box", driver);
         click(getOTPButton, "Clicked on Get OTP Button", driver);
         sendKeys(otpTextBox, otpNumber, "enter otp number", driver);
         click(submitButton, "Clicked on Submit Button", driver);
+        Thread.sleep(2000);
         if (notificationAllowPopup.size() == 1) {
             click(notificationAllowPopup.get(0), "Clicked on notification allow button", driver);
         }
@@ -375,104 +293,14 @@ public class LandingPage extends BaseTest2 {
         click(cyberCrimeSubmitButton, "Clicked on Cyber Crime Submit button", driver);
     }
 
-    public void selectAppLanguage(AppiumDriver driver) {
+    public void selectAppLanguage(AppiumDriver driver) throws InterruptedException {
         click(appLanguage, "Select app Language", driver);
         click(appLanguageConfirmButton, "Clicked on AppLanguage Confirm Button", driver);
+        Thread.sleep(3000);
         if (notificationAllowPopup.size() == 1) {
-            click(notificationAllowPopup.get(0), "Clickded on allow notification popup", driver);
+            click(notificationAllowPopup.get(0), "Clicked on allow notification popup", driver);
         }
     }
-=======
-        click(letsGoButton,"Clicked on Let's Go Button", driver);
-        sendKeys(mobileNumberTextBox,mobileNumber,"Enter Mobile number in Mobile text box", driver);
-        click(getOTPButton,"Clicked on Get OTP Button", driver);
-        sendKeys(otpTextBox,otpNumber,"enter otp number", driver);
-        click(submitButton,"Clicked on Submit Button", driver);
-        if(notificationAllowPopup.size()==1)
-        {
-            click(notificationAllowPopup.get(0),"Clicked on notification allow button",driver);
-        }
-    }
-   public void clickOnSelectGenderButton(AppiumDriver driver)
-   {
-       click(selectGenderButton,"Clicked on Select Gender Button", driver);
-   }
-
-   public void clickOnBoyGender(AppiumDriver driver)
-   {
-       click(boyGender,"Clicked on boy gender option", driver);
-   }
-   public void clickGirlGender(AppiumDriver driver)
-   {
-       click(girlGender,"Clicked on Girl Gender",driver);
-   }
-
-   public void clickOnVoiceRecordButton(AppiumDriver driver)
-   {
-       try {
-           click(allowLocationPopup, "Click on allow notification popup", driver);
-       }catch (Exception e)
-       {
-
-       }
-       click(voiceRecordButton,"Click on voice record Button",driver);
-       try {
-           if (audioRecordPopup.isDisplayed()) {
-               click(audioRecordPopup, "Clicked on notification allow button", driver);
-           }
-       }catch (Exception e)
-       {
-
-       }
-       click(voiceRecordButton,"Click on voice record Button",driver);
-
-   }
-   public void clickOnDateOfBirthButtonAndOkButton(AppiumDriver driver)
-   {
-       click(dateOfBirthButton,"Clicked on DateOfBirth Button", driver);
-       click(okButton,"clicked on Ok Button", driver);
-   }
-
-   public void clickOnSignInSubmitButton(AppiumDriver driver)
-   {
-       click(submitButtonSignIn,"Clicked on Submit Button", driver);
-   }
-   public void enterNickName(AppiumDriver driver,String nickName)
-   {
-       click(nickNameField,"Clicked on NickName field",driver);
-       sendKeys(nickNameField,nickName,"Entered Nick Name",driver);
-   }
-
-   public void selectLanguage(AppiumDriver driver)
-   {
-      try {
-          {
-              click(allowLocationPopup, "Click on allow notification popup", driver);
-          }
-      }catch(Exception e)
-          {
-
-          }
-       click(hindiLanguage,"Select Language", driver);
-       click(saveButton,"Clciked on Save Button", driver);
-   }
-
-   public void checkCyberManifestoPolicies(AppiumDriver driver)
-   {
-       click(cyberCrimeCheckBox,"Clicked on Cyber Crime Checkbox",driver);
-       click(cyberCrimeSubmitButton,"Clicked on Cyber Crime Submit button", driver);
-   }
-
-   public void selectAppLanguage(AppiumDriver driver)
-   {
-       click(appLanguage,"Select app Language",driver);
-       click(appLanguageConfirmButton,"Clicked on AppLanguage Confirm Button",driver);
-       if(notificationAllowPopup.size()==1)
-       {
-           click(notificationAllowPopup.get(0),"Clickded on allow notification popup", driver);
-       }
-   }
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 
 }
 

@@ -1,11 +1,11 @@
 {
   "AudioCallTest" : {
-    "phoneNumberDev1":"8660131780",
+    "phoneNumberDev1":"7890134561",
     "otp":"000000",
-    "phoneNumberDev2": "7725924830",
-    "partialPhNo": "772592",
+    "phoneNumberDev2": "7890134562",
+    "partialPhNo": "789012",
     "expectedCoins": "20",
     "nickName": "Daniel",
-    "portNumber": "8088"
+    "portNumber": "QA"
   }
 }

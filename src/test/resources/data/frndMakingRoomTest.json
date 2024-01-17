@@ -1,8 +1,8 @@
 {
   "FrndMakingRoomTest": {
-    "hostPhoneNumber": "9764072776",
-    "userPhoneNumber": "7725924830",
-    "user2PhoneNumber": "8464919464",
+    "hostPhoneNumber": "7890134561",
+    "userPhoneNumber": "7890134562",
+    "user2PhoneNumber": "7890134563",
     "otp": "000000",
     "wrongPassword": "Test@15643"
   },
@@ -26,6 +26,7 @@
     "port8086": "8086",
     "port8087": "8087",
     "port8088": "8088",
-    "port8089": "8089"
+    "port8089": "8089",
+    "portQA": "QA"
   }
 }

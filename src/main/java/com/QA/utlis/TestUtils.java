@@ -1,21 +1,12 @@
 package com.QA.utlis;
 
-<<<<<<< HEAD
 import com.QA.Base.BaseTest;
-=======
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-<<<<<<< HEAD
-=======
-import com.QA.Base.BaseTest;
-
->>>>>>> e7aad041656f51bcd7540c5837b667b08d8aa271
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.*;
