@@ -18,22 +18,25 @@ public class FrndCoinPage extends BaseTest {
 
     TestUtils utils = new TestUtils();
     //*************** Keep Elements Here ******************************************
-    @AndroidFindBy(xpath = "(//android.widget.TextView[@resource-id=\"com.dating.for.all:id/headerTv\" and @text=\"Coin Pack\"]/..//android.view.ViewGroup)[5]")
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@resource-id=\"com.dating.for.all.debug:id/headerTv\" and @text=\"Coin Pack\"]/..//android.view.ViewGroup)[5]")
     private MobileElement coinPackOption;
 
-    @AndroidFindBy(xpath = "(//android.widget.TextView[@resource-id=\"com.dating.for.all:id/coinsTv\"])[4]/preceding-sibling::android.widget.TextView")
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@resource-id=\"com.dating.for.all.debug:id/coinsTv\"])[4]/preceding-sibling::android.widget.TextView")
     private MobileElement coinsToBeAdded;
 
-    @AndroidFindBy(xpath = "(//android.widget.TextView[@resource-id=\"com.dating.for.all:id/headerTv\" and @text=\"Coin Pack\"]/..//android.view.ViewGroup)[5]")
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@resource-id=\"com.dating.for.all.debug:id/headerTv\" and @text=\"Coin Pack\"]/..//android.view.ViewGroup)[5]")
     private MobileElement coinsForAppliedCoupoun;
 
-    @AndroidFindBy(xpath = "((//android.widget.ImageView[@resource-id=\"com.dating.for.all:id/packageIv\"])[10]/following-sibling::android.widget.TextView)[3]")
+    @AndroidFindBy(xpath = "((//android.widget.ImageView[@resource-id=\"com.dating.for.all.debug:id/packageIv\"])[10]/following-sibling::android.widget.TextView)[3]")
     private MobileElement coinsPrice;
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all:id/coinsCountTv\" and @text=\"90\"]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all.debug:id/coinsCountTv\" and @text=\"90\"]")
     private List<MobileElement> ninetyCoinsPackage;
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all:id/coinsCountTv\" and @text=\"20\"]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all.debug:id/coinsCountTv\" and @text=\"200\"]")
+    private List<MobileElement> twoHundredCoinsPackage;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all.debug:id/coinsCountTv\" and @text=\"20\"]")
     private List<MobileElement> twentyCoinsPackage;
 
 
@@ -46,6 +49,14 @@ public class FrndCoinPage extends BaseTest {
             swipeScreenSmall(Direction.UP,driver);
         }
         click(ninetyCoinsPackage.get(0),"Clicked on Ninety Coins Package",driver);
+    }
+    public void clickOnTwoHundredCoinPackage(AppiumDriver driver)
+    {
+        while(twoHundredCoinsPackage.size()<1)
+        {
+            swipeScreenSmall(Direction.UP,driver);
+        }
+        click(twoHundredCoinsPackage.get(0),"Clicked on Ninety Coins Package",driver);
     }
 
     public void clickOnTwentyCoinPackage(AppiumDriver driver)

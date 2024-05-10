@@ -1,9 +1,12 @@
 {
   "VideoCallTest": {
     "phoneNumberDev1": "7890134561",
-    "otp": "000000",
+    "otp": "111000",
     "phoneNumberDev2": "7890134562",
-    "partialPhNo": "789012",
+    "phoneNumber": "7890134712",
+    "baseUri": "http://qa.frndapp.in:8080",
+    "endPointFG": "/automatedTesting/updateFgGroup",
+    "partialPhNo": "78901",
     "expectedCoins": "90",
     "nickName": "Daniel",
     "portNumber": "QA"

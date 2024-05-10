@@ -1,7 +1,9 @@
 package com.QA.Pages;
 
 import com.QA.Base.BaseTest;
+import com.QA.reports.ExtentReport;
 import com.QA.utlis.TestUtils;
+import com.aventstack.extentreports.Status;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
@@ -31,7 +33,9 @@ public class FrndMakingRoomsPage extends BaseTest {
     public MobileElement createRoomButton;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Be FRND Making Expert']")
     public MobileElement beFRNDMakingExpertPopup;
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='FRND RJ']")
+    //android.widget.TextView[@text="FRND Making Rooms"]
+    //android.widget.TextView[@text='FRND RJ']
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/frndChattingTitle")
     public MobileElement fRNDMakingLiveRoom;
     @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_foreground_only_button")
     private MobileElement audioRecordAllowPopup;
@@ -40,8 +44,10 @@ public class FrndMakingRoomsPage extends BaseTest {
     private MobileElement audioRecordConfirmAllowPopup;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Close Room']")
     public MobileElement closeLiveRoomPopup;
-    @AndroidFindBy(id = "com.dating.for.all:id/close")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/close")
     public MobileElement closeLiveRoomCrossButton;
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/close")
+    public List<MobileElement> closeLiveRoomCrossButton1;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Join Room']")
     public MobileElement joinRoom;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Daniel']/following-sibling::android.view.View//android.widget.TextView[@text=\"Join Room\"]")
@@ -52,56 +58,60 @@ public class FrndMakingRoomsPage extends BaseTest {
 //    @AndroidFindBy(xpath = "(//android.widget.FrameLayout/android.view.View)[2]")
 //    public MobileElement joinWaitlistButton;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/add")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/add")
     public MobileElement joinWaitlistButton;
-    @AndroidFindBy(id = "com.dating.for.all:id/addUser")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/add")
+    public List<MobileElement> joinWaitlistButton1;
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/addUser")
     public MobileElement addUserButton;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Add Boy']")
     public MobileElement addBoyButton;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Add Girl']")
     public MobileElement addGirlButton;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/add")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/add")
     public MobileElement waitlistAddButton;
-    @AndroidFindBy(id = "com.dating.for.all:id/avatar")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/avatar")
     public MobileElement userAvatar;
-    @AndroidFindBy(id = "//android.view.ViewGroup[@resource-id='com.dating.for.all:id/maleSeat']//android.widget.ImageView[@resource-id='com.dating.for.all:id/avatar']")
+    @AndroidFindBy(id = "//android.view.ViewGroup[@resource-id='com.dating.for.all.debug:id/maleSeat']//android.widget.ImageView[@resource-id='com.dating.for.all.debug:id/avatar']")
     public MobileElement maleUserAvatar;
-    @AndroidFindBy(id = "//android.view.ViewGroup[@resource-id='com.dating.for.all:id/femaleSeat']//android.widget.ImageView[@resource-id='com.dating.for.all:id/avatar']")
+    @AndroidFindBy(id = "//android.view.ViewGroup[@resource-id='com.dating.for.all.debug:id/femaleSeat']//android.widget.ImageView[@resource-id='com.dating.for.all.debug:id/avatar']")
     public MobileElement femaleUserAvatar;
-    @AndroidFindBy(id = "com.dating.for.all:id/menuOptions")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/menuOptions")
     public MobileElement threeDotsOption;
-    @AndroidFindBy(id = "com.dating.for.all:id/mic")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/mic")
     public MobileElement hostMicOption;
-    @AndroidFindBy(id = "com.dating.for.all:id/speaker")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/speaker")
     public MobileElement hostSpeakerOption;
-    @AndroidFindBy(id = "com.dating.for.all:id/micIv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/micIv")
     public MobileElement muteUnmuteUserButton;
-    @AndroidFindBy(id = "com.dating.for.all:id/background")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/background")
     public MobileElement wallpaperButton;
-    @AndroidFindBy(id = "com.dating.for.all:id/removeIv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/removeIv")
     public MobileElement removeUserButton;
-    @AndroidFindBy(id = "com.dating.for.all:id/positiveActionBtv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/positiveActionBtv")
     public MobileElement confirmRemoveButtonOnPopup;
-    @AndroidFindBy(id = "com.dating.for.all:id/negativeActionBtv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/negativeActionBtv")
     public MobileElement cancelRemoveButtonOnPopup;
-    @AndroidFindBy(id = "com.dating.for.all:id/titleTv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/titleTv")
     public MobileElement removeUserPopupHeader;
-    @AndroidFindBy(id = "com.dating.for.all:id/kickOutIv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/kickOutIv")
     public MobileElement banUserButton;
-    @AndroidFindBy(id = "com.dating.for.all:id/profileIv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/profileIv")
     public MobileElement userProfileButton;
-    @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id='com.dating.for.all:id/image'])[2]")
+    @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id='com.dating.for.all.debug:id/image'])[2]")
     public MobileElement userGiftIcon;
-    @AndroidFindBy(xpath = "//android.widget.ImageView[@resource-id='com.dating.for.all:id/image']")
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@resource-id='com.dating.for.all.debug:id/image']")
     public List<MobileElement> giftIcon;
-    @AndroidFindBy(id = "com.dating.for.all:id/purchase")
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@resource-id='com.dating.for.all.debug:id/image']")
+    public MobileElement giftIcon1;
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/purchase")
     public MobileElement userGiftSendButton;
     @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text,'Gifted')]")
     public MobileElement giftSendContentMessage;
-    @AndroidFindBy(id = "com.dating.for.all:id/leaderboardGiftingCount")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/leaderboardGiftingCount")
     public MobileElement userCoinCount;
-    @AndroidFindBy(id = "com.dating.for.all:id/leaderboardGiftingCount")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/leaderboardGiftingCount")
     private MobileElement availableCoins;
     @AndroidFindBy(xpath = "//android.view.View[2]/android.widget.TextView")
     private List<MobileElement> banUserOptions;
@@ -119,24 +129,24 @@ public class FrndMakingRoomsPage extends BaseTest {
     public MobileElement toastMessage;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Wallpapers']")
     public MobileElement wallpaperPopupHeader;
-    @AndroidFindBy(xpath = "(//android.widget.TextView[@resource-id=\"com.dating.for.all:id/free\"])[1]")
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@resource-id=\"com.dating.for.all.debug:id/free\"])[1]")
     public List<MobileElement> freeWallpaper;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/appliedTv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/appliedTv")
     public List<MobileElement> wallpaperInUse;
-    @AndroidFindBy(id = "com.dating.for.all:id/applyAddonButtonLayout")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/applyAddonButtonLayout")
     public MobileElement applyWallpaper;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/purchase_button")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/purchase_button")
     public MobileElement buyNowButton;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/coin_image")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/coin_image")
     public MobileElement buyFreeWallpaperButton;
-    @AndroidFindBy(id = "com.dating.for.all:id/positiveActionBtv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/positiveActionBtv")
     public MobileElement createNewRoomButton;
-    @AndroidFindBy(id = "com.dating.for.all:id/exitBtv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/exitBtv")
     public MobileElement exitButtonOnAdPopup;
-    @AndroidFindBy(id = "com.dating.for.all:id/roomTimer")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/roomTimer")
     public MobileElement makingRoomTimer;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Apply\"]")
     public MobileElement applyButton;
@@ -144,7 +154,75 @@ public class FrndMakingRoomsPage extends BaseTest {
     private List<MobileElement> audioRecordAllowPopup2;
     @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_button")
     private List<MobileElement> allowFRNDToConnectPopup;
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text=\"FRND Making Rooms\"]/preceding-sibling::android.view.View)[2]")
+    private MobileElement coinBalanceIcon;
+    @AndroidFindBy(xpath = "//android.view.View[@resource-id=\"plus_icon\"]/following-sibling::android.view.View")
+    private MobileElement redColourDot;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"FRND Making Rooms\"]/../following-sibling::android.view.View")
+    private MobileElement animatedImages;
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text=\"Experts will make your FRND\"]/following-sibling::android.view.View//android.widget.TextView)[1]")
+    private MobileElement rjLanguage;
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text=\"Experts will make your FRND\"]/following-sibling::android.view.View//android.widget.TextView)[2]")
+    private MobileElement rjName;
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text=\"Experts will make your FRND\"]/following-sibling::android.view.View//android.widget.TextView)[3]")
+    private MobileElement newBieLabel;
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text=\"Experts will make your FRND\"]/following-sibling::android.view.View//android.widget.TextView)[4]")
+    private MobileElement ratingLabel;
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/headingTv")
+    private MobileElement beFriendMakingExpertHeading;
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/content")
+    private MobileElement commentMessage;
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/leaderboardGiftingCount")
+    private MobileElement coinsXXLeaderBoardOption;
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/topFansText")
+    private MobileElement topFansText;
+    @AndroidFindBy(id ="com.dating.for.all.debug:id/liveLabel")
+    private MobileElement liveLabel;
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/rules")
+    private MobileElement helpIcon;
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/title")
+    private MobileElement helpTitle;
+    @AndroidFindBy(xpath = "//android.view.View[@resource-id=\"couple_rooms_layout\"]/android.view.View/android.view.View/following-sibling::android.widget.TextView[@text=\"Our experts will make your\n" +
+            "FRND in 5 min\"]")
+    private MobileElement fingerPointer;
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/menuOptions")
+    private MobileElement threeDotMenu;
 
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/mic")
+    private MobileElement mic;
+
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/statusIndicator")
+    private List<MobileElement> soundOffSymbol;
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/speaker")
+    private MobileElement volumeIcon;
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/titleTv")
+    private MobileElement wallpaperTitle;
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/background")
+    private MobileElement wallpaperIcon;
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/playTutoriaVideoIv")
+    private MobileElement videoPreviewIcon;
+    @AndroidFindBy(xpath = "//android.view.View[@resource-id=\"com.dating.for.all.debug:id/exo_subtitles\"]")
+    private MobileElement videoPreviewScreen;
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/skipNowTv")
+    private List<MobileElement> skipNowButton;
+    @AndroidFindBy(id = "android:id/title")
+    private MobileElement shareTitle;
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/share")
+    private MobileElement shareIcon;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all.debug:id/content\" and @text=\"Joined the waitlist ⏰ \"]")
+    private MobileElement userJoinedWaitingListMessage;
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/giftSuggestion")
+    private MobileElement giftBottomSheetSuggestion;
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/skipWaitlist")
+    private MobileElement skipWaitListButton;
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/gifts")
+    private MobileElement freeGiftBottomSheet;
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/followingRoot")
+    private MobileElement followingRoot;
+    @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.dating.for.all.debug:id/statusIndicator\"])[1]")
+    private List<MobileElement> mutedSign;
+    @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.dating.for.all.debug:id/image\"])[4]")
+    private MobileElement giftCakeItem;
 
     //*************** Elements Ends Here ******************************************
 
@@ -164,7 +242,6 @@ public class FrndMakingRoomsPage extends BaseTest {
     }
 
     public void clickOnCreateNewRoomButton(AppiumDriver driver) {
-        waitForVisibility(createNewRoomButton, driver);
         waitForVisibility(createNewRoomButton, driver);
         click(createNewRoomButton, "Clicked on Plus Icon", driver);
     }
@@ -219,14 +296,19 @@ public class FrndMakingRoomsPage extends BaseTest {
     }
 
     public void clickOnJoinRoomByUserName(AppiumDriver driver) {
-        waitForVisibility(joinRoomByUserName, driver);
-        click(joinRoomByUserName, "Clicked on Join Room button", driver);
+        try {
+            waitForVisibility(joinRoomByUserName, driver);
+            click(joinRoomByUserName, "Clicked on Join Room button", driver);
+        }catch (Exception e)
+        {
+
+        }
     }
 
     public void clickOnJoinWaitlistButton(AppiumDriver driver) throws InterruptedException {
         TimeUnit.SECONDS.sleep(2);
         click(joinWaitlistButton, "Clicked on Join WaitList button", driver);
-//        getDriver2().findElementByXPath("//*[@resource-id='com.dating.for.all:id/add']").click();
+//        getDriver2().findElementByXPath("//*[@resource-id='com.dating.for.all.debug:id/add']").click();
 //        System.out.println("JoinedWaitList");
 //        waitForVisible(joinWaitlistButton, driver);
 
@@ -256,6 +338,15 @@ public class FrndMakingRoomsPage extends BaseTest {
         fluentVisibility(threeDotsOption, driver);
         Thread.sleep(1000);
         click(threeDotsOption, "Clicked on Three dots option", driver);
+    }
+    public void clickOnCancelButton(AppiumDriver driver)
+    {
+        try {
+            click(cancelRemoveButtonOnPopup, "Clicked on Cancel Button", driver);
+        }catch (Exception e)
+        {
+
+        }
     }
 
     public void clickOnMicButton(AppiumDriver driver) {
@@ -398,7 +489,6 @@ public class FrndMakingRoomsPage extends BaseTest {
             allowAudioRecordAllowPopup(driver);
         } catch (Exception ignored) {
         }
-
     }
 
     public void clickOnJoinRoomAndLeave(AppiumDriver driver) throws InterruptedException {
@@ -588,6 +678,7 @@ public class FrndMakingRoomsPage extends BaseTest {
         verifyFRNDMakingRoomsPageHeader(frndMakingRoomsPageHeader, driver);
     }
 
+
     public void verifyThatUsersAreAbleToJoinTheFrndMakingRoomWithZeroCoinBalance(String frndPageTitleForUser, String frndMakingLiveRoomsPageHeader, AppiumDriver driver) throws InterruptedException {
         verifyFrndPageTitleForUser(frndPageTitleForUser, driver);
         clickOnJoinRoomAndLeave(driver);
@@ -681,4 +772,239 @@ public class FrndMakingRoomsPage extends BaseTest {
         clickBackButton(driver);
         closeLiveRoomCrossButton(driver);
     }
+    public void verifyUserNotAbleToHostFMR(AppiumDriver driver) throws InterruptedException {
+      //  new ProfilePage(driver).verifyToastMessageUsingPageSource(toastMessage,driver);
+        waitForVisibility(plusIcon,driver);
+        Assert.assertTrue(plusIcon.isDisplayed(),"User is able to Host FMR");
+        utils.log().info("User is not able to Host FMR");
+        ExtentReport.getTest().log(Status.INFO,"User is not able to Host FMR");
+    }
+    public void CheckCoinsBalanceShowBesideTheUserProfileAtTheLeftTopCornerOfTheFMRScreen(AppiumDriver driver)
+    {
+        waitForVisibility(coinBalanceIcon,driver);
+        Assert.assertTrue(coinBalanceIcon.isDisplayed(),"CoinBalance Icon is not displayed");
+        utils.log().info("CoinBalance Icon is displayed");
+        ExtentReport.getTest().log(Status.INFO,"CoinBalance Icon is displayed");
+    }
+    public void checkBeforeClickOnRedColourRedColouredDotOnTheOptionButton(AppiumDriver driver)
+    {
+        waitForVisibility(redColourDot,driver);
+        Assert.assertTrue(redColourDot.isDisplayed(),"RedColour ");
+    }
+    public void checkAnimatedImagesDisplayedBackgroundOfTheFRNDMakingRoom(AppiumDriver driver)
+    {
+        waitForVisibility(animatedImages,driver);
+        Assert.assertTrue(animatedImages.isDisplayed(),"Animated Images is not visible");
+        utils.log().info("Animated Images is Displayed");
+        ExtentReport.getTest().log(Status.INFO,"Animated Images is displayed");
+    }
+    public void checkIfTheJoinRoomOptionButtonDisplayedOnTheActiveUsersCard(AppiumDriver driver)
+    {
+        waitForVisibility(joinRoom,driver);
+        Assert.assertTrue(joinRoom.isDisplayed(),"Join Room Button is not displayed");
+        utils.log().info("Join Room Button is displayed");
+        ExtentReport.getTest().log(Status.INFO,"Join Room Button is displayed");
+    }
+    public void verifyfTheHostedRJLanguageShouldBeDisplayedBelowTheAvatar(AppiumDriver driver)
+    {
+        waitForVisibility(rjLanguage,driver);
+        Assert.assertTrue(rjLanguage.isDisplayed(),"RJ Language is not displayed");
+        utils.log().info("RJ Language is displayed");
+        ExtentReport.getTest().log(Status.INFO,"RJ Language is displayed");
+    }
+    public void checkRJProfileShowAvatarImageWithGreenDotOnItIfRJIsActiveWithLanguageNmeRating(AppiumDriver driver)
+    {
+        waitForVisibility(rjLanguage,driver);
+        Assert.assertTrue(rjLanguage.isDisplayed() && rjName.isDisplayed() && newBieLabel.isDisplayed() && ratingLabel.isDisplayed(),"RjName Language NewBie Rating is not displayed");
+        utils.log().info("RjName Language NewBie Rating is displayed");
+        ExtentReport.getTest().log(Status.INFO,"RjName Language NewBie Rating is displayed");
+    }
+    public void verifyUserDoNotHaveRJAccessThenShouldShowApplyWhenClicksOnPlusIcon(AppiumDriver driver)
+    {
+        waitForVisibility(applyButton,driver);
+        Assert.assertTrue(applyButton.isDisplayed(),"Apply Button is not displayed");
+        utils.log().info("Apply Button is displayed");
+        ExtentReport.getTest().log(Status.INFO,"Apply Button is displayed");
+    }
+    public void verifyUserClicksOnApplyButtonShouldOpenRJApplicationScreenShouldGetOpen(AppiumDriver driver)
+    {
+        waitForVisibility(beFriendMakingExpertHeading,driver);
+        Assert.assertTrue(beFriendMakingExpertHeading.isDisplayed(),"RJ Application Screen is not open");
+        utils.log().info("RJ Application Screen is open");
+        ExtentReport.getTest().log(Status.INFO,"RJ Application Screen is open");
+    }
+    public void clickOnApplyButton(AppiumDriver driver)
+    {
+        click(applyButton,driver);
+        utils.log().info("Clicked on Apply Button");
+        ExtentReport.getTest().log(Status.INFO,"Clicked on Apply Button");
+    }
+    public void checkGiftIconShouldHaveAJumpingAnimationInFMRAndShouldBeProperlyClickable(AppiumDriver driver)
+    {
+        waitForVisibility(giftIcon1,driver);
+        Assert.assertTrue(giftIcon1.isDisplayed(),"Moving Gift Animation is not Visible");
+        utils.log().info("Clicked on Apply Button");
+        ExtentReport.getTest().log(Status.INFO,"Clicked on Apply Button");
+        click(giftIcon1,driver);
+        waitForVisibility(userGiftIcon,driver);
+        Assert.assertTrue(userGiftIcon.isDisplayed(),"Gifts are not visible");
+        utils.log().info("GiftIcon is clickable");
+        ExtentReport.getTest().log(Status.INFO,"GiftIcon is clickable");
+    }
+    public void verifyIfUserShouldShowACommentOnceHostHaveHostedFMR(AppiumDriver driver)
+    {
+        waitForVisibility(commentMessage,driver);
+        Assert.assertTrue(commentMessage.isDisplayed(),"Comment Message not displayed");
+        utils.log().info("Comment Message not displayed");
+        ExtentReport.getTest().log(Status.INFO,"Comment Message not displayed");
+    }
+    public void giftAnimationVisibleToHost(AppiumDriver driver)
+    {
+        waitForVisibility(giftIcon1,driver);
+        Assert.assertTrue(giftIcon1.isDisplayed(),"Gift Animation is not visible to host");
+        utils.log().info("Gift Animation is visible to Host");
+        ExtentReport.getTest().log(Status.INFO,"Gift Animation is visible to Host");
+    }
+    public void verifyUserBeAbleToClickOnCoinXXXLeaderboardOptionToOpenLeaderboardScreenOfFMRGame(AppiumDriver driver)
+    {
+        if(closeLiveRoomCrossButton1.size()==1)
+        {
+            click(closeLiveRoomCrossButton1.get(0),driver);
+        }
+        click(coinsXXLeaderBoardOption,driver);
+        waitForVisibility(topFansText,driver);
+        Assert.assertTrue(topFansText.isDisplayed(),"LeaderBoard Screen not visible");
+        utils.log().info("LeaderBoard Screen visible");
+        ExtentReport.getTest().log(Status.INFO,"LeaderBoard Screen visible");
+        clickBackButton(driver);
+    }
+    public void verifyHelpOptionDisplayedRightSideOfHostCardInFMRGameShouldBeClickableAndShouldOpenHelpScreen(AppiumDriver driver)
+    {
+        click(helpIcon,driver);
+        waitForVisibility(helpTitle,driver);
+        Assert.assertTrue(helpTitle.isDisplayed(),"Help Screen not visible");
+        utils.log().info("Help Screen Visible");
+        ExtentReport.getTest().log(Status.INFO,"Help Screen Visible");
+        click(closeLiveRoomCrossButton,driver);
+    }
+    public void checkUserShouldShowHostedFMRCardInFMRtabWithFingerPointerAnimationWhenUserOpensUpForTheFirstTime(AppiumDriver driver)
+    {
+        waitForVisibility(fingerPointer,driver);
+        Assert.assertTrue(fingerPointer.isDisplayed(),"Finger Pointer is not displayed");
+        utils.log().info("Finger Pointer is displayed");
+        ExtentReport.getTest().log(Status.INFO,"Finger Pointer is displayed");
+    }
+
+    public void verifyThreeDotClickableAndAllIconsPresent(AppiumDriver driver) throws InterruptedException {
+        click(threeDotMenu,driver);
+        click(mic, "Clicked on Mic", driver);
+        click(threeDotMenu,driver);
+        click(mic, "Clicked on Mic", driver);
+        Assert.assertTrue(soundOffSymbol.get(0).isDisplayed(), " Mic is not mute");
+        ExtentReport.getTest().log(Status.INFO, "Mic is mute");
+        click(threeDotMenu,driver);
+        click(mic, " Clicked on mic", driver);
+        Thread.sleep(1000);
+        Assert.assertEquals(soundOffSymbol.size(), 0, "Mic is mute");
+        click(threeDotMenu,driver);
+        click(volumeIcon,driver);
+        click(threeDotMenu,driver);
+        click(volumeIcon,driver);
+        click(threeDotMenu,driver);
+        click(wallpaperIcon,driver);
+        waitForVisibility(wallpaperTitle,driver);
+        clickBackButton(driver);
+        click(threeDotMenu,driver);
+        click(shareIcon,driver);
+        waitForVisibility(shareTitle,driver);
+        clickBackButton(driver);
+    }
+    public void verifyIfJoinWaitlistButtonShouldProperlyClickableAndShouldDisappearsOnceClickedOnIt(AppiumDriver driver) throws InterruptedException {
+        click(joinWaitlistButton,driver);
+        Thread.sleep(2000);
+        Assert.assertEquals(joinWaitlistButton1.size(),0,"WaitlingList Button is not disappear");
+        utils.log().info("WaitlingList Button disappear");
+        ExtentReport.getTest().log(Status.INFO,"WaitlingList Button disappear");
+    }
+    public void CheckOnceUserJoinsWaitlistHostShouldShowOptionOnParticularGenderCardWithAddBoyAndAddGirlButton(AppiumDriver driver)
+    {
+        waitForVisibility(addBoyButton,driver);
+        Assert.assertTrue(addBoyButton.isDisplayed(),"Add Boy Button is not visible");
+        utils.log().info("Add Boy Button is visible");
+        ExtentReport.getTest().log(Status.INFO,"Add Boy Button is visible");
+    }
+    public void checkOnceUserJoinsWaitlistSshouldShowAcommentOnBackgroundAsUsernameJoinedTheWaitlist(AppiumDriver driver)
+    {
+        waitForVisibility(userJoinedWaitingListMessage,driver);
+        Assert.assertTrue(userJoinedWaitingListMessage.isDisplayed(),"User Joined WaitingList message is not displayed");
+        utils.log().info("User Joined WaitingList message is displayed");
+        ExtentReport.getTest().log(Status.INFO,"User Joined WaitingList message is displayed");
+    }
+    public void verifyUserShouldShowAgiftBottomSheetOnceUserHaveJoinedWaitlist(AppiumDriver driver)
+    {
+        if(closeLiveRoomCrossButton1.size()==1)
+        {
+            click(closeLiveRoomCrossButton1.get(0),driver);
+        }
+        waitForVisibility(giftBottomSheetSuggestion,driver);
+        Assert.assertTrue(giftBottomSheetSuggestion.isDisplayed(),"Gift Bottom Sheet Suggestion is not displayed");
+        utils.log().info("GiftBottom Sheet Suggestion is displayed");
+        ExtentReport.getTest().log(Status.INFO,"GiftBottom Sheet Suggestion is displayed");
+    }
+    public void verifyUserShouldShowSkipWaitlistOptionButtonAfterJoiningWaitlistWithGreenColouredBackground(AppiumDriver driver)
+    {
+        waitForVisibility(skipWaitListButton,driver);
+        Assert.assertTrue(skipWaitListButton.isDisplayed(),"Skip WaitList Button is not displayed");
+        utils.log().info("Skip WaitList Button is displayed");
+        ExtentReport.getTest().log(Status.INFO,"Skip WaitList Button is displayed");
+    }
+    public void checkSkipWaitlistOptionButtonShouldclickableAndShouldShowFREEGiftsBottomSheet(AppiumDriver driver)
+    {
+        click(skipWaitListButton,driver);
+        waitForVisibility(freeGiftBottomSheet,driver);
+        Assert.assertTrue(freeGiftBottomSheet.isDisplayed(),"FreeGift Bottom sheet is not displayed");
+        utils.log().info("FreeGift Bottom sheet is displayed");
+        ExtentReport.getTest().log(Status.INFO,"FreeGift Bottom sheet is displayed");
+    }
+    public void checkIfUserClicksOnHostAvatarProfileScreenShouldOpenForHostUser(AppiumDriver driver)
+    {
+        click(userAvatar,driver);
+        waitForVisibility(userProfileButton,driver);
+        Assert.assertTrue(userProfileButton.isDisplayed(),"Profile Screen is not displayed");
+        utils.log().info("Profile Screen is displayed");
+        ExtentReport.getTest().log(Status.INFO,"Profile Screen is displayed");
+    }
+    public void verifyHostUserClicksOnUserAvatarThenBottomSheetShouldOpenUpWithMuteRemoveBanProfileOptionButton(AppiumDriver driver)
+    {
+        waitForVisibility(userProfileButton,driver);
+        Assert.assertTrue(userProfileButton.isDisplayed() && muteUnmuteUserButton.isDisplayed() && removeUserButton.isDisplayed() && banUserButton.isDisplayed(),"Remove Ban Mute Profile Icon is not displayed");
+        utils.log().info("Remove Ban Mute Profile Icon is displayed");
+        ExtentReport.getTest().log(Status.INFO,"Remove Ban Mute Profile Icon is displayed");
+    }
+    public void verifyMuteRemoveBanProfileOptionsShouldBeClickableAndShouldWorkAsPerExpectedBehaviour(AppiumDriver driver) {
+        click(muteUnmuteUserButton, driver);
+        clickBackButton(driver);
+        waitForVisibility(userAvatar, driver);
+        Assert.assertTrue(mutedSign.get(0).isDisplayed(), "Muted Sign is not displayed");
+        utils.log().info("Muted Sign is displayed");
+        ExtentReport.getTest().log(Status.INFO, "Muted Sign is displayed");
+        click(userAvatar, driver);
+        click(muteUnmuteUserButton, driver);
+        clickBackButton(driver);
+        waitForVisibility(userAvatar, driver);
+        Assert.assertEquals(mutedSign.size(), 0, "Muted Sign is displayed");
+        utils.log().info("Muted Sign is not displayed");
+        ExtentReport.getTest().log(Status.INFO, "Muted Sign is not displayed");
+        click(userAvatar, driver);
+        click(userProfileButton, driver);
+        waitForVisibility(followingRoot, driver);
+        Assert.assertTrue(followingRoot.isDisplayed(),"User profile page is not displayed");
+        utils.log().info("User profile page is displayed");
+        ExtentReport.getTest().log(Status.INFO, "User profile page is displayed");
+        clickBackButton(driver);
+    }
+//    public void checkTheGiftsBottomSheetShouldBeProperlyScrollableToLeftToRightSide(AppiumDriver driver)
+//    {
+//        swipeElementAndroid(giftCakeItem,Direction.LEFT,driver);
+//    }
 }

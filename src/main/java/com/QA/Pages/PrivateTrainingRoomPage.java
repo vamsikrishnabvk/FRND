@@ -23,8 +23,11 @@ public class PrivateTrainingRoomPage extends BaseTest {
 
     TestUtils utils = new TestUtils();
     //*************** Keep Elements Here ******************************************
-    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[1]/android.view.View[4]")
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text=\"Private Training Rooms\"]/preceding-sibling::android.view.View)[4]")
     private MobileElement plusIcon;
+
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/treasure_animation_lv")
+    private MobileElement animationIcon;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Create Room\"]")
     private MobileElement createRoomIcon;
@@ -33,48 +36,65 @@ public class PrivateTrainingRoomPage extends BaseTest {
     private MobileElement audioRoomButton;
 
     @AndroidFindBy(xpath = "(//android.widget.TextView[@text = \"Daniel\"]/preceding-sibling::android.widget.TextView)[1]")
-    //  @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.dating.for.all:id/avatarFrameIv\"])[2]")
     private List<MobileElement> vivoHostedRoom;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.view.ViewGroup/android.view.ViewGroup/androidx.compose.ui.platform.ComposeView[2]/android.view.View/android.widget.ScrollView/android.view.View[1]/android.view.View[2]/android.widget.TextView")
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text = \"Daniel\"]/preceding-sibling::android.widget.ImageView[@resource-id=\"com.dating.for.all.debug:id/starFrameIv\"])[1]")
+    private List<MobileElement> vivoStarHostedRoom;
+
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text=\"Private Training Rooms\"]/preceding-sibling::android.view.View)[2]/android.widget.TextView")
     private MobileElement availableCoins;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/hostsRv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/hostsRv")
     private MobileElement hostRv;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Video Room\"]")
     private MobileElement videoRoomButton;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/coinTitleTv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/coinTitleTv")
     private MobileElement addCoinsToWalletLabel;
 
-    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[1]/android.view.View[1]")
-    private MobileElement profileIcon;
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/ocrAddCoinTv")
+    private MobileElement addCoinsLabel;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/gift")
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text=\"Private Training Rooms\"]/preceding-sibling::android.view.View)[1]")
+    public MobileElement profileIcon;
+
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/gift")
     public MobileElement giftBox;
 
     @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_foreground_only_button")
-    private List<MobileElement> audioRecordAllowPopup;
+    public List<MobileElement> audioRecordAllowPopup;
+
+    @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_foreground_only_button")
+    public MobileElement audioRecordAllowPopup1;
 
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"5 Min Call\"]")
     private MobileElement fiveMinuteCallButton;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/title")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/title")
     private List<MobileElement> startTrainingLabel;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/yellowRoseHeadTv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/yellowRoseHeadTv")
     private MobileElement yellowRoseHead;
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"I Agree\"]")
+    @AndroidFindBy(xpath = "//android.widget.ProgressBar[@text=\"1.0\"]/following-sibling::android.widget.TextView[@text=\"I Agree\"]")
     private List<MobileElement> iAgreeButton;
 
-    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"com.dating.for.all:id/exo_ad_overlay\"]")
+    @AndroidFindBy(xpath = "//android.view.View[@resource-id=\"com.dating.for.all.debug:id/exo_subtitles\"]")
     private List<MobileElement> aidPage;
 
-    @AndroidFindBy(xpath = "com.dating.for.all:id/skipNowTv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/skipNowTv")
     private List<MobileElement> skipNowButton;
+
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/videoSwitch")
+    private MobileElement videoSwitchIcon;
+
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/aurBataoTitle")
+    private MobileElement aurBtaoIcon;
+
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/close")
+    private MobileElement aurBtaoIconCloseButton;
 
     //*********************** End Elements *************************************************
 
@@ -104,6 +124,11 @@ public class PrivateTrainingRoomPage extends BaseTest {
 
     public void clickOnCreateRoomIcon(AppiumDriver driver) {
         click(createRoomIcon, "Clicked on create room icon", driver);
+    }
+
+    public void switchToFrame(AppiumDriver driver)
+    {
+        driver.switchTo().frame(0);
     }
 
     public void clickOnAudioRoomButton(AppiumDriver driver) {
@@ -138,9 +163,9 @@ public class PrivateTrainingRoomPage extends BaseTest {
         int expectedCion = Integer.parseInt(expectedCoin);
         if (coin1 >= expectedCion) {
             Assert.assertTrue(true, "User coin is less than 20 So he cannot join the room");
-            while (vivoHostedRoom.size() < 1) {
+            Thread.sleep(2000);
                 swipeScreen(Direction.DOWN, driver);
-            }
+            Thread.sleep(4000);
             waitForClickable(vivoHostedRoom.get(0), driver);
             click(vivoHostedRoom.get(0), "Clicked on Vivo call", driver);
             try
@@ -163,7 +188,7 @@ public class PrivateTrainingRoomPage extends BaseTest {
             if (audioRecordAllowPopup.size() == 1) {
                 click(audioRecordAllowPopup.get(0), "Clicked on audio record allow popup", driver);
             }
-            Thread.sleep(8000);
+            Thread.sleep(9000);
             if (iAgreeButton.size()==1) {
                 click(iAgreeButton.get(0), "Clicked on IAgree Button", driver);
             }
@@ -206,7 +231,7 @@ public class PrivateTrainingRoomPage extends BaseTest {
     }
 
     public void clickOnIAgreeButton(AppiumDriver driver) throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(9000);
         if (iAgreeButton.size()==1) {
             click(iAgreeButton.get(0), "Clicked on IAgree Button", driver);
         }
@@ -244,5 +269,217 @@ public class PrivateTrainingRoomPage extends BaseTest {
         Assert.assertTrue(fiveMinuteCallButton.isDisplayed(), "Five Minute call is not displayed");
         utils.log().info("User is getting Five minute free call");
         ExtentReport.getTest().log(Status.INFO, "User is getting Five minute free call");
+    }
+
+    public void clickOnAnimationIcon(AppiumDriver driver)
+    {
+        click(animationIcon,driver);
+    }
+
+    public void verifyVideoSwicthOptionVisible(AppiumDriver driver,String actualCoin, String expectedCoin) throws InterruptedException {
+        int coin1 = Integer.parseInt(actualCoin);
+        int expectedCion = Integer.parseInt(expectedCoin);
+        if (coin1 >= expectedCion) {
+            Assert.assertTrue(true, "User coin is less than 20 So he cannot join the room");
+            Thread.sleep(2000);
+            swipeScreen(Direction.DOWN, driver);
+            Thread.sleep(2000);
+            waitForClickable(vivoHostedRoom.get(0), driver);
+            click(vivoHostedRoom.get(0), "Clicked on Vivo call", driver);
+            try {
+                if (aidPage.size() == 1) {
+                    click(aidPage.get(0), driver);
+                }
+                Thread.sleep(1000);
+                if (skipNowButton.size() == 1) {
+                    click(skipNowButton.get(0), driver);
+                }
+            } catch (Exception e) {
+
+            }
+            if (audioRecordAllowPopup.size() == 1) {
+                click(audioRecordAllowPopup.get(0), "Clicked on audio record allow popup", driver);
+            }
+//            Thread.sleep(2000);
+//            if (audioRecordAllowPopup.size() == 1) {
+//                click(audioRecordAllowPopup.get(0), "Clicked on audio record allow popup", driver);
+//            }
+            Thread.sleep(7000);
+            if(iAgreeButton.size()==1)
+            {
+                click(iAgreeButton.get(0),driver);
+            }
+            waitForVisibility(videoSwitchIcon, driver);
+            Assert.assertTrue(videoSwitchIcon.isDisplayed(), "Video Switch Icon is not Visible");
+        }
+    }
+    public int gettingAvailableCoins(AppiumDriver driver)
+    {
+        return Integer.parseInt(getText(availableCoins,"getting available coins",driver));
+    }
+    public void checkIfUserShouldOnlyBeAbleToJoinVideoCallRequestInVoiceCallIfUserHaveTheRequiredCoinBalance(AppiumDriver driver,int actualCoin,int expectedCoin) throws InterruptedException {
+        Thread.sleep(2000);
+            Assert.assertTrue(actualCoin >= expectedCoin, "User coin is less than 90 So he cannot join the room");
+        Thread.sleep(2000);
+                if(aidPage.size()==1) {
+                    click(aidPage.get(0), driver);
+                }
+                Thread.sleep(1000);
+                if(skipNowButton.size()==1) {
+                    click(skipNowButton.get(0), driver);
+                }
+           //  click(audioRecordAllowPopup1,driver);
+            if (audioRecordAllowPopup.size() == 1) {
+                click(audioRecordAllowPopup.get(0), "Clicked on audio record allow popup", driver);
+            }
+            Thread.sleep(2000);
+            if (audioRecordAllowPopup.size() == 1) {
+                click(audioRecordAllowPopup.get(0), "Clicked on audio record allow popup", driver);
+            }
+            waitForVisibility(new HostedAudioCallPage(driver).connectingScreen,driver);
+            Assert.assertTrue(new HostedAudioCallPage(driver).connectingScreen.isDisplayed(),"Connecting Screen is not visible");
+            Thread.sleep(9000);
+            if (iAgreeButton.size()==1) {
+                click(iAgreeButton.get(0), "Clicked on IAgree Button", driver);
+            }
+            utils.log().info("User is able to join room as Coins is more than " + expectedCoin);
+            ExtentReport.getTest().log(Status.INFO, "User is able to join as Coins is more than "+expectedCoin);
+            waitForVisibility(giftBox, driver);
+            Assert.assertTrue(giftBox.isDisplayed(), "User is not able to join hosted room");
+            utils.log().info("User have joined the hosted room");
+            ExtentReport.getTest().log(Status.INFO, "User have joined hosted room");
+    }
+
+    public void  verifyTheUserShoulAbleToSeeAndClickOnTheAurBataoIcon(AppiumDriver driver)
+    {
+        waitForVisibility(aurBtaoIcon,driver);
+        click(aurBtaoIconCloseButton,driver);
+        utils.log().info("AurBtaoIcon is displayed and clickable");
+        ExtentReport.getTest().log(Status.INFO, "AurBtaoIcon is displayed and clickable");
+    }
+    public void verifyNotAbleToHostPTRroom(AppiumDriver driver)
+    {
+        waitForVisibility(plusIcon,driver);
+        Assert.assertTrue(plusIcon.isDisplayed(),"User is able to Host PTR room");
+        utils.log().info("User not able to Host PTR room");
+        ExtentReport.getTest().log(Status.INFO, "User not able to Host PTR room");
+    }
+
+    public void checkStarUserDisplayedAndJoinRoom(AppiumDriver driver,String availableCoins,int expectedCoins) throws InterruptedException {
+        Thread.sleep(2000);
+        swipeScreen(Direction.DOWN,driver);
+        Thread.sleep(2000);
+        if(vivoStarHostedRoom.size()==1)
+        {
+            utils.log().info("StarUser Hosted Room Displayed");
+            ExtentReport.getTest().log(Status.INFO, "StarUser Hosted Room Displayed");
+            if(Integer.parseInt(availableCoins)>=expectedCoins)
+            {
+                click(vivoStarHostedRoom.get(0),driver);
+                try
+                {
+                    if(aidPage.size()==1) {
+                        click(aidPage.get(0), driver);
+                    }
+                    Thread.sleep(1000);
+                    if(skipNowButton.size()==1) {
+                        click(skipNowButton.get(0), driver);
+                    }
+                }catch (Exception e)
+                {
+
+                }
+                if (audioRecordAllowPopup.size() == 1) {
+                    click(audioRecordAllowPopup.get(0), "Clicked on audio record allow popup", driver);
+                }
+                Thread.sleep(2000);
+                if (audioRecordAllowPopup.size() == 1) {
+                    click(audioRecordAllowPopup.get(0), "Clicked on audio record allow popup", driver);
+                }
+                Thread.sleep(9000);
+                if (iAgreeButton.size()==1) {
+                    click(iAgreeButton.get(0), "Clicked on IAgree Button", driver);
+                }
+                utils.log().info("User is able to join room as Coins is more than " + expectedCoins);
+                ExtentReport.getTest().log(Status.INFO, "User is able to join as Coins is more than "+expectedCoins);
+                waitForVisibility(giftBox, driver);
+                Assert.assertTrue(giftBox.isDisplayed(), "User is not able to join hosted room");
+                utils.log().info("User have joined the hosted room");
+                ExtentReport.getTest().log(Status.INFO, "User have joined hosted room");
+            }
+            else if(Integer.parseInt(availableCoins)<expectedCoins){
+                click(vivoStarHostedRoom.get(0),driver);
+                waitForVisibility(addCoinsToWalletLabel,driver);
+                Assert.assertTrue(addCoinsToWalletLabel.isDisplayed(),"User is joining star room inspite of having coin less than "+expectedCoins);
+                clickBackButton(driver);
+                clickBackButton(driver);
+                utils.log().info("User donot have required coins balance to join roon");
+                ExtentReport.getTest().log(Status.INFO, "user donot have required coins balance to join room");
+            }
+        }
+        else if(vivoStarHostedRoom.size()<1)
+        {
+            utils.log().info("StarUser Hosted Room not Displayed");
+            ExtentReport.getTest().log(Status.INFO, "StarUser Hosted Room not Displayed");
+        }
+    }
+
+    public void checkStarUserDisplayedAndJoinRoomForVideoCall(AppiumDriver driver,String availableCoins,int expectedCoins) throws InterruptedException {
+        Thread.sleep(2000);
+        swipeScreen(Direction.DOWN,driver);
+        Thread.sleep(2000);
+        if(vivoStarHostedRoom.size()==1)
+        {
+            utils.log().info("StarUser Hosted Room Displayed");
+            ExtentReport.getTest().log(Status.INFO, "StarUser Hosted Room Displayed");
+            if(Integer.parseInt(availableCoins)>=expectedCoins)
+            {
+                click(vivoStarHostedRoom.get(0),driver);
+                try
+                {
+                    if(aidPage.size()==1) {
+                        click(aidPage.get(0), driver);
+                    }
+                    Thread.sleep(1000);
+                    if(skipNowButton.size()==1) {
+                        click(skipNowButton.get(0), driver);
+                    }
+                }catch (Exception e)
+                {
+
+                }
+                if (audioRecordAllowPopup.size() == 1) {
+                    click(audioRecordAllowPopup.get(0), "Clicked on audio record allow popup", driver);
+                }
+                Thread.sleep(2000);
+                if (audioRecordAllowPopup.size() == 1) {
+                    click(audioRecordAllowPopup.get(0), "Clicked on audio record allow popup", driver);
+                }
+                Thread.sleep(9000);
+                if (iAgreeButton.size()==1) {
+                    click(iAgreeButton.get(0), "Clicked on IAgree Button", driver);
+                }
+                utils.log().info("User is able to join room as Coins is more than " + expectedCoins);
+                ExtentReport.getTest().log(Status.INFO, "User is able to join as Coins is more than "+expectedCoins);
+                waitForVisibility(giftBox, driver);
+                Assert.assertTrue(giftBox.isDisplayed(), "User is not able to join hosted room");
+                utils.log().info("User have joined the hosted room");
+                ExtentReport.getTest().log(Status.INFO, "User have joined hosted room");
+            }
+            else if(Integer.parseInt(availableCoins)<expectedCoins){
+                click(vivoStarHostedRoom.get(0),driver);
+                waitForVisibility(addCoinsLabel,driver);
+                Assert.assertTrue(addCoinsLabel.isDisplayed(),"User is joining star room inspite of having coin less than "+expectedCoins);
+                clickBackButton(driver);
+                clickBackButton(driver);
+                utils.log().info("User donot have required coins balance to join roon");
+                ExtentReport.getTest().log(Status.INFO, "user donot have required coins balance to join room");
+            }
+        }
+        else if(vivoStarHostedRoom.size()<1)
+        {
+            utils.log().info("StarUser Hosted Room not Displayed");
+            ExtentReport.getTest().log(Status.INFO, "StarUser Hosted Room not Displayed");
+        }
     }
 }

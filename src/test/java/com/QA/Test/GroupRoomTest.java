@@ -77,7 +77,7 @@ public class GroupRoomTest extends BaseTest {
         closeApp(getDriver2());
         launchApp(getDriver1());
         launchApp(getDriver2());
-//        getDriver().activateApp("com.dating.for.all");
+//        getDriver().activateApp("com.dating.for.all.debug");
     }
 
     @Test(priority = 0, enabled = true)

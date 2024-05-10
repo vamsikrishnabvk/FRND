@@ -31,16 +31,16 @@ public class PaymentPage extends BaseTest {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"0\"]/following-sibling::android.widget.ImageView")
     private MobileElement pinConfirmButton;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/button")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/button")
     private MobileElement okayButton;
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all:id/appNameTv\" and @text=\"GPay\"]/preceding-sibling::android.widget.ImageView")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all.debug:id/appNameTv\" and @text=\"GPay\"]/preceding-sibling::android.widget.ImageView")
     private MobileElement googlePayIcon;
 
     @AndroidFindBy(xpath = "(//android.view.View)[7]")
     private MobileElement dropdownIcon;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/upiMoreOptionsIv")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Pay with any UPI app\"]")
     private MobileElement upiMoreDropDown;
 
     @AndroidFindBy(xpath = "(//android.widget.TextView[@text=\"PhonePe\"])[1]")
@@ -55,28 +55,31 @@ public class PaymentPage extends BaseTest {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"FRND App\"]/preceding-sibling::android.widget.TextView[@text=\"Final Price\"]")
     private MobileElement paymentMethodFrndApp;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/icTriangleAtm")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/icTriangleAtm")
     private List<MobileElement> icTriangleAtmIcon;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/tie_card_holder")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/tie_card_holder")
     private MobileElement cardHolderNameField;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/tie_card_number")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/tie_card_number")
     private MobileElement cardNumberField;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/tie_card_date")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/tie_card_date")
     private MobileElement expiryDateField;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/tie_card_cvv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/tie_card_cvv")
     private MobileElement cvvField;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/btn_card")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/btn_card")
     private MobileElement payButton;
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"textHelp\"]/preceding-sibling::android.widget.EditText[@resource-id=\"cardotp\"]")
+    @AndroidFindBy(xpath = "//android.view.View[@text=\"OTP\"]/following-sibling::android.widget.EditText")
     private MobileElement otpField;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/btn_upi")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\" SUCCESS\"]")
+    private MobileElement successButton;
+
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/btn_upi")
     private MobileElement upiPayButton;
 
     @AndroidFindBy(xpath = "//android.widget.Button[@text=\"Simulate success\"]")
@@ -85,19 +88,19 @@ public class PaymentPage extends BaseTest {
     @AndroidFindBy(id = "android:id/button1")
     private MobileElement yesButton;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/btn_yes")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/btn_yes")
     private MobileElement yesButton1;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/btn_yes")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/btn_yes")
     private MobileElement upiIDYesButton;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/tvPaymentStatus")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/tvPaymentStatus")
     private MobileElement paymentSatus;
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all:id/appNameTv\" and @text=\"Other Apps\"]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all.debug:id/appNameTv\" and @text=\"Other Apps\"]")
     private MobileElement otherAppsTab;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/tie_upi_vpa")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/tie_upi_vpa")
     private MobileElement upiIdField;
 
     @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"example@upi\"]")
@@ -106,13 +109,13 @@ public class PaymentPage extends BaseTest {
     @AndroidFindBy(xpath = "//android.widget.Button[@text=\"Simulate success\"]")
     private MobileElement simulateSuccessButton;
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all:id/appNameTv\" and @text=\"BHIM\"]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all.debug:id/appNameTv\" and @text=\"BHIM\"]")
     private MobileElement bhimPayIcon;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/otherUpiIdTv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/otherUpiIdTv")
     private MobileElement upiIdTv;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/iv_upi_arrow_collect")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/iv_upi_arrow_collect")
     private MobileElement upiIdDropDown;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"FRND Website\"]")
@@ -127,23 +130,40 @@ public class PaymentPage extends BaseTest {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Change Payment Mode\"]")
     private MobileElement changePaymentMethodModeTab;
 
-    @AndroidFindBy(xpath = "(//android.widget.TextView[@resource-id=\"com.dating.for.all:id/coinPriceTv\"])[3]")
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@resource-id=\"com.dating.for.all.debug:id/coinPriceTv\"])[3]")
     private MobileElement actualPrice1;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/finalCoinsPriceTv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/finalCoinsPriceTv")
     private MobileElement finalPrice;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/coinsPriceTv")
-    private MobileElement actualPrice;
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/coinsPriceTv")
+    private MobileElement actualPriceWithConvenience;
 
-    @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id=\"com.dating.for.all:id/couponCodeEt\"]")
+    @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id=\"com.dating.for.all.debug:id/couponCodeEt\"]")
     private MobileElement coupounCodeTextField;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/applyDiscountTv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/applyDiscountTv")
     private MobileElement applyDiscountButton;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/discountTv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/discountTv")
     private MobileElement discountPrice;
+
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text=\"FRND App\"]/preceding-sibling::android.widget.TextView)[2]")
+    private MobileElement frndAppFinalPrice;
+
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@text=\"FRND Website\"]/preceding-sibling::android.widget.TextView)[2]")
+    private MobileElement frndWebsiteFinalPrice;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"FRND App\"]/following-sibling::android.widget.TextView")
+    private MobileElement convenienceChargeLabel;
+
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/actualPriceTv")
+    private MobileElement actualPrice;
+    @AndroidFindBy(xpath = "//android.widget.Button[@text=\"Submit\"]")
+    private MobileElement submitOtpButton;
+
+    @AndroidFindBy(xpath = "//android.webkit.WebView[@text=\"Simulator Cashfree\"]/android.view.View[2]/android.view.View")
+    private MobileElement frameElement;
 
 
     //*********************** End Elements *************************************************
@@ -201,7 +221,8 @@ public class PaymentPage extends BaseTest {
         click(otpField,"Clicked on OTP field",driver);
         sendKeys(otpField,otpNumber,driver);
         clickBackButton(driver);
-        click(simulateSuccess,"Clicked on Simulate Success", driver);
+        click(successButton,"Clicked on Simulate Success", driver);
+        click(submitOtpButton,driver);
         click(okayButton,"Clicked on Okay Button",driver);
     }
 
@@ -231,8 +252,20 @@ public class PaymentPage extends BaseTest {
 
     public void clickOnChangePaymentMode(AppiumDriver driver)
     {
+        try
+        {
+            click(frndAppFinalPrice,driver);
+        }catch (Exception e)
+        {
+
+        }
         click(upiMoreDropDown, "clicked on dropdown icon", driver);
         click(changePaymentMethodModeTab,driver);
+    }
+
+    public void selectAppPaymentMethod(AppiumDriver driver)
+    {
+        click(frndAppFinalPrice,driver);
     }
 
     public void clickOnChangePaymentMode1(AppiumDriver driver)
@@ -294,13 +327,18 @@ public class PaymentPage extends BaseTest {
     }
 
 
-    public void enterOTPAndMakePayment(AppiumDriver driver,String otpValue)
-    {
+    public void enterOTPAndMakePayment(AppiumDriver driver,String otpValue) throws InterruptedException {
+//        WebElement ele = driver.findElement(By.xpath("//android.webkit.WebView[@text=\"Simulator Cashfree\"]/android.view.View[2]/android.view.View"));
+//        MobileElement e = (MobileElement)ele;
+     //   driver.switchTo().frame(e);
         click(otpField,"Clicked on OTP Field",driver);
-        swipeScreen(Direction.UP,driver);
+        Thread.sleep(1000);
+        swipeScreenSmall(Direction.UP,driver);
+        Thread.sleep(1000);
         sendKeys(otpField,otpValue,driver);
         clickBackButton(driver);
-        click(simulateSuccessButton,"Clicked on Simulate Success Button",driver);
+        click(successButton,driver);
+        click(submitOtpButton,"Clicked on Simulate Success Button",driver);
         click(okayButton,"Clicked on Okay Button",driver);
     }
 
@@ -386,12 +424,14 @@ public class PaymentPage extends BaseTest {
 
     }
 
-    public void verifyDefaultDiscountApplied(AppiumDriver driver)
+    public void verifyDefaultDiscountApplied(AppiumDriver driver,int convenienceCharge,int actualPrice)
     {
-        String actualPrce=getText(actualPrice,"Getting actual price",driver).replace("₹","");
+
+        int actualPrceWithConvenience=Integer.parseInt(getText(actualPriceWithConvenience,"Getting actual price",driver).replace("₹",""));
+        Assert.assertEquals(actualPrceWithConvenience,actualPrice+convenienceCharge,"ActualPrice with convenience charge is coming wrong");
         int  discountValue = Integer.parseInt(getText(discountPrice,"Getting discounted price",driver).replace("₹",""));
         int finalPrce = Integer.parseInt(getText(finalPrice,"Getting final price",driver).replace("₹",""));
-        Assert.assertEquals(Float.parseFloat(actualPrce)+discountValue,finalPrce,"Coupoun is not applied");
+        Assert.assertEquals(actualPrceWithConvenience-discountValue,finalPrce,"Coupoun is not applied");
         utils.log().info("Default Coupoun is getting applied to new user for first transaction");
     }
 
@@ -406,5 +446,14 @@ public class PaymentPage extends BaseTest {
     public int getDiscountValue(AppiumDriver driver)
     {
         return Integer.parseInt(getText(discountPrice,"Getting discounted price",driver).replace("-₹",""));
+    }
+
+    public int gettingConvenienceCharge(AppiumDriver driver) {
+        String convenienceCharge = getText(convenienceChargeLabel,"getting convenience charge",driver);
+        return new HostedAudioCallPage(driver).getNumberFromString(convenienceCharge);
+    }
+    public int gettingActualPrice(AppiumDriver driver)
+    {
+        return Integer.parseInt(getText(actualPrice,"Getting Actual price",driver).replace("₹",""));
     }
 }

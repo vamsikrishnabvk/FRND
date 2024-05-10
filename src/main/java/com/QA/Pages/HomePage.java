@@ -22,50 +22,51 @@ public class HomePage extends BaseTest {
 
     TestUtils utils = new TestUtils();
     //*************** Keep Elements Here ******************************************
-    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all:id/title\" and @text=\"Training\"]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all.debug:id/title\" and @text=\"Training\"]")
     public  MobileElement tainingTab;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/coins")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/coins")
     private MobileElement availableCoins;
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Limited\n" +
-            "Discount Offer\"]/preceding-sibling::android.view.View")
+    @AndroidFindBy(id = "//android.widget.TextView[@text=\"Limited\n" +
+            "Discount Offer\"]")
     protected List<MobileElement> crossButton;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/cancelBtv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/cancelBtv")
     protected List<MobileElement> cancelButton;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/title")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/title")
     protected List<MobileElement> titlePopup;
 
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]/android.widget.TextView")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all.debug:id/title\" and @text=\"Home\"]")
     private MobileElement homeTab;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/frameView")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/frameView")
     private MobileElement frameElement;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/design_bottom_sheet")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/design_bottom_sheet")
     private MobileElement frame2;
 
-    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"Dismiss update dialog\"]")
-    private List<MobileElement> updateCrossButton;
+    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@content-desc=\"Update from Google Play available\n" +
+            "\"]")
+    private MobileElement updateCrossButton;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/freeMinsTv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/freeMinsTv")
     private MobileElement freeMintCall;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/callNow")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/callNow")
     private MobileElement callNowButton;
 
     @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_foreground_only_button")
     private List<MobileElement> audioRecordAllowPopup;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/addCoinsBtv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/addCoinsBtv")
     private MobileElement addCoinsNowButton;
 
     @AndroidFindBy(xpath = "//android.widget.LinearLayout[3]/android.widget.FrameLayout/android.widget.ImageView")
     public MobileElement frndTab;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/carouselIv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/carouselIv")
     private MobileElement callNowBanner;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Group Rooms\"]")
@@ -76,9 +77,34 @@ public class HomePage extends BaseTest {
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"FRND Making Rooms\"]")
     private MobileElement frndMakingRoom;
-
-    @AndroidFindBy(id = "com.dating.for.all:id/moreOptions")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"morePackage\"]")
     private MobileElement morePakageOptionButton;
+
+    // com.dating.for.all.debug:id/moreOptions
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Create\"]")
+    private MobileElement createButton;
+
+    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"com.dating.for.all.debug:id/fscv_id\"]/android.widget.ImageView")
+    MobileElement homePagePopup;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Audio Room\"]")
+    private MobileElement audioRoomButton;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all.debug:id/day\" and @text=\"Day 1\"]")
+    private MobileElement day1Button;
+
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/info")
+    private MobileElement collectDailyRewardPopup;
+
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/rewardAmount")
+    private MobileElement rewardAmount;
+
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/okay")
+    private MobileElement okayButton;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Video Room\"]")
+    private MobileElement videoRoomButton;
 
 
 //*********************** End Elements *************************************************
@@ -95,18 +121,19 @@ public class HomePage extends BaseTest {
 
     public void handlingPopup(AppiumDriver driver) throws InterruptedException {
 //        waitForVisibility(crossButton.get(0));
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         if (crossButton.size() == 1) {
-            click(crossButton.get(0), "Clicked on Cross Button", driver);
+            Thread.sleep(1000);
+            clickBackButton(driver);
             Thread.sleep(2000);
             click(cancelButton.get(0), "Clicked on Cancel Button", driver);
         } else if (cancelButton.size() == 1) {
-            click(cancelButton.get(0), "Clicked on cancel button", driver);
+            clickBackButton(driver);
         }
         Thread.sleep(2000);
         try {
-            if (updateCrossButton.size()==1) {
-                click(updateCrossButton.get(0),driver);
+            if (updateCrossButton.isDisplayed()) {
+                clickBackButton(driver);
             }
         }catch (Exception e)
         {
@@ -119,8 +146,8 @@ public class HomePage extends BaseTest {
         }
         Thread.sleep(2000);
         try {
-            if (updateCrossButton.size()==1) {
-                click(updateCrossButton.get(0),driver);
+            if (updateCrossButton.isDisplayed()) {
+                clickBackButton(driver);
             }
         }catch (Exception e)
         {
@@ -136,6 +163,7 @@ public class HomePage extends BaseTest {
 
     public void clickOnCoins(AppiumDriver driver)
     {
+        click(homeTab,driver);
         click(availableCoins,"Clicked on available coins",driver);
     }
 
@@ -207,6 +235,28 @@ public class HomePage extends BaseTest {
     public void clickOnMorePackageOption(AppiumDriver driver)
     {
         click(morePakageOptionButton,driver);
+    }
+
+    public void clickOnCreateButton(AppiumDriver driver)
+    {
+        try {
+            click(homePagePopup, driver);
+        }catch (Exception e)
+        {
+
+        }
+        click(homeTab,driver);
+        click(createButton,driver);
+        waitForVisibility(audioRoomButton,driver);
+        Assert.assertTrue(audioRoomButton.isDisplayed(),"AudioRoomButton is displayed");
+    }
+    public void clickOnAudioRoomButton(AppiumDriver driver)
+    {
+        click(audioRoomButton,driver);
+    }
+    public void clickOnVideoRoomButton(AppiumDriver driver)
+    {
+        click(videoRoomButton,driver);
     }
 
 }

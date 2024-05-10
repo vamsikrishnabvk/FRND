@@ -80,17 +80,17 @@ public class FrndMakingRoomTest extends BaseTest {
 
     @Test(priority = 0, enabled = true, description = "Verify that user able to host the Frnd Making room")
     public void verifyThatUserAbleToHostTheFrndMakingroom() throws InterruptedException {
+        String baseUri = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("baseUri");
+        String endPointFmrCohort = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("endPointFmrCohort");
         String hostPhoneNumber = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("hostPhoneNumber");
         String userPhoneNumber = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("userPhoneNumber");
         String otp = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("otp");
-        String beFrndMakingExpertpopupHeader = FrndMakingRoomTest.getJSONObject("Headers").getString("createMakingRoomPopupHeader");
         String frndMakingRoomsPageHeader = FrndMakingRoomTest.getJSONObject("Headers").getString("frndMakingRoomsPagePopupHeader");
         String frndMakingLiveRoomsPageHeader = FrndMakingRoomTest.getJSONObject("Headers").getString("frndMakingLiveRoomsPageHeader");
         String frndPageTitleForUser = FrndMakingRoomTest.getJSONObject("Headers").getString("frndPageTitleForUser");
         String closeLiveRoomPopupHeader = FrndMakingRoomTest.getJSONObject("Headers").getString("closeLiveRoomPopupHeader");
         String port8083 = FrndMakingRoomTest.getJSONObject("Ports").getString("portQA");
         Thread.sleep(2000);
-
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
         landingPage1.changingPort(port8083, getDriver1());
@@ -99,41 +99,40 @@ public class FrndMakingRoomTest extends BaseTest {
         landingPage2.changingPort(port8083, getDriver2());
         landingPage1.loginToApplication(hostPhoneNumber, otp, getDriver1());
         String id = fetchValue.fetchValue(hostPhoneNumber);
-        apiUdateData.fmrCohartUpdate(id,true,"http://qa.frndapp.in:8080","/automatedTesting/updateUser",hostPhoneNumber);
+        apiUdateData.fmrCohartUpdate(id,true,baseUri,endPointFmrCohort,hostPhoneNumber);
         landingPage2.loginToApplication(userPhoneNumber, otp, getDriver2());
         homePage1.handlingPopup(getDriver1());
         homePage1.clickOnFrndTab(getDriver1());
         frndMakingRoom1.verifyFRNDMakingRoomsPageHeader(frndMakingRoomsPageHeader, getDriver1());
         frndMakingRoom1.clickOnPlusIconAfterJoinRoom(getDriver1());
         frndMakingRoom1.verifyCreatedFrndMeetingRoom(frndMakingLiveRoomsPageHeader, getDriver1());
-
         frndMakingRoom1.verifyThatHostAbleToCloseTheRoomBeforeStartTheGame(closeLiveRoomPopupHeader, frndMakingRoomsPageHeader,getDriver1());
         frndMakingRoom1.clickOnJoinRoomByUserName(getDriver1());
-        frndMakingRoom1.clickOnCreateNewRoomButton(getDriver1());
+        frndMakingRoom1.clickOnCancelButton(getDriver1());
+       // frndMakingRoom1.clickOnCreateNewRoomButton(getDriver1());
+        frndMakingRoom1.clickOnPlusIconAfterJoinRoom(getDriver1());
+        frndMakingRoom1.verifyCreatedFrndMeetingRoom(frndMakingLiveRoomsPageHeader, getDriver1());
         frndMakingRoom1.checkTheMuteUnmuteFunctionalityIsWorkingAsExpected(getDriver1());
-
         homePage2.handlingPopup(getDriver2());
         homePage2.clickOnFrndTab(getDriver2());
         frndMakingRoom2.verifyThatUsersAreAbleToJoinTheFrndMakingRoomWithZeroCoinBalance(frndPageTitleForUser, frndMakingLiveRoomsPageHeader, getDriver2());
         frndMakingRoom2.verifyThatUserAbleToLeaveTheGameWithoutOnGame(frndMakingRoomsPageHeader, getDriver2());
-
         frndMakingRoom2.clickOnJoinRoomByUserName(getDriver2());
         frndMakingRoom2.clickOnJoinWaitlistButton(getDriver2());
         frndMakingRoom1.clickOnAddUserButton(getDriver1());
         frndMakingRoom1.clickOnWaitlistAddButton(getDriver1());
         frndMakingRoom1.verifyUserAddedToGame(true, getDriver1());
-
         frndMakingRoom1.verifyThatHostAbleToDoMuteUnmuteToUsers(true, getDriver1());
         frndMakingRoom2.verifyThatUserIsAbleToExitDuringTheGame(getDriver2());
-
     }
 
     @Test(priority = 1, enabled = true, description = "Verify that Host able to close the room before start the game")
     public void verifyThatHostAbleToCloseTheRoomBeforeStartTheGame() throws InterruptedException {
+        String baseUri = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("baseUri");
+        String endPointFmrCohort = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("endPointFmrCohort");
         String hostPhoneNumber = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("hostPhoneNumber");
         String userPhoneNumber = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("userPhoneNumber");
         String otp = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("otp");
-        String beFrndMakingExpertpopupHeader = FrndMakingRoomTest.getJSONObject("Headers").getString("createMakingRoomPopupHeader");
         String frndMakingRoomsPageHeader = FrndMakingRoomTest.getJSONObject("Headers").getString("frndMakingRoomsPagePopupHeader");
         String frndMakingLiveRoomsPageHeader = FrndMakingRoomTest.getJSONObject("Headers").getString("frndMakingLiveRoomsPageHeader");
         String frndPageTitleForUser = FrndMakingRoomTest.getJSONObject("Headers").getString("frndPageTitleForUser");
@@ -141,7 +140,6 @@ public class FrndMakingRoomTest extends BaseTest {
         String removeUserPopupHeader = FrndMakingRoomTest.getJSONObject("Headers").getString("removeUserPopupHeader");
         String port8083 = FrndMakingRoomTest.getJSONObject("Ports").getString("portQA");
         Thread.sleep(2000);
-
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
         landingPage1.changingPort(port8083, getDriver1());
@@ -150,10 +148,9 @@ public class FrndMakingRoomTest extends BaseTest {
         landingPage2.changingPort(port8083, getDriver2());
         landingPage1.loginToApplication(hostPhoneNumber, otp, getDriver1());
         String id = fetchValue.fetchValue(hostPhoneNumber);
-        apiUdateData.fmrCohartUpdate(id,true,"http://qa.frndapp.in:8080","/automatedTesting/updateUser",hostPhoneNumber);
+        apiUdateData.fmrCohartUpdate(id,true,baseUri,endPointFmrCohort,hostPhoneNumber);
         landingPage2.loginToApplication(userPhoneNumber, otp, getDriver2());
         homePage1.handlingPopup(getDriver1());
-
         homePage1.clickOnFrndTab(getDriver1());
         frndMakingRoom1.verifyFRNDMakingRoomsPageHeader(frndMakingRoomsPageHeader, getDriver1());
         frndMakingRoom1.clickOnPlusIconAfterJoinRoom(getDriver1());
@@ -162,7 +159,6 @@ public class FrndMakingRoomTest extends BaseTest {
         frndMakingRoom1.clickOnMicButton(getDriver1());
         frndMakingRoom1.clickOnOptionsButton(getDriver1());
         frndMakingRoom1.clickOnSpeakerButton(getDriver1());
-
         homePage2.handlingPopup(getDriver2());
         homePage2.clickOnFrndTab(getDriver2());
         frndMakingRoom2.clickOnJoinRoomAndLeave(getDriver2());
@@ -170,42 +166,36 @@ public class FrndMakingRoomTest extends BaseTest {
         frndMakingRoom1.clickOnAddUserButton(getDriver1());
         frndMakingRoom1.clickOnWaitlistAddButton(getDriver1());
         frndMakingRoom1.verifyUserAddedToGame(true, getDriver1());
-
         String previousCoinCount = frndMakingRoom1.getAvailableCoin(getDriver1());
         frndMakingRoom2.clickOnSendGift(getDriver2());
         frndMakingRoom2.verifyGiftSentContentMessageDisplayed(true, getDriver2());
         frndMakingRoom1.verifyGiftingAmountOnFrndMakingRoom(previousCoinCount,getDriver1());
-
         frndMakingRoom1.verifyIfHostShouldBeAbleToApplyTheGiftedWallpaperDuringTheGame(getDriver1());
-
         frndMakingRoom1.verifyThatHostAbleToKickoutTheUserInFrndMakingRoomClickingOnKickOutOption(true, removeUserPopupHeader,frndPageTitleForUser, getDriver1());
         frndMakingRoom2.verifyThatUserAbleToRemoveTheFrndMakingRoomWhenHostRemoveParticularUsers(frndPageTitleForUser, getDriver2());
         homePage2.verifyCallNowBannerDisplayed(true, getDriver2());
-
         homePage2.clickOnFrndTab(getDriver2());
         frndMakingRoom2.clickOnJoinRoomAndLeave(getDriver2());
         frndMakingRoom2.clickOnJoinWaitlistButton(getDriver2());
         frndMakingRoom1.clickOnAddUserButton(getDriver1());
         frndMakingRoom1.clickOnWaitlistAddButton(getDriver1());
         frndMakingRoom1.verifyUserAddedToGame(true, getDriver1());
-
         frndMakingRoom1.verifyThatHostAbleToCloseTheRoomDuringTheGame(closeLiveRoomPopupHeader, getDriver1());
     }
 
 
     @Test(priority = 2, enabled = true, description = "Verify that coin balance is deducted when user send the Gifts")
     public void verifyThatCoinBalanceIsDeductedWhenUserSendTheGifts() throws InterruptedException {
+        String baseUri = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("baseUri");
+        String endPointFmrCohort = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("endPointFmrCohort");
         String hostPhoneNumber = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("hostPhoneNumber");
         String userPhoneNumber = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("userPhoneNumber");
         String otp = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("otp");
-        String beFrndMakingExpertpopupHeader = FrndMakingRoomTest.getJSONObject("Headers").getString("createMakingRoomPopupHeader");
         String frndMakingRoomsPageHeader = FrndMakingRoomTest.getJSONObject("Headers").getString("frndMakingRoomsPagePopupHeader");
         String frndMakingLiveRoomsPageHeader = FrndMakingRoomTest.getJSONObject("Headers").getString("frndMakingLiveRoomsPageHeader");
         String frndPageTitleForUser = FrndMakingRoomTest.getJSONObject("Headers").getString("frndPageTitleForUser");
-        String closeLiveRoomPopupHeader = FrndMakingRoomTest.getJSONObject("Headers").getString("closeLiveRoomPopupHeader");
         String port8083 = FrndMakingRoomTest.getJSONObject("Ports").getString("portQA");
         Thread.sleep(2000);
-
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
         landingPage1.changingPort(port8083, getDriver1());
@@ -214,10 +204,9 @@ public class FrndMakingRoomTest extends BaseTest {
         landingPage2.changingPort(port8083, getDriver2());
         landingPage1.loginToApplication(hostPhoneNumber, otp, getDriver1());
         String id = fetchValue.fetchValue(hostPhoneNumber);
-        apiUdateData.fmrCohartUpdate(id,true,"http://qa.frndapp.in:8080","/automatedTesting/updateUser",hostPhoneNumber);
+        apiUdateData.fmrCohartUpdate(id,true,baseUri,endPointFmrCohort,hostPhoneNumber);
         landingPage2.loginToApplication(userPhoneNumber, otp, getDriver2());
         homePage1.handlingPopup(getDriver1());
-
         homePage1.clickOnFrndTab(getDriver1());
         frndMakingRoom1.verifyFRNDMakingRoomsPageHeader(frndMakingRoomsPageHeader, getDriver1());
         frndMakingRoom1.clickOnPlusIconAfterJoinRoom(getDriver1());
@@ -229,7 +218,6 @@ public class FrndMakingRoomTest extends BaseTest {
         frndMakingRoom1.clickOnMicButton(getDriver1());
         frndMakingRoom1.clickOnOptionsButton(getDriver1());
         frndMakingRoom1.clickOnSpeakerButton(getDriver1());
-
         homePage2.handlingPopup(getDriver2());
         String text = homePage2.getAvailableCoin(getDriver1());
         homePage2.clickOnFrndTab(getDriver2());
@@ -237,11 +225,9 @@ public class FrndMakingRoomTest extends BaseTest {
         frndMakingRoom2.clickOnJoinRoom(getDriver2());
         frndMakingRoom2.allowAudioRecordAllowPopup(getDriver2());
         frndMakingRoom2.clickOnJoinWaitlistButton(getDriver2());
-
         frndMakingRoom1.clickOnAddUserButton(getDriver1());
         frndMakingRoom1.clickOnWaitlistAddButton(getDriver1());
         frndMakingRoom1.verifyUserAddedToGame(true, getDriver1());
-
         frndMakingRoom2.clickOnSendGift(getDriver1());
         frndMakingRoom2.verifyGiftSentContentMessageDisplayed(true, getDriver2());
         frndMakingRoom2.checkCoinsDeducted(text, getDriver2());
@@ -249,14 +235,15 @@ public class FrndMakingRoomTest extends BaseTest {
 
     @Test(priority = 3, enabled = true, description = "Verify that banned users should not be allowed back to join the same room")
     public void verifyThatBannedUsersShouldNotBeAllowedBackToJoinTheSameRoom() throws InterruptedException {
-        String hostPhoneNumber = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("hostPhoneNumber");
-        String userPhoneNumber = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("userPhoneNumber");
+        String hostPhoneNumber2 = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("hostPhoneNumber2");
+        String baseUri = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("baseUri");
+        String endPointFmrCohort = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("endPointFmrCohort");
+        String partialNum = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("partialNum");
+        String nickName = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("nickName");
         String otp = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("otp");
-        String beFrndMakingExpertpopupHeader = FrndMakingRoomTest.getJSONObject("Headers").getString("createMakingRoomPopupHeader");
         String frndMakingRoomsPageHeader = FrndMakingRoomTest.getJSONObject("Headers").getString("frndMakingRoomsPagePopupHeader");
         String frndMakingLiveRoomsPageHeader = FrndMakingRoomTest.getJSONObject("Headers").getString("frndMakingLiveRoomsPageHeader");
         String frndPageTitleForUser = FrndMakingRoomTest.getJSONObject("Headers").getString("frndPageTitleForUser");
-        String closeLiveRoomPopupHeader = FrndMakingRoomTest.getJSONObject("Headers").getString("closeLiveRoomPopupHeader");
         String banUserPopupHeader = FrndMakingRoomTest.getJSONObject("Headers").getString("banUserPopupHeader");
         String port8083 = FrndMakingRoomTest.getJSONObject("Ports").getString("portQA");
         Thread.sleep(2000);
@@ -264,13 +251,13 @@ public class FrndMakingRoomTest extends BaseTest {
         landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
         landingPage2.changingPort(port8083,getDriver2());
         int i = getRandomNum();
-        String phonNum = "789012"+Integer.toString(i);
+        String phonNum = partialNum + Integer.toString(i);
         landingPage2.clickOnLetsGoButton(getDriver2());
         landingPage2.enterMobileNumber(phonNum,getDriver2());
         landingPage2.clickOnGetOTPButton(getDriver2());
         landingPage2.enterOTPNumber(otp,getDriver2());
         landingPage2.clickOnSubmitButton(getDriver2());
-        landingPage2.enterNickName(getDriver2(),"Daniel");
+        landingPage2.enterNickName(getDriver2(),nickName);
         landingPage2.clickOnSelectGenderButton(getDriver2());
         landingPage2.clickOnBoyGender(getDriver2());
         landingPage2.clickOnDateOfBirthButtonAndOkButton(getDriver2());
@@ -282,9 +269,9 @@ public class FrndMakingRoomTest extends BaseTest {
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
         landingPage1.changingPort(port8083, getDriver1());
-        landingPage1.loginToApplication("7890134512", otp, getDriver1());
-        String id = fetchValue.fetchValue("7890134512");
-        apiUdateData.fmrCohartUpdate(id,true,"http://qa.frndapp.in:8080","/automatedTesting/updateUser","7890134512");
+        landingPage1.loginToApplication(hostPhoneNumber2, otp, getDriver1());
+        String id = fetchValue.fetchValue(hostPhoneNumber2);
+        apiUdateData.fmrCohartUpdate(id,true,baseUri,endPointFmrCohort,hostPhoneNumber2);
         homePage1.handlingPopup(getDriver1());
         homePage1.clickOnFrndTab(getDriver1());
         frndMakingRoom1.verifyFRNDMakingRoomsPageHeader(frndMakingRoomsPageHeader, getDriver1());
@@ -329,8 +316,6 @@ public class FrndMakingRoomTest extends BaseTest {
         String frndMakingRoomsPageHeader = FrndMakingRoomTest.getJSONObject("Headers").getString("frndMakingRoomsPagePopupHeader");
         String frndMakingLiveRoomsPageHeader = FrndMakingRoomTest.getJSONObject("Headers").getString("frndMakingLiveRoomsPageHeader");
         String frndPageTitleForUser = FrndMakingRoomTest.getJSONObject("Headers").getString("frndPageTitleForUser");
-        String closeLiveRoomPopupHeader = FrndMakingRoomTest.getJSONObject("Headers").getString("closeLiveRoomPopupHeader");
-        String banUserPopupHeader = FrndMakingRoomTest.getJSONObject("Headers").getString("banUserPopupHeader");
         String port8083 = FrndMakingRoomTest.getJSONObject("Ports").getString("portQA");
         String user2PhoneNumber = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("user2PhoneNumber");
         Thread.sleep(2000);

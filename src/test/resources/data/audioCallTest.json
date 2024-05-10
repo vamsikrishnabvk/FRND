@@ -3,7 +3,9 @@
     "phoneNumberDev1":"7890134561",
     "otp":"000000",
     "phoneNumberDev2": "7890134562",
-    "partialPhNo": "789012",
+    "phoneNumber3": "7890134712",
+    "phoneNumber4": "7890143245",
+    "partialPhNo": "78901",
     "expectedCoins": "20",
     "nickName": "Daniel",
     "portNumber": "QA"

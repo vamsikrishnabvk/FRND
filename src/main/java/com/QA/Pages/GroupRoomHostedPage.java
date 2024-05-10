@@ -17,31 +17,31 @@ public class GroupRoomHostedPage extends BaseTest {
 
     TestUtils utils = new TestUtils();
 
-    @AndroidFindBy(id = "com.dating.for.all:id/playerSoundBiv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/playerSoundBiv")
     private MobileElement hostSoundICon;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/playerSoundBiv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/playerSoundBiv")
     private MobileElement soundOffIcon;
 
-    @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.dating.for.all:id/playerIv\"])[2]")
+    @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.dating.for.all.debug:id/playerIv\"])[2]")
     private MobileElement groupRoomUser;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/micIv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/micIv")
     private MobileElement userMicIcon;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/soundOffIv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/soundOffIv")
     private MobileElement userMicOffIcon;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/removeIv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/removeIv")
     private MobileElement removeLayout;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/kickOutIv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/kickOutIv")
     private MobileElement banCrossIcon;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/profileIv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/profileIv")
     private MobileElement userProfileIcon;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/positiveActionBtv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/positiveActionBtv")
     private MobileElement removeButton;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Sexual Talk\"]")
@@ -50,7 +50,7 @@ public class GroupRoomHostedPage extends BaseTest {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Ban\"]")
     private MobileElement banButton;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/positiveActionBtv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/positiveActionBtv")
     private MobileElement punishButton;
 
     @AndroidFindBy(xpath = "(//android.widget.TextView[@text=\"I Understand it won't happen again\"]/preceding-sibling::android.widget.ImageView)[2]")

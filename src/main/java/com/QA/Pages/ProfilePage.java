@@ -21,17 +21,23 @@ public class ProfilePage extends BaseTest {
 
     TestUtils utils = new TestUtils();
 
-    @AndroidFindBy(id = "com.dating.for.all:id/redeemNow")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/redeemNow")
     private List<MobileElement> winMoneyButton;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/redeemProgressDismiss")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/redeemProgressDismiss")
     private MobileElement okayButton;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/withdraw")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/withdraw")
     private MobileElement withDrawButton;
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\" PhonePe ,Gpay, Paytm, UPI no.\"]")
+    @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id=\"mobile_number_text_field\"]/android.view.View/android.view.View[2]")
     private MobileElement mobileNumberField;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\" PhonePe ,Gpay, Paytm, UPI no.\"]")
+    private MobileElement mobileNumberField2;
+
+    @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id=\"mobile_number_text_field\"]")
+    private MobileElement mobileNumberTextField;
 
     @AndroidFindBy(xpath = "//android.widget.Button")
     private MobileElement submitButton;
@@ -55,41 +61,41 @@ public class ProfilePage extends BaseTest {
             " bank account\"]")
     private MobileElement withDrawSuccessMessage;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/totalRemaningAmountTv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/totalRemaningAmountTv")
     private MobileElement totalRemainingAmount;
 
     @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"Edit\"]")
     private MobileElement editButton;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/addfrndIcon")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/addfrndIcon")
     private MobileElement addFrndIcon;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/redeemProcessTitle")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/redeemProcessTitle")
     private MobileElement congratulationsMessage;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/redeemProcessSubtitle")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/redeemProcessSubtitle")
     private MobileElement yellowRoseRewardMessage;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/yrInfo")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/yrInfo")
     private List<MobileElement> noRoseCollectedMessage;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/yellowRoseCount")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/yellowRoseCount")
     private List<MobileElement> yellowRoseCount;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/yellowRoseHeadTv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/yellowRoseHeadTv")
     private List<MobileElement> yellowRoseHead;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/yrInfo")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/yrInfo")
     private MobileElement yellowRoseInfo;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Followers\"]")
     private MobileElement followersLabel;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/title")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/title")
     private MobileElement title;
 
 
-    @AndroidFindBy(id = "com.dating.for.all:id/walletMoney")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/walletMoney")
     private MobileElement walletMoney;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"You've hit your daily withdrawal limit. Please try again tomorrow!\"]")
@@ -101,19 +107,19 @@ public class ProfilePage extends BaseTest {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"UPI ID in use\"]")
     private MobileElement upiIdInUseMessage;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/walletCoins")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/walletCoins")
     private MobileElement walletCoins;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/menuBiv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/menuBiv")
     private MobileElement hamburgerMenu;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Transactions\"]")
     private MobileElement transactionTab;
 
-    @AndroidFindBy(xpath = "(//android.widget.TextView[@resource-id=\"com.dating.for.all:id/commentsTv\"]/following-sibling::android.widget.TextView)[1]")
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@resource-id=\"com.dating.for.all.debug:id/commentsTv\"]/following-sibling::android.widget.TextView)[1]")
     private MobileElement transactionDiscountPrice;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/timeTv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/timeTv")
     private MobileElement transactionStatus;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Enter your Full name as on PAN card\"]/preceding-sibling::android.widget.EditText")
@@ -131,7 +137,7 @@ public class ProfilePage extends BaseTest {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Submit\"]")
     private MobileElement kycSubmitButton;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/kycVerifiedLabelTv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/kycVerifiedLabelTv")
     private List<MobileElement> kycVerifiedLabel;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"1% TDS deduction\"]")
@@ -204,7 +210,7 @@ public class ProfilePage extends BaseTest {
         ExtentReport.getTest().log(Status.INFO, "Redeem Successful message is displayed");
     }
 
-    public void withDrawMoney(AppiumDriver driver) throws InterruptedException {
+    public void withDrawMoney(AppiumDriver driver,String phoneNumber,String upiId) throws InterruptedException {
         waitForClickable(okayButton, driver);
         click(okayButton, "Clicked on Okay Button", driver);
         waitForVisibility(totalRemainingAmount, driver);
@@ -216,15 +222,20 @@ public class ProfilePage extends BaseTest {
         } catch (Exception e) {
 
         }
-        click(enterUpiIdManuallyButton, driver);
-        click(enterUpiIdField, "Clicked Upi Id field", driver);
-        sendKeys(enterUpiIdField, "icicibank7071@ibl", driver);
+        click(mobileNumberTextField,"clicked on PhoneNumber Text Field",driver);
+        sendKeys(mobileNumberTextField,phoneNumber,driver);
         clickBackButton(driver);
-        click(upiSubmitButton, "Clicked on UPi submit button", driver);
+        click(submitButton,"Clicked on Submit Button",driver);
+//        click(editButton,driver);
+//        click(enterUpiIdManuallyButton,driver);
+//        click(enterUpiIdField,driver);
+//        sendKeys(enterUpiIdField,upiId,driver);
+//        clickBackButton(driver);
+//        click(upiSubmitButton,driver);
         //      utils.log().info(getAttribute(upiRegisteredMessage,"name",driver));
         //   waitForVisibility(upiRegisteredMessage,driver);
-       // Thread.sleep(4000);
-        //verifyToastMessageUsingPageSource("UPI id is already registered with us", driver);
+        Thread.sleep(3000);
+   //     verifyToastMessageUsingPageSource("UPI id is already registered with us", driver);
         //Assert.assertTrue(upiRegisteredMessage.isDiUPI id is already registered with ussplayed(),"Upi Registered message is not displayed");
         //  utils.log().info("Upi Registered message is displayed "+getText(upiRegisteredMessage,"",driver));
         click(withDrawAmountButton, "Clicked on withDrawAmount Button", driver);
@@ -246,7 +257,7 @@ public class ProfilePage extends BaseTest {
         }
         click(enterUpiIdManuallyButton, " Clicked on EnterUpiIdManually Button", driver);
         click(enterUpiIdField, "Clicked Upi Id field", driver);
-        sendKeys(enterUpiIdField, "icicibank7071@ibl", driver);
+        sendKeys(enterUpiIdField, "aliwarsizahid-1@okicici", driver);
         clickBackButton(driver);
         click(upiSubmitButton, "Clicked on UPi submit button", driver);
         //click(withDrawAmountButton, "Clicked on withDrawAmount Button", driver);
@@ -256,24 +267,24 @@ public class ProfilePage extends BaseTest {
         ExtentReport.getTest().log(Status.INFO, "Verified Upi is already in Use by some other user");
     }
 
-    public void allowYRRedeemIfYRLessThan5Yr1stTime(AppiumDriver driver, int expectedRose) throws InterruptedException {
+    public void allowYRRedeemIfYRLessThan5Yr1stTime(AppiumDriver driver, int expectedRose,String phoneNumber, String upiId) throws InterruptedException {
         int yellowRosCount = Integer.parseInt(getText(yellowRoseCount.get(0), "get yellow rose count", driver));
         if (yellowRosCount <= expectedRose) {
             Assert.assertTrue(true, "YellowRoseCount is not less than expected rose count");
             ExtentReport.getTest().log(Status.INFO, "YellowRoseCount is not less than expected rose count");
             clikcOnWinMoneyButton(driver);
-            withDrawMoney(driver);
+            withDrawMoney(driver,phoneNumber,upiId);
             utils.log().info("Allow Yr Redeem for the first time when YR less than and equal to 5");
             ExtentReport.getTest().log(Status.INFO, "Allow Yr Redeem for the first time when YR less than and equal to 5");
         }
     }
 
-    public void allowYrRedeemIfYrMoreThan5Yr(AppiumDriver driver, int expectedRose) throws InterruptedException {
+    public void allowYrRedeemIfYrMoreThan5Yr(AppiumDriver driver, int expectedRose,String phoneNumber, String upiId) throws InterruptedException {
         int yellowRosCount = Integer.parseInt(getText(yellowRoseCount.get(0), "get yellow rose count", driver));
         if (yellowRosCount > expectedRose) {
             Assert.assertTrue(true, "YellowRoseCount is not more than expected rose count");
             clikcOnWinMoneyButton(driver);
-            withDrawMoney(driver);
+            withDrawMoney(driver,phoneNumber,upiId);
             utils.log().info("Allow Yr Redeem for the first time when YR more than 5");
             ExtentReport.getTest().log(Status.INFO, "Allow Yr Redeem for the first time when YR more than 5");
         }

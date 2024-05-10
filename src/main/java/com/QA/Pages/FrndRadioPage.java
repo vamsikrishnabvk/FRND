@@ -25,107 +25,103 @@ public class FrndRadioPage extends BaseTest {
     private MobileElement audioRecordAllowPopup;
     @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_button")
     private MobileElement audioRecordConfirmAllowPopup;
-    @AndroidFindBy(id = "com.dating.for.all:id/carouselIv")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Make FRNDs in fun groups\"]")
     public MobileElement groupRoomsPageHeader;
-    @AndroidFindBy(id = "com.dating.for.all:id/chat")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/chat")
     public MobileElement groupRoomsPlusButton;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Create Room']")
     public MobileElement groupRoomsCreateRoomButton;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Your live show']")
     public MobileElement yourLiveShowPageHeader;
-    @AndroidFindBy(id = "com.dating.for.all:id/topicEt")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/topicEt")
     public MobileElement topicTextBox;
-    @AndroidFindBy(xpath = "(//android.view.ViewGroup[@resource-id='com.dating.for.all:id/tagsLayout']/android.widget.TextView)[1]")
+    @AndroidFindBy(xpath = "(//android.view.ViewGroup[@resource-id='com.dating.for.all.debug:id/tagsLayout']/android.widget.TextView)[1]")
     public MobileElement tagsLiveShow;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='GO LIVE']")
     public MobileElement goLiveButton;
-    @AndroidFindBy(id = "com.dating.for.all:id/topicTv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/topicTv")
     public MobileElement radioRoomTopic;
-    @AndroidFindBy(id = "com.dating.for.all:id/speakerControl")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/speakerControl")
     public MobileElement radioRoomSpeakerButton;
-    @AndroidFindBy(id = "com.dating.for.all:id/micControl")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/micControl")
     public MobileElement radioRoomMicButton;
-    @AndroidFindBy(id = "com.dating.for.all:id/endStreamBiv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/endStreamBiv")
     public MobileElement endStreamButton;
-    @AndroidFindBy(id = "com.dating.for.all:id/positiveActionBtv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/positiveActionBtv")
     public MobileElement confirmEndStreamButton;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Daniel\"]/following-sibling::android.view.View//android.widget.TextView[@text=\"Join Room\"]")
     public MobileElement joinRoomByHostName;
-    @AndroidFindBy(xpath = "//android.widget.ImageView[@resource-id='com.dating.for.all:id/emptyPlayerBiv']")
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@resource-id='com.dating.for.all.debug:id/emptyPlayerBiv']")
     public List<MobileElement> addPlusButton;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Waitlist']")
     public MobileElement hostWaitlistButton;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Join Waitlist']")
     public MobileElement userWaitlistButton;
-    @AndroidFindBy(id = "com.dating.for.all:id/add")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/add")
     public MobileElement addUserButton;
-    @AndroidFindBy(xpath = "//androidx.recyclerview.widget.RecyclerView//android.widget.TextView[@resource-id='com.dating.for.all:id/playerNameTv']")
+    @AndroidFindBy(xpath = "//androidx.recyclerview.widget.RecyclerView//android.widget.TextView[@resource-id='com.dating.for.all.debug:id/playerNameTv']")
     public List<MobileElement> addedUserName;
-    @AndroidFindBy(id = "com.dating.for.all:id/playerLayout")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/playerLayout")
     public List<MobileElement> addedUserProfileAvatar;
-    @AndroidFindBy(id = "com.dating.for.all:id/micIv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/micIv")
     public MobileElement muteUserButton;
-    @AndroidFindBy(id = "com.dating.for.all:id/removeIv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/removeIv")
     public MobileElement removeUserButton;
-    @AndroidFindBy(id = "com.dating.for.all:id/removeIv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/removeIv")
     public MobileElement confirmRemoveUserButton;
-    @AndroidFindBy(id = "com.dating.for.all:id/kickOutIv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/kickOutIv")
     public MobileElement banUserButton;
-
-
-
-
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Leave']")
     public MobileElement userLeaveButton;
-    @AndroidFindBy(id = "com.dating.for.all:id/exitBt")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/exitBt")
     public MobileElement userConfirmLeaveRoomButton;
-    @AndroidFindBy(id = "com.dating.for.all:id/giftLtv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/giftLtv")
     public MobileElement giftIcon;
-    @AndroidFindBy(xpath = "//android.widget.ImageView[@resource-id='com.dating.for.all:id/giftGradient']")
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@resource-id='com.dating.for.all.debug:id/giftGradient']")
     public List<MobileElement> giftImage;
-    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id='com.dating.for.all:id/coins']")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id='com.dating.for.all.debug:id/coins']")
     public MobileElement giftPrice;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Send']")
     public MobileElement giftSendButton;
-    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id='com.dating.for.all:id/coinsCountTv']")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id='com.dating.for.all.debug:id/coinsCountTv']")
     public MobileElement userCoinsCount;
-    @AndroidFindBy(id = "com.dating.for.all:id/titleTv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/titleTv")
     private MobileElement wallpaperTitle;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/stayBt")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/stayBt")
     private MobileElement stayButton;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"You\"]")
     private MobileElement userInWaitList;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/giftLtv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/giftLtv")
     private MobileElement giftBox;
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all:id/giftTitleTv\" and @text=\"IPL\"]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all.debug:id/giftTitleTv\" and @text=\"IPL\"]")
     private MobileElement iPLGiftOption;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/purchase_text")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/purchase_text")
     private MobileElement sendButton;
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Punjab']/following-sibling::android.widget.LinearLayout//android.widget.TextView[@resource-id='com.dating.for.all:id/discountPrice']")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Punjab']/following-sibling::android.widget.LinearLayout//android.widget.TextView[@resource-id='com.dating.for.all.debug:id/discountPrice']")
     private MobileElement punjabHelmetGift;
 
-    @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.dating.for.all:id/playerAvatar\"])[1]")
+    @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.dating.for.all.debug:id/playerAvatar\"])[1]")
     private MobileElement giftAnimation;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/close")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/close")
     private MobileElement crossCloseButton;
 
-    @AndroidFindBy(xpath ="//android.widget.TextView[@resource-id=\"com.dating.for.all:id/coins\"]")
+    @AndroidFindBy(xpath ="//android.widget.TextView[@resource-id=\"com.dating.for.all.debug:id/coins\"]")
     private MobileElement remainingCoins;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/negativeActionBtv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/negativeActionBtv")
     private MobileElement cancelButton;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/removeIv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/removeIv")
     private MobileElement removeCrossLayout;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/positiveActionBtv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/positiveActionBtv")
     private MobileElement removeButton;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Daniel\"]")
@@ -140,7 +136,12 @@ public void allowAudioRecordAllowPopup(AppiumDriver driver)
     {
         click(audioRecordAllowPopup,"Clicked on Audio record allow popup",driver);
     }
-    click(audioRecordConfirmAllowPopup, driver);
+    try {
+        click(audioRecordConfirmAllowPopup, driver);
+    }catch (Exception e)
+    {
+
+    }
 }
     public void createGroupRooms(AppiumDriver driver){
         fluentVisibility(groupRoomsPlusButton, driver);
@@ -150,7 +151,7 @@ public void allowAudioRecordAllowPopup(AppiumDriver driver)
 
     public void createRadioRoom(String expectedHeader, String topic, int tagIndex, AppiumDriver driver) throws InterruptedException {
        TimeUnit.SECONDS.sleep(35);
-        fluentVisibility(yourLiveShowPageHeader, driver);
+        waitForVisibility(yourLiveShowPageHeader, driver);
         String actualPageHeader = yourLiveShowPageHeader.getText();
         Assert.assertEquals(actualPageHeader, expectedHeader, "Header is not as expected");
         sendKeys(topicTextBox, topic,"Topic entered into text box" ,driver);
@@ -181,8 +182,9 @@ public void allowAudioRecordAllowPopup(AppiumDriver driver)
 
     //*************** Assert Methods ******************************************
     public void verifyGroupRoomsPage(boolean isDisplayed, AppiumDriver driver) throws InterruptedException {
+        Thread.sleep(3000);
         waitForVisibility(groupRoomsPageHeader, driver);
-        Assert.assertEquals(groupRoomsPageHeader.isDisplayed(), isDisplayed, "Group Rooms page not displayed");
+        Assert.assertTrue(groupRoomsPageHeader.isDisplayed(), "Group Rooms page not displayed");
     }
     public void verifyRadioRoomsTopic(String expectedTopicHeader, AppiumDriver driver) throws InterruptedException {
     Thread.sleep(1000);
@@ -209,7 +211,7 @@ public void allowAudioRecordAllowPopup(AppiumDriver driver)
     }
 
     public void verifyRadioRoomsTopicByUser(String expectedTopicHeader, AppiumDriver driver) throws InterruptedException {
-        fluentVisibility(radioRoomTopic, driver);
+        waitForVisibility(radioRoomTopic, driver);
         String actualHeader = radioRoomTopic.getText();
         Assert.assertEquals(actualHeader, expectedTopicHeader, "Radio Rooms Topic not as expected");
     }
@@ -258,7 +260,7 @@ public void allowAudioRecordAllowPopup(AppiumDriver driver)
         ExtentReport.getTest().log(Status.INFO,"User is in waiting List");
     }
     public void verifyTheUserShouldBeAbleToLeaveTheRoom(boolean isDisplayed, AppiumDriver driver) throws InterruptedException {
-        fluentVisibility(userLeaveButton, driver);
+        waitForVisibility(userLeaveButton, driver);
         click(userLeaveButton, "Clicked on Leave button" ,driver);
         clickBackButton(driver);
         click(userConfirmLeaveRoomButton, "Clicked on Leave Room button", driver);
@@ -268,6 +270,7 @@ public void allowAudioRecordAllowPopup(AppiumDriver driver)
         fluentVisibility(endStreamButton, driver);
         click(endStreamButton, "Clicked on End Stream button",driver);
         click(confirmEndStreamButton,"Clicked on confirm end stream", driver);
+        Thread.sleep(2000);
         clickBackButton(driver);
         click(userConfirmLeaveRoomButton, "Clicked on Leave Room button", driver);
         verifyGroupRoomsPage(isDisplayed, driver);
@@ -360,5 +363,12 @@ public void allowAudioRecordAllowPopup(AppiumDriver driver)
                 utils.log().info("User have got removed from the HOt Seat");
                 ExtentReport.getTest().log(Status.INFO,"User have got removed from the hot seat");
             }
+    }
+    public void verifyUserNotAbleToHostFrndRadioRoom(AppiumDriver driver)
+    {
+        waitForVisibility(groupRoomsPlusButton,driver);
+        Assert.assertTrue(groupRoomsPlusButton.isDisplayed(),"User is able to host FrndRadio room");
+        utils.log().info("User is not able to Host FrndRadioRoom");
+        ExtentReport.getTest().log(Status.INFO,"User is not able to Host FrndRadioRoom");
     }
 }

@@ -1,7 +1,11 @@
+com\QA\Pages\HostedVideoCallPage.class
+com\QA\Pages\FrndRadioPage.class
+com\QA\Pages\GroupRoomPage.class
 com\QA\Base\BaseTest.class
 com\QA\Pages\FrndCoinPage.class
-com\QA\Pages\HostedVivoCallPage.class
-com\QA\Pages\WhatsappPage.class
+com\QA\Pages\GroupRoomHostedPage.class
+com\QA\Pages\ProfilePage.class
+com\QA\Pages\FrndMakingRoomsPage.class
 com\QA\Pages\HomePage.class
 com\QA\Pages\PrivateTrainingRoomPage.class
 com\QA\Pages\PaymentPage.class
@@ -11,4 +15,7 @@ com\QA\Pages\LandingPage.class
 com\QA\utlis\TestUtils.class
 com\QA\listeners\TestListener.class
 com\QA\Base\BaseTest$Direction.class
+com\QA\Pages\HostedAudioCallPage.class
 com\QA\Pages\SelectTagScreenPage.class
+com\QA\API\ApiUdateData.class
+com\QA\DataBase\FetchValue.class

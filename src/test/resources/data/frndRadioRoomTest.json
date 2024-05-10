@@ -6,6 +6,11 @@
 		"otp": "000000",
 		"wrongPassword": "Test@15643"
 	},
+	"apiUriEndPoints": {
+		"baseUri": "http://qa.frndapp.in:8080",
+		"endPointFg": "/automatedTesting/updateFgGroup",
+		"endPointFrCohort": "/automatedTesting/updateUser"
+	},
 	"Headers": {
 		"frndRadioYourLiveShowPage" : "Your live show"
 	},

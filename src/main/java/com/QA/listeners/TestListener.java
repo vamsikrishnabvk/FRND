@@ -34,7 +34,7 @@ public class TestListener implements ITestListener {
 
         BaseTest base = new BaseTest();
         File file = base.getDriver1().getScreenshotAs(OutputType.FILE);
-        File file1 = base.getDriver2().getScreenshotAs(OutputType.FILE);
+//        File file2 = base.getDriver2().getScreenshotAs(OutputType.FILE);
 
         byte[] encoded = null;
         try {

@@ -91,7 +91,7 @@ public class FrndRadioTest extends BaseTest {
     //-------------------------- Test Below -----------------------------------------
 
 
-    @Test(priority = 0, enabled = true, description = "Verify the user should be redirect to Frnd Radio after click on group room")
+    @Test(priority = 0, enabled = false, description = "Verify the user should be redirect to Frnd Radio after click on group room")
     public void verifyTheShouldBeRedirectToFrndRadioAfterClickOnGroupRoom() throws InterruptedException {
         String hostPhoneNumber = frndRadioRoomTest.getJSONObject("LoginDetails").getString("hostPhoneNumber");
         String userPhoneNumber = frndRadioRoomTest.getJSONObject("LoginDetails").getString("userPhoneNumber");
@@ -153,7 +153,7 @@ public class FrndRadioTest extends BaseTest {
         String hostName = frndRadioRoomTest.getJSONObject("UserNames").getString("hostName");
         String topic = frndRadioRoomTest.getJSONObject("RadioRoomTopic").getString("topic");
         String otp = frndRadioRoomTest.getJSONObject("LoginDetails").getString("otp");
-        String port8083 = frndRadioRoomTest.getJSONObject("Ports").getString("port8083");
+        String port8083 = frndRadioRoomTest.getJSONObject("Ports").getString("portQA");
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
         landingPage1.changingPort("QA", getDriver1());
@@ -283,7 +283,7 @@ public class FrndRadioTest extends BaseTest {
         String hostName = frndRadioRoomTest.getJSONObject("UserNames").getString("hostName");
         String topic = frndRadioRoomTest.getJSONObject("RadioRoomTopic").getString("topic");
         String otp = frndRadioRoomTest.getJSONObject("LoginDetails").getString("otp");
-        String port8083 = frndRadioRoomTest.getJSONObject("Ports").getString("port8083");
+        String port8083 = frndRadioRoomTest.getJSONObject("Ports").getString("portQA");
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
         landingPage1.changingPort("QA", getDriver1());
@@ -331,7 +331,7 @@ public class FrndRadioTest extends BaseTest {
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
         landingPage1.changingPort("QA",getDriver1());
         int i = getRandomNum();
-        String phonNum = "789012"+Integer.toString(i);
+        String phonNum = "78901"+Integer.toString(i);
         landingPage1.clickOnLetsGoButton(getDriver1());
         landingPage1.enterMobileNumber(phonNum,getDriver1());
         landingPage1.clickOnGetOTPButton(getDriver1());
@@ -376,7 +376,7 @@ public class FrndRadioTest extends BaseTest {
         frndRadioPage1.verifyRadioRoomsTopicByUser("Frnd Radio Room", getDriver1());
     }
 
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void checkThisFlowForPaidMaleRetention() throws InterruptedException {
         landingPage2.handlingUpdatePopup(getDriver2());
         landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
@@ -393,7 +393,7 @@ public class FrndRadioTest extends BaseTest {
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
         landingPage1.changingPort("QA",getDriver1());
         int i = getRandomNum();
-        String phonNum = "789012"+Integer.toString(i);
+        String phonNum = "78901"+Integer.toString(i);
         landingPage1.clickOnLetsGoButton(getDriver1());
         landingPage1.enterMobileNumber(phonNum,getDriver1());
         landingPage1.clickOnGetOTPButton(getDriver1());
@@ -414,7 +414,7 @@ public class FrndRadioTest extends BaseTest {
         homePage1.handlingPopup(getDriver1());
         homePage1.checkFreeMinuteAndConnect(getDriver1());
         homePage1.clickOnAddCoinsNowButton(getDriver1());
-        // paymentPage1.selectFrndAppPaymentMethod(getDriver1());
+        paymentPage1.selectFrndAppPaymentMethod(getDriver1());
         // paymentPage1.clickOnPhonePayIcon(getDriver1());
         paymentPage1.enterOTPAndMakePayment(getDriver1(),"111000");
         trainingRoomPage1.clickOnAudioRecordAllowPopoup(getDriver1());

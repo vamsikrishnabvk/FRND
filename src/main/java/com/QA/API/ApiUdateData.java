@@ -53,6 +53,30 @@ public class ApiUdateData {
                 .log().all();
     }
 
+    public void videoCallApiEnabled(String id,boolean value,String baseUri,String endPoint,String expectedNumber)
+    {
+        String requestBody = "{\n" +
+                "    \"update_data\": {\n" +
+                "        \"user_id\":"+id+",\n" +
+                "    \"user_fd\":true\n" +
+                "    }\n" +
+                "}";
+        System.out.println(requestBody);
+        RestAssured.baseURI=baseUri;
+        //   RestAssured.port = 8088;
+
+        RestAssured.given()
+                .body(requestBody).header("AppVersion",469)
+                .header("mobileno",expectedNumber)
+                .contentType(ContentType.JSON)
+                .when()
+                .post(endPoint)
+                .then()
+                .assertThat()
+                .statusCode(200)
+                .log().all();
+    }
+
 
     public void udateData1(String id,boolean value,String baseUri,String endPoint, String expectedNumber)
     {
@@ -213,7 +237,6 @@ public class ApiUdateData {
                 .body(requestBody).header("AppVersion",469)
                 .header("mobileno",phoneNumber)
                 .contentType(ContentType.JSON)
-
                 .when()
                 .post(endPoint)
                 .then()

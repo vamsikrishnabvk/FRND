@@ -7,6 +7,7 @@ import io.appium.java_client.*;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.*;
@@ -102,12 +103,15 @@ public class BaseTest {
                                                              String appActivity,
                                                              String appiumHost) throws MalformedURLException {
         DesiredCapabilities dc = new DesiredCapabilities();
+        dc.setCapability("automationName","UiAutomator2");
         dc.setCapability("deviceName", deviceName);
         dc.setCapability("platformName", "Android");
         dc.setCapability("udid", udid);
         dc.setCapability("appPackage", appPackage);
         dc.setCapability("appActivity", appActivity);
-        dc.setCapability("newCommandTimeout", 60 * 15);
+    //    dc.setCapability("newCommandTimeout", 60 * 15);
+        dc.setCapability("noReset", false);
+        dc.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,60 * 15);
         // It will launch Dialer app in android emulator-device.
         return new AndroidDriver<AndroidElement>(new URL(appiumHost), dc);
 
@@ -122,7 +126,7 @@ public class BaseTest {
 //                 "extensions.GoogleDialtactsActivity",
 //                 "http://127.0.0.1:4723/wd/hub");
         driver1 = createAndroidDriver("Google Pixel 6A",
-                "com.dating.for.all",
+                "com.dating.for.all.debug",
                 "2C161JEGR00633",//
                 "com.dating.chat.main.MainActivity",
                 "http://127.0.0.1:4723/wd/hub");
@@ -132,7 +136,7 @@ public class BaseTest {
 //                 "com.android.dialer.main.impl.MainActivity",
 //                 "http://127.0.0.1:4725/wd/hub");
         driver2 = createAndroidDriver("Moto G62 5G",
-                "com.dating.for.all",
+                "com.dating.for.all.debug",
                 "ZD2227CVBC",
                 "com.dating.chat.main.MainActivity",
                 "http://127.0.0.1:4724/wd/hub");
@@ -143,7 +147,7 @@ public class BaseTest {
 //                 "extensions.GoogleDialtactsActivity",
 //                 "http://127.0.0.1:4723/wd/hub");
 //        driver3 = createAndroidDriver("Samsung S20",
-//                "com.dating.for.all",
+//                "com.dating.for.all.debug",
 //                "4tyljv4df6tgzxyx",
 //                "com.dating.chat.main.MainActivity",
 //                "http://127.0.0.1:4725/wd/hub");
@@ -167,11 +171,11 @@ public class BaseTest {
 //        @Test
 //        public void clickTest() {//com.google.android.dialer:id/icon
 //          //  driver1.findElementByXPath("//android.widget.ImageView[@content-desc=\"Dismiss update dialogue\"]").click();
-//            WebElement a = getDriver1().findElementById("com.dating.for.all:id/join");
+//            WebElement a = getDriver1().findElementById("com.dating.for.all.debug:id/join");
 //            waitForVisibility1(a);
 //            click1(a,"Cliked on the element");
 //            //driver2.findElementById("com.android.dialer:id/main_options_menu_button").click();
-//            WebElement b = getDriver2().findElementById("com.dating.for.all:id/join");
+//            WebElement b = getDriver2().findElementById("com.dating.for.all.debug:id/join");
 //            click2(b,"Cliked on element");
 //            try{Thread.sleep(10000);}catch(InterruptedException e){System.out.println(e);}
 //
@@ -196,7 +200,12 @@ public class BaseTest {
 //    }
 
     public void waitForVisibility(MobileElement e, AppiumDriver driver) {
-        WebDriverWait wait = new WebDriverWait(driver, 50);
+//        WebDriverWait wait = new WebDriverWait(driver, 50);
+//        wait.until(ExpectedConditions.visibilityOf(e));
+        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(ofSeconds(60))
+                .pollingEvery(ofSeconds(1)).ignoring(StaleElementReferenceException.class)
+                .ignoring(IndexOutOfBoundsException.class)
+                .ignoring(NoSuchElementException.class);
         wait.until(ExpectedConditions.visibilityOf(e));
     }
 
@@ -275,7 +284,6 @@ public class BaseTest {
         b.perform();
         utils.log().info(msg);
         ExtentReport.getTest().log(Status.INFO, msg);
-
     }
 
     public String getAttribute(WebElement e, String attribute, AppiumDriver driver) {
@@ -539,7 +547,7 @@ public class BaseTest {
 
     public int getRandomNum() {
         Random randomNum = new Random();
-        return randomNum.nextInt(10000 - 1000) + 1000;
+        return randomNum.nextInt(100000 - 10000) + 10000;
     }
 
     @AfterTest(alwaysRun = true)

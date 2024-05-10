@@ -4,12 +4,17 @@
     "userPhoneNumber": "7890134562",
     "user2PhoneNumber": "7890134563",
     "otp": "000000",
-    "wrongPassword": "Test@15643"
+    "wrongPassword": "Test@15643",
+    "baseUri": "http://qa.frndapp.in:8080",
+    "endPointFmrCohort": "/automatedTesting/updateUser",
+    "hostPhoneNumber2": "7890134512",
+    "partialNum": "78901",
+    "nickName": "Daniel"
   },
   "Headers": {
     "createMakingRoomPopupHeader": "Be FRND Making Expert",
     "frndMakingRoomsPagePopupHeader": "FRND Making Rooms",
-    "frndMakingLiveRoomsPageHeader": "FRND RJ",
+    "frndMakingLiveRoomsPageHeader": "FRND Making Rooms",
     "closeLiveRoomPopupHeader": "Close Room",
     "frndPageTitleForUser": "Experts will make your FRND",
     "removeUserPopupHeader": "Are you sure, you want to remove user",

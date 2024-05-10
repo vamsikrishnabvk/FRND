@@ -3,12 +3,13 @@
     "phoneNumberDev1":"7890134561",
     "otp":"000000",
     "phoneNumberDev2": "7890134562",
-    "partialPhNo": "789012",
+    "partialPhNo": "78901",
     "expectedCoins": "20",
     "nickName": "Daniel",
     "nickName1": "Shamita",
     "baseUri": "http://qa.frndapp.in:8080",
     "endPoint": "/automatedTesting/updateFgGroup",
-    "portNumber": "QA"
+    "endPointGirlVerified" : "/automatedTesting/updateUser",
+    "portNumber": "8083"
   }
 }

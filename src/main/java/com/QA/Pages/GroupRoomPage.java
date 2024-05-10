@@ -18,16 +18,16 @@ public class GroupRoomPage extends BaseTest {
 
     TestUtils utils = new TestUtils();
     //*************** Keep Elements Here ******************************************
-    @AndroidFindBy(id = "com.dating.for.all:id/chat")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/chat")
     private MobileElement plusIcon;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Create Room\"]")
     private MobileElement createRoomButton;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/instructionTv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/instructionTv")
     private MobileElement waitForPlayersLabel;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/exitBt")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/exitBt")
     private MobileElement leaveRoomButton;
 
     @AndroidFindBy(xpath = "(//android.widget.TextView[@text=\"हिन्दी\"])[2]")
@@ -36,19 +36,19 @@ public class GroupRoomPage extends BaseTest {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Join Room\"]")
     private MobileElement joinRoomButton;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/unFollowButtonTv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/unFollowButtonTv")
     private MobileElement followingLabel;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/gift")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/gift")
     private MobileElement giftBox;
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all:id/giftTitleTv\" and @text=\"IPL\"]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all.debug:id/giftTitleTv\" and @text=\"IPL\"]")
     private MobileElement iplTab;
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all:id/toy_name\" and @text=\"Punjab\"]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all.debug:id/toy_name\" and @text=\"Punjab\"]")
     private MobileElement punjabHelmetGift;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/purchase_text")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/purchase_text")
     private MobileElement sendButton;
 
     @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_foreground_only_button")
@@ -63,13 +63,13 @@ public class GroupRoomPage extends BaseTest {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Make FRNDs in fun groups\"]")
     private MobileElement makingFrndInGroupLabel;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/coins")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/coins")
     private MobileElement coinsNumber;
 
-    @AndroidFindBy(xpath = "(//android.widget.TextView[@resource-id=\"com.dating.for.all:id/discountPrice\"])[2]")
+    @AndroidFindBy(xpath = "(//android.widget.TextView[@resource-id=\"com.dating.for.all.debug:id/discountPrice\"])[2]")
     private MobileElement helmentGiftPrice;
 
-    @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.dating.for.all:id/hostIv\"])[2]")
+    @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.dating.for.all.debug:id/hostIv\"])[2]")
     private MobileElement giftAnimation;
 
 

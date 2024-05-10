@@ -144,28 +144,4 @@ public class ExtentReport extends BaseTest {
 		extentTestMap.put((int) (Thread.currentThread().getId()), test);
 		return test;
 	}
-
-//	public static synchronized ExtentReports getReporter() throws IOException {
-//		Properties prop = new Properties();
-//		File file = new File(System.getProperty("user.dir") + "/src/main/resources/config.properties");
-//		FileInputStream fis = new FileInputStream(file);
-//		prop.load(fis);
-//
-//		if (extent == null) {
-//			ExtentSparkReporter html = new ExtentSparkReporter("Extent.html");
-//			html.config().setDocumentTitle("Appium Framework");
-//			html.config().setReportName("MyNextCare Testing Factory");
-//			html.config().setTheme(Theme.DARK);
-//			extent = new ExtentReports();
-//			extent.attachReporter(html);
-//			extent.setSystemInfo("Android App package Name", prop.getProperty("androidAppPackage"));
-//			extent.setSystemInfo("Android App activity Name", prop.getProperty("androidAppActivity"));
-//			extent.setSystemInfo("Android OS", prop.getProperty("androidOS"));
-//			extent.setSystemInfo("Operating System: ", System.getProperty("os.name"));
-//			extent.setSystemInfo("Java Version: ", System.getProperty("java.version"));
-//		}
-//
-//		return extent;
-//	}
-//
 }

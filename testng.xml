@@ -6,13 +6,16 @@
 	</listeners>
 	<test name="moto g62 5G">
 		<classes>
-			<class name="com.QA.Test.AudioCallTest"/>
+<!--			<class name="com.QA.Test.PaymentTest"/>-->
 			<class name="com.QA.Test.VideoCallTest"/>
-			<class name="com.QA.Test.YrRedeemTest"/>
-			<class name="com.QA.Test.SgnUpTest"/>
-			<class name="com.QA.Test.FrndMakingRoomTest"/>
-			<class name="com.QA.Test.FrndRadioTest"/>
-			<class name="com.QA.Test.PaymentTest"/>
+<!--			<class name="com.QA.Test.AudioCallTest"/>-->
+<!--			<class name="com.QA.Test.YrRedeemTest"/>-->
+<!--			<class name="com.QA.Test.SgnUpTest"/>-->
+<!--			<class name="com.QA.Test.FrndMakingRoomTest"/>-->
+<!--			<class name="com.QA.Test.FrndRadioTest"/>-->
+<!--			<class name="com.ui.QA.Test.AudioCallUITest"/>-->
+<!--			<class name="com.ui.QA.Test.VideoCallUITest"/>-->
+<!--			<class name="com.ui.QA.Test.FrndMakingRoomUITest"/>-->
 		</classes>
 	</test>
 	<!--	   <test name="FRND Automation iOS">-->

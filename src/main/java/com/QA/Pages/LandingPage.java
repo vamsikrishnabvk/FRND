@@ -23,78 +23,80 @@ public class LandingPage extends BaseTest {
 
     TestUtils utils = new TestUtils();
     //*************** Keep Elements Here ******************************************
-    @AndroidFindBy(id = "com.dating.for.all:id/join")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/join")
     private MobileElement letsGoButton;
-    @AndroidFindBy(id = "com.dating.for.all:id/numberEt")
+
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/numberEt")
     private MobileElement mobileNumberTextBox;
 
     @AndroidFindBy(id = "android:id/text1")
     private MobileElement autoSuggestedNum;
-    @AndroidFindBy(id = "com.dating.for.all:id/getOtp")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/getOtp")
     private MobileElement getOTPButton;
-    @AndroidFindBy(id = "com.dating.for.all:id/otpEt")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/otpEt")
     private MobileElement otpTextBox;
-    @AndroidFindBy(id = "com.dating.for.all:id/submitBtv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/submitBtv")
     private MobileElement submitButton;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/genderCl")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/genderCl")
     private MobileElement selectGenderButton;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/boySelectBgCv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/boySelectBgCv")
     private MobileElement boyGender;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/girlSelectBgCv")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/girlSelectBgCv")
     private MobileElement girlGender;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/recordBt")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/recordBt")
     private MobileElement voiceRecordButton;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/ageEt")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/ageEt")
     private MobileElement dateOfBirthButton;
 
     @AndroidFindBy(id = "android:id/button1")
     private MobileElement okButton;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/nextUpdateProfileBt")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/nextUpdateProfileBt")
     private MobileElement submitButtonSignIn;
 
-    @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id=\"com.dating.for.all:id/nameEt\"]")
+    @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id=\"com.dating.for.all.debug:id/nameEt\"]")
     private MobileElement nickNameField;
 
-    @AndroidFindBy(xpath = "(//android.widget.FrameLayout[@resource-id=\"com.dating.for.all:id/imageFl\"])[1]")
+    @AndroidFindBy(xpath = "(//android.widget.FrameLayout[@resource-id=\"com.dating.for.all.debug:id/imageFl\"])[1]")
     private MobileElement hindiLanguage;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/updatePrimaryBt")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/updatePrimaryBt")
     private MobileElement saveButton;
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all:id/debug_menu_title\" and @text=\"Select server\"]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all.debug:id/debug_menu_title\" and @text=\"Select server\"]")
     private MobileElement selectServerButton;
 
-    @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"android:id/button1\"]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Ok\"]")
     private MobileElement serverOkButton;
 
-    @AndroidFindBy(id = "Dismiss update dialogue")
-    private static MobileElement updateCrossButton;
+    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@content-desc=\"Update from Google Play available\n" +
+            "\"]")
+    private  MobileElement updateCrossButton;
 
     @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_button")
-    private List<MobileElement> notificationAllowPopup;
+    private MobileElement notificationAllowPopup;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/customactivityoncrash_error_activity_restart_button")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/customactivityoncrash_error_activity_restart_button")
     private MobileElement restartButton;
 
     @AndroidFindBy(xpath = "//android.widget.CheckedTextView[@resource-id=\"android:id/text1\" and @text=\"8088\"]")
     private MobileElement devServer8088;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/confirm")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/confirm")
     private MobileElement cyberCrimeCheckBox;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/submit")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/submit")
     private MobileElement cyberCrimeSubmitButton;
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all:id/language\" and @text=\"English\"]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.dating.for.all.debug:id/language\" and @text=\"English\"]")
     private MobileElement appLanguage;
 
-    @AndroidFindBy(id = "com.dating.for.all:id/confirm")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/confirm")
     private MobileElement appLanguageConfirmButton;
 
     @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_foreground_only_button")
@@ -103,7 +105,7 @@ public class LandingPage extends BaseTest {
     @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_foreground_only_button")
     private MobileElement audioRecordPopup;
 
-    @AndroidFindBy(xpath = "//android.widget.CheckedTextView[@resource-id=\"android:id/text1\"]")
+    @AndroidFindBy(xpath = "//android.widget.RadioButton/following-sibling::android.widget.TextView")
     private List<MobileElement> devServer;
 
     @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"android:id/aerr_close\"]")
@@ -135,16 +137,14 @@ public class LandingPage extends BaseTest {
     }
 
     public void handlingUpdatePopup(AppiumDriver driver) throws InterruptedException {
-        Thread.sleep(2000);
-        //System.out.println(updateCrossButton.size());
         try {
             if (updateCrossButton.isDisplayed()) {
-                click(updateCrossButton,driver);
+                clickBackButton(driver);
             }
         } catch (Exception e) {
 
         }
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         try {
             if (closeAppCrossButton.isDisplayed()) {
                 click(closeAppCrossButton, "Clicked on Restart Button", driver);
@@ -226,9 +226,14 @@ public class LandingPage extends BaseTest {
         click(getOTPButton, "Clicked on Get OTP Button", driver);
         sendKeys(otpTextBox, otpNumber, "enter otp number", driver);
         click(submitButton, "Clicked on Submit Button", driver);
-        Thread.sleep(2000);
-        if (notificationAllowPopup.size() == 1) {
-            click(notificationAllowPopup.get(0), "Clicked on notification allow button", driver);
+        try {
+            waitForClickable(notificationAllowPopup, driver);
+            if (notificationAllowPopup.isDisplayed()) {
+                click(notificationAllowPopup, "Clicked on notification allow button", driver);
+            }
+        }catch (Exception e)
+        {
+
         }
     }
 
@@ -296,9 +301,15 @@ public class LandingPage extends BaseTest {
     public void selectAppLanguage(AppiumDriver driver) throws InterruptedException {
         click(appLanguage, "Select app Language", driver);
         click(appLanguageConfirmButton, "Clicked on AppLanguage Confirm Button", driver);
-        Thread.sleep(3000);
-        if (notificationAllowPopup.size() == 1) {
-            click(notificationAllowPopup.get(0), "Clicked on allow notification popup", driver);
+        try
+        {
+            waitForVisibility(notificationAllowPopup, driver);
+            if (notificationAllowPopup.isDisplayed()) {
+                click(notificationAllowPopup, "Clicked on allow notification popup", driver);
+            }
+        }catch (Exception e)
+        {
+
         }
     }
 

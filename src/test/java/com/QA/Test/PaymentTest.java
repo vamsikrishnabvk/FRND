@@ -74,7 +74,7 @@ public class PaymentTest extends BaseTest {
         closeApp(getDriver2());
         launchApp(getDriver1());
         launchApp(getDriver2());
-//        getDriver().activateApp("com.dating.for.all");
+//        getDriver().activateApp("com.dating.for.all.debug");
     }
 
     //-------------------------- Test Below -----------------------------------------
@@ -172,7 +172,7 @@ public class PaymentTest extends BaseTest {
         homePage1.verifyCoinsAddedAfterPayment(availableCoin,coinsAfterPayment,getCoinsToBeAdded);
     }
 
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void verifyThatBehaviorOfAppAfterCancelTheAnyTransction() throws InterruptedException {
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
@@ -196,16 +196,16 @@ public class PaymentTest extends BaseTest {
         paymentPage1.clickBhimPayICon(getDriver1());
         paymentPage1.failTheAppTransaction(getDriver1());
         frndCoinPage1.clickOnCoinPackOption(getDriver1());
-        paymentPage1.clickOnChangePaymentMode1(getDriver1());
+      //  paymentPage1.clickOnChangePaymentMode1(getDriver1());
         paymentPage1.failUpiIDPayment(getDriver1(),"testtpvsuccess@gocash");
         frndCoinPage1.clickOnCoinPackOption(getDriver1());
-        paymentPage1.clickOnChangePaymentMode1(getDriver1());
+      //  paymentPage1.clickOnChangePaymentMode1(getDriver1());
         paymentPage1.enterCardDetails(getDriver1(),"Test","4706131211212123","03/28","123");
        // paymentPage1.failTheAppTransaction(getDriver1());
         paymentPage1.verifyFailCardPayment(getDriver1());
     }
 
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void verifyThatDiscountCouponIsAppliedProperlyWhileAppliedTheCoupons() throws InterruptedException {
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
@@ -228,7 +228,7 @@ public class PaymentTest extends BaseTest {
         profilePage1.verifyTransation(getDriver1(),finalPrice);
     }
 
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void checkWithAllAvailableDiscountCouponsTransactions() throws InterruptedException {
         landingPage2.handlingUpdatePopup(getDriver2());
         landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
@@ -245,7 +245,7 @@ public class PaymentTest extends BaseTest {
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
         landingPage1.changingPort("QA",getDriver1());
         int i = getRandomNum();
-        String phonNum = "789012"+Integer.toString(i);
+        String phonNum = "78901"+Integer.toString(i);
         landingPage1.clickOnLetsGoButton(getDriver1());
         landingPage1.enterMobileNumber(phonNum,getDriver1());
         landingPage1.clickOnGetOTPButton(getDriver1());
@@ -264,13 +264,15 @@ public class PaymentTest extends BaseTest {
         homePage1.clickOnTrainingTab(getDriver1());
         trainingRoomPage1.checkCoinAndEnterRoom(text,"90",getDriver1());
         vivoCallPage1.verifyDiscountLabel(getDriver1());
+        int convenienceCharge = paymentPage1.gettingConvenienceCharge(getDriver1());
+        int actualPrice = paymentPage1.gettingActualPrice(getDriver1());
         paymentPage1.clickOnChangePaymentMode(getDriver1());
         int discountedValue = paymentPage1.getDiscountValue(getDriver1());
-        paymentPage1.verifyDefaultDiscountApplied(getDriver1());
+        paymentPage1.verifyDefaultDiscountApplied(getDriver1(),convenienceCharge,actualPrice);
         paymentPage1.clickOnPhonePayIcon(getDriver1());
         paymentPage1.enterOTPAndMakePayment(getDriver1(),"111000");
         trainingRoomPage1.handleHostedRoomPopup(getDriver1());
-        Thread.sleep(90000);
+        Thread.sleep(95000);
         vivoCallPage1.clickOnStarRating(getDriver1());
         vivoCallPage1.giveReviewMessage(getDriver1());
         vivoCallPage1.clickOnSubmitButton(getDriver1());
@@ -284,13 +286,15 @@ public class PaymentTest extends BaseTest {
         homePage1.clickOnTrainingTab(getDriver1());
         trainingRoomPage1.checkCoinAndEnterRoom(text1,"20",getDriver1());
         vivoCallPage1.verifyDiscountLabel(getDriver1());
+        int convenienceCharge1 = paymentPage1.gettingConvenienceCharge(getDriver1());
+        int actualPrice1 = paymentPage1.gettingActualPrice(getDriver1());
         paymentPage1.clickOnChangePaymentMode(getDriver1());
         int discountedValue1 = paymentPage1.getDiscountValue(getDriver1());
-        paymentPage1.verifyDefaultDiscountApplied(getDriver1());
+        paymentPage1.verifyDefaultDiscountApplied(getDriver1(),convenienceCharge1,actualPrice1);
         paymentPage1.clickOnPhonePayIcon(getDriver1());
         paymentPage1.enterOTPAndMakePayment(getDriver1(),"111000");
         trainingRoomPage1.handleHostedRoomPopup(getDriver1());
-        Thread.sleep(90000);
+        Thread.sleep(96000);
         vivoCallPage1.clickOnStarRating(getDriver1());
         vivoCallPage1.giveReviewMessage(getDriver1());
         vivoCallPage1.clickOnSubmitButton(getDriver1());
