@@ -125,6 +125,9 @@ public class SgnUpTest extends BaseTest {
         landingPage2.handlingUpdatePopup(getDriver2());
         landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
         landingPage2.changingPort(portNumber, getDriver2());
+        landingPage1.handlingUpdatePopup(getDriver1());
+        landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
+        landingPage1.changingPort(portNumber, getDriver1());
         landingPage2.loginToApplication(phoneNumber, otp, getDriver2());
         homePage2.handlingPopup(getDriver2());
         homePage2.clickOnTrainingTab(getDriver2());
@@ -133,9 +136,6 @@ public class SgnUpTest extends BaseTest {
         trainingRoomPage2.clickOnAudioRoomButton(getDriver2());
         tagScreenPage2.clickOnLoveTag(getDriver2());
         tagScreenPage2.verifyUerAbleToHost(getDriver2());
-        landingPage1.handlingUpdatePopup(getDriver1());
-        landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
-        landingPage1.changingPort(portNumber, getDriver1());
         int i = getRandomNum();
         String phonNum = partialNum + Integer.toString(i);
         landingPage1.clickOnLetsGoButton(getDriver1());
@@ -156,7 +156,7 @@ public class SgnUpTest extends BaseTest {
         landingPage1.selectAppLanguage(getDriver1());
         homePage1.handlingPopup(getDriver1());
         homePage1.checkFreeMinuteAndConnect(getDriver1());
-        Thread.sleep(320000);
+        Thread.sleep(325000);
         vivoCallPage1.verifyUserGotRemovedAferFreeFiveMinuteCall(getDriver1());
         vivoCallPage1.clickOnStarRating(getDriver1());
         vivoCallPage1.clickOnskipCrossButton(getDriver1());

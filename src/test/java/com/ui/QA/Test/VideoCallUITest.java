@@ -258,7 +258,7 @@ public class VideoCallUITest extends BaseTest {
         hostedAudioCallPage2.checkIfFaceNotDetectedBottomSheetShouldShowAMovingAnimationForUserToGuideThatUserShouldBeInFrontOfTheDeviceCamera(getDriver2());
     }
 
-    @Test(priority = 1, enabled = false, description = "LT-01: Verify User able to Host Voice call")
+    @Test(priority = 1, enabled = true, description = "LT-01: Verify User able to Host Voice call")
     public void verifyIfSwitchToVideoCallOptionShouldNotBePresentUnderTripleDotOptionForBothHostAndUser() throws InterruptedException {
         landingPage2.handlingUpdatePopup(getDriver2());
         landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
@@ -339,7 +339,7 @@ public class VideoCallUITest extends BaseTest {
         hostedVideoCallPage2.verifyTheUserShouldBeAbleToEnableDisableOfSpeaker(getDriver2());
     }
 
-    @Test(priority = 1, enabled = false, description = "LT-01: Verify User able to Host Voice call")
+    @Test(priority = 1, enabled = true, description = "LT-01: Verify User able to Host Voice call")
     public void verifyIfUserWithHostedVIVOCallOnOneDeviceThenSameUserOnOtherDevicesShouldNotBeAllowedToHostAndJoinFMRFRNDRadioDumsharasVIVO() throws InterruptedException {
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
@@ -362,15 +362,10 @@ public class VideoCallUITest extends BaseTest {
         homePage2.clickOnFrndTab(getDriver2());
         frndMakingRoomsPage2.verifyFRNDMakingRoomsPageHeader("FRND Making Rooms", getDriver2());
         frndMakingRoomsPage2.clickOnPlusIconAfterJoinRoom(getDriver2());
+        frndMakingRoomsPage2.verifyUserNotAbleToHostFMR(getDriver2());
         // frndMakingRoom1.clickOnCreateNewRoomButton(getDriver1());
-        landingPage2.handlingUpdatePopup(getDriver2());
-        landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
-        landingPage2.changingPort("QA", getDriver2());
-        landingPage2.loginToApplication("7890134561", "000000", getDriver2());
-        homePage2.handlingPopup(getDriver2());
-        String id1 = fetchValue.fetchValue("7890134561");
-        apiUdateData.frndRadio(id1,true,"http://qa.frndapp.in:8080","/automatedTesting/updateFgGroup","7890134561");
         apiUdateData.frndRadioCohortUpdate(id,true,"http://qa.frndapp.in:8080","/automatedTesting/updateUser","7890134561");
+        homePage2.clickOnHomeTab(getDriver2());
         homePage2.clickOnGroupRoom(getDriver2());
         frndRadioPage2.verifyGroupRoomsPage(true, getDriver2());
         frndRadioPage2.createGroupRooms(getDriver1());
@@ -387,7 +382,7 @@ public class VideoCallUITest extends BaseTest {
         trainingRoomPage2.verifyNotAbleToHostPTRroom(getDriver2());
     }
 
-    @Test(priority = 1, enabled = true, description = "LT-01: Verify User able to Host Voice call")
+    @Test(priority = 1, enabled = false, description = "LT-01: Verify User able to Host Voice call")
     public void checkIfInGameRechargeReminderBottonSheetShouldDisplayOnLastThreeMinsLeftIvideoCall() throws InterruptedException {
         landingPage2.handlingUpdatePopup(getDriver2());
         landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());

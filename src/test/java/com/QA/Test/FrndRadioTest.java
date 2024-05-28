@@ -376,7 +376,7 @@ public class FrndRadioTest extends BaseTest {
         frndRadioPage1.verifyRadioRoomsTopicByUser("Frnd Radio Room", getDriver1());
     }
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void checkThisFlowForPaidMaleRetention() throws InterruptedException {
         landingPage2.handlingUpdatePopup(getDriver2());
         landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());

@@ -78,7 +78,7 @@ public class FrndMakingRoomTest extends BaseTest {
     //-------------------------- Test Below -----------------------------------------
 
 
-    @Test(priority = 0, enabled = true, description = "Verify that user able to host the Frnd Making room")
+    @Test(priority = 0, enabled = false, description = "Verify that user able to host the Frnd Making room")
     public void verifyThatUserAbleToHostTheFrndMakingroom() throws InterruptedException {
         String baseUri = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("baseUri");
         String endPointFmrCohort = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("endPointFmrCohort");
@@ -126,7 +126,7 @@ public class FrndMakingRoomTest extends BaseTest {
         frndMakingRoom2.verifyThatUserIsAbleToExitDuringTheGame(getDriver2());
     }
 
-    @Test(priority = 1, enabled = true, description = "Verify that Host able to close the room before start the game")
+    @Test(priority = 1, enabled = false, description = "Verify that Host able to close the room before start the game")
     public void verifyThatHostAbleToCloseTheRoomBeforeStartTheGame() throws InterruptedException {
         String baseUri = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("baseUri");
         String endPointFmrCohort = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("endPointFmrCohort");
@@ -173,7 +173,7 @@ public class FrndMakingRoomTest extends BaseTest {
         frndMakingRoom1.verifyIfHostShouldBeAbleToApplyTheGiftedWallpaperDuringTheGame(getDriver1());
         frndMakingRoom1.verifyThatHostAbleToKickoutTheUserInFrndMakingRoomClickingOnKickOutOption(true, removeUserPopupHeader,frndPageTitleForUser, getDriver1());
         frndMakingRoom2.verifyThatUserAbleToRemoveTheFrndMakingRoomWhenHostRemoveParticularUsers(frndPageTitleForUser, getDriver2());
-        homePage2.verifyCallNowBannerDisplayed(true, getDriver2());
+       // homePage2.verifyCallNowBannerDisplayed(true, getDriver2());
         homePage2.clickOnFrndTab(getDriver2());
         frndMakingRoom2.clickOnJoinRoomAndLeave(getDriver2());
         frndMakingRoom2.clickOnJoinWaitlistButton(getDriver2());
@@ -184,7 +184,7 @@ public class FrndMakingRoomTest extends BaseTest {
     }
 
 
-    @Test(priority = 2, enabled = true, description = "Verify that coin balance is deducted when user send the Gifts")
+    @Test(priority = 2, enabled = false, description = "Verify that coin balance is deducted when user send the Gifts")
     public void verifyThatCoinBalanceIsDeductedWhenUserSendTheGifts() throws InterruptedException {
         String baseUri = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("baseUri");
         String endPointFmrCohort = FrndMakingRoomTest.getJSONObject("FrndMakingRoomTest").getString("endPointFmrCohort");

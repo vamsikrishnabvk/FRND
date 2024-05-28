@@ -25,6 +25,8 @@ public class PrivateTrainingRoomPage extends BaseTest {
     //*************** Keep Elements Here ******************************************
     @AndroidFindBy(xpath = "(//android.widget.TextView[@text=\"Private Training Rooms\"]/preceding-sibling::android.view.View)[4]")
     private MobileElement plusIcon;
+    @AndroidFindBy(xpath = "//android.widget.Toast[@text=\"Invalid game id\"]")
+    private MobileElement invalidGameIdToastMessage;
 
     @AndroidFindBy(id = "com.dating.for.all.debug:id/treasure_animation_lv")
     private MobileElement animationIcon;
@@ -357,10 +359,10 @@ public class PrivateTrainingRoomPage extends BaseTest {
         utils.log().info("AurBtaoIcon is displayed and clickable");
         ExtentReport.getTest().log(Status.INFO, "AurBtaoIcon is displayed and clickable");
     }
-    public void verifyNotAbleToHostPTRroom(AppiumDriver driver)
-    {
-        waitForVisibility(plusIcon,driver);
-        Assert.assertTrue(plusIcon.isDisplayed(),"User is able to Host PTR room");
+    public void verifyNotAbleToHostPTRroom(AppiumDriver driver) throws InterruptedException {
+        Thread.sleep(5000);
+        waitForVisibility(new SelectTagScreenPage(driver).goOnlineButton,driver);
+        Assert.assertTrue(new SelectTagScreenPage(driver).goOnlineButton.isDisplayed(),"User is able to Host PTR room");
         utils.log().info("User not able to Host PTR room");
         ExtentReport.getTest().log(Status.INFO, "User not able to Host PTR room");
     }

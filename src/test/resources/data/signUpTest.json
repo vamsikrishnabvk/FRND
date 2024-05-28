@@ -10,6 +10,6 @@
     "baseUri": "http://qa.frndapp.in:8080",
     "endPoint": "/automatedTesting/updateFgGroup",
     "endPointGirlVerified" : "/automatedTesting/updateUser",
-    "portNumber": "8083"
+    "portNumber": "QA"
   }
 }

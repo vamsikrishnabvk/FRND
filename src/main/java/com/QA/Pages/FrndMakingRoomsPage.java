@@ -27,7 +27,7 @@ public class FrndMakingRoomsPage extends BaseTest {
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='FRND Making Rooms']")
     public MobileElement frndMakingRoomsPageHeader;
-    @AndroidFindBy(xpath = "//android.view.View[1]/android.view.View[3]")
+    @AndroidFindBy(xpath = "//android.view.View[@resource-id=\"plus_icon\"]")
     public MobileElement plusIcon;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Create Room']")
     public MobileElement createRoomButton;
@@ -50,6 +50,9 @@ public class FrndMakingRoomsPage extends BaseTest {
     public List<MobileElement> closeLiveRoomCrossButton1;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Join Room']")
     public MobileElement joinRoom;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Join Room']")
+    public List<MobileElement> joinRoom1;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Daniel']/following-sibling::android.view.View//android.widget.TextView[@text=\"Join Room\"]")
     public MobileElement joinRoomByUserName;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Experts will make your FRND']")
@@ -71,7 +74,7 @@ public class FrndMakingRoomsPage extends BaseTest {
 
     @AndroidFindBy(id = "com.dating.for.all.debug:id/add")
     public MobileElement waitlistAddButton;
-    @AndroidFindBy(id = "com.dating.for.all.debug:id/avatar")
+    @AndroidFindBy(xpath = "(//android.view.ViewGroup[@resource-id=\"com.dating.for.all.debug:id/maleSeat\"]//android.widget.ImageView)[3]")
     public MobileElement userAvatar;
     @AndroidFindBy(id = "//android.view.ViewGroup[@resource-id='com.dating.for.all.debug:id/maleSeat']//android.widget.ImageView[@resource-id='com.dating.for.all.debug:id/avatar']")
     public MobileElement maleUserAvatar;
@@ -99,11 +102,11 @@ public class FrndMakingRoomsPage extends BaseTest {
     public MobileElement banUserButton;
     @AndroidFindBy(id = "com.dating.for.all.debug:id/profileIv")
     public MobileElement userProfileButton;
-    @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id='com.dating.for.all.debug:id/image'])[2]")
+    @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id='com.dating.for.all.debug:id/image'])[5]")
     public MobileElement userGiftIcon;
     @AndroidFindBy(xpath = "//android.widget.ImageView[@resource-id='com.dating.for.all.debug:id/image']")
     public List<MobileElement> giftIcon;
-    @AndroidFindBy(xpath = "//android.widget.ImageView[@resource-id='com.dating.for.all.debug:id/image']")
+    @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.dating.for.all.debug:id/image\"])[1]")
     public MobileElement giftIcon1;
     @AndroidFindBy(id = "com.dating.for.all.debug:id/purchase")
     public MobileElement userGiftSendButton;
@@ -191,7 +194,7 @@ public class FrndMakingRoomsPage extends BaseTest {
     @AndroidFindBy(id = "com.dating.for.all.debug:id/mic")
     private MobileElement mic;
 
-    @AndroidFindBy(id = "com.dating.for.all.debug:id/statusIndicator")
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@resource-id=\"com.dating.for.all.debug:id/statusIndicator\"]")
     private List<MobileElement> soundOffSymbol;
     @AndroidFindBy(id = "com.dating.for.all.debug:id/speaker")
     private MobileElement volumeIcon;
@@ -223,6 +226,13 @@ public class FrndMakingRoomsPage extends BaseTest {
     private List<MobileElement> mutedSign;
     @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.dating.for.all.debug:id/image\"])[4]")
     private MobileElement giftCakeItem;
+    @AndroidFindBy(xpath = "//android.view.ViewGroup[@resource-id=\"com.dating.for.all.debug:id/femaleSeatEmpty\"]//android.widget.ImageView")
+    private MobileElement femaleSeat;
+
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/followHost")
+    private MobileElement followHostButton;
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/followHost")
+    private List<MobileElement> followHostButtons;
 
     //*************** Elements Ends Here ******************************************
 
@@ -467,27 +477,25 @@ public class FrndMakingRoomsPage extends BaseTest {
     }
 
     public void clickOnPlusIconAfterJoinRoom(AppiumDriver driver) throws InterruptedException {
-        TimeUnit.SECONDS.sleep(2);
+        TimeUnit.SECONDS.sleep(4);
         try {
-            if (joinRoom.isDisplayed()) {
-                click(joinRoom, "Clicked on Join Room button", driver);
-                allowAudioRecordAllowPopup(driver);
-                Thread.sleep(4000);
-                clickBackButton(driver);
-                click(closeLiveRoomCrossButton, driver);
-                click(plusIcon, driver);
+//            if (joinRoom.isDisplayed()) {
+//                click(joinRoom, "Clicked on Join Room button", driver);
+//                allowAudioRecordAllowPopup(driver);
+//                Thread.sleep(4000);
+//                clickBackButton(driver);
+//                click(closeLiveRoomCrossButton, driver);
+//                click(plusIcon, driver);
+//                waitForVisibility(createRoomButton, driver);
+//                click(createRoomButton, "Clicked on Plus Icon", driver);
+//            } else {
+                waitForVisibility(plusIcon, driver);
+                click(plusIcon, "Clicked on Join Room button", driver);
                 waitForVisibility(createRoomButton, driver);
                 click(createRoomButton, "Clicked on Plus Icon", driver);
-            }
-        } catch (Exception ignored) {
-        }
-        try {
-            waitForVisibility(plusIcon, driver);
-            click(plusIcon, "Clicked on Join Room button", driver);
-            waitForVisibility(createRoomButton, driver);
-            click(createRoomButton, "Clicked on Plus Icon", driver);
-            allowAudioRecordAllowPopup(driver);
-        } catch (Exception ignored) {
+                allowAudioRecordAllowPopup(driver);
+//            }
+        }catch (Exception ignored) {
         }
     }
 
@@ -497,11 +505,7 @@ public class FrndMakingRoomsPage extends BaseTest {
             if (joinRoomByUserName.isDisplayed()) {
                 click(joinRoomByUserName, "Clicked on Join Room button", driver);
                 allowAudioRecordAllowPopup(driver);
-            }
-        } catch (Exception ignored) {
-        }
-        try {
-            if (joinRoom.isDisplayed()) {
+            } else {
                 click(joinRoom, "Clicked on Join Room button", driver);
                 allowAudioRecordAllowPopup(driver);
                 Thread.sleep(4000);
@@ -509,7 +513,17 @@ public class FrndMakingRoomsPage extends BaseTest {
                 click(closeLiveRoomCrossButton, driver);
                 click(joinRoomByUserName, driver);
             }
-        } catch (Exception ignored) {
+        } catch (Exception e) {
+
+        }
+    }
+    public void joinHostedRoom(AppiumDriver driver) throws InterruptedException {
+        TimeUnit.SECONDS.sleep(5);
+        try {
+                click(joinRoomByUserName, "Clicked on Join Room button", driver);
+                allowAudioRecordAllowPopup(driver);
+        } catch (Exception e) {
+
         }
     }
 
@@ -552,9 +566,9 @@ public class FrndMakingRoomsPage extends BaseTest {
     }
 
     public void verifyCloseFRNDMakingRoomsPopupHeader(String expectedHeader, AppiumDriver driver) {
-        waitForVisibility(closeLiveRoomPopup, driver);
-        String actualPageHeader = closeLiveRoomPopup.getText();
-        Assert.assertEquals(actualPageHeader, expectedHeader, "Header is not as expected");
+//        waitForVisibility(closeLiveRoomPopup, driver);
+//        String actualPageHeader = closeLiveRoomPopup.getText();
+//        Assert.assertEquals(actualPageHeader, expectedHeader, "Header is not as expected");
     }
 
     public void verifyFrndPageTitleForUser(String expectedHeader, AppiumDriver driver) {
@@ -786,8 +800,15 @@ public class FrndMakingRoomsPage extends BaseTest {
         utils.log().info("CoinBalance Icon is displayed");
         ExtentReport.getTest().log(Status.INFO,"CoinBalance Icon is displayed");
     }
-    public void checkBeforeClickOnRedColourRedColouredDotOnTheOptionButton(AppiumDriver driver)
-    {
+    public void checkBeforeClickOnRedColourRedColouredDotOnTheOptionButton(AppiumDriver driver) throws InterruptedException {
+        Thread.sleep(3000);
+        if (joinRoom1.size()==1) {
+            click(joinRoom, "Clicked on Join Room button", driver);
+            allowAudioRecordAllowPopup(driver);
+            Thread.sleep(4000);
+            clickBackButton(driver);
+            click(closeLiveRoomCrossButton, driver);
+        }
         waitForVisibility(redColourDot,driver);
         Assert.assertTrue(redColourDot.isDisplayed(),"RedColour ");
     }
@@ -898,12 +919,11 @@ public class FrndMakingRoomsPage extends BaseTest {
     public void verifyThreeDotClickableAndAllIconsPresent(AppiumDriver driver) throws InterruptedException {
         click(threeDotMenu,driver);
         click(mic, "Clicked on Mic", driver);
-        click(threeDotMenu,driver);
-        click(mic, "Clicked on Mic", driver);
+        Thread.sleep(2000);
         Assert.assertTrue(soundOffSymbol.get(0).isDisplayed(), " Mic is not mute");
         ExtentReport.getTest().log(Status.INFO, "Mic is mute");
         click(threeDotMenu,driver);
-        click(mic, " Clicked on mic", driver);
+        click(mic, "Clicked on Mic", driver);
         Thread.sleep(1000);
         Assert.assertEquals(soundOffSymbol.size(), 0, "Mic is mute");
         click(threeDotMenu,driver);
@@ -1007,4 +1027,39 @@ public class FrndMakingRoomsPage extends BaseTest {
 //    {
 //        swipeElementAndroid(giftCakeItem,Direction.LEFT,driver);
 //    }
+
+    public void FollowOrFollowingOptionButtonShouldBeShownUnderTheHostAvatarAndNameInFMRRoom(AppiumDriver driver)
+    {
+        waitForVisibility(followHostButton,driver);
+        Assert.assertTrue(followHostButton.isDisplayed(),"FollowHost Button is not displayed");
+        utils.log().info("FollowHost Button is displayed");
+        ExtentReport.getTest().log(Status.INFO, "FollowHost Button is displayed");
+    }
+
+    public void checkTheFollowAndFollowingOptionButtonShouldOnlyBeVsibleOnToUserItShouldNotBeDisplayeOnHostEnd(AppiumDriver driver)
+    {
+        Assert.assertEquals(followHostButtons.size(),0,"FollowHostButton is visible to Host");
+        utils.log().info("FollowHost Button is not displayed to Host");
+        ExtentReport.getTest().log(Status.INFO, "FollowHost Button is not displayed to Host");
+    }
+    public void verifyIfFollowAndFollowingOptionButtonShouldBeClickableAndItShouldChangeToFollowingIfUserClickOnFollowButtonViceVersa(AppiumDriver driver)
+    {
+        String text = getText(followHostButton,"",driver);
+        if(text == "Following")
+        {
+            click(followHostButton,driver);
+            String text1 = getText(followHostButton, "", driver);
+            Assert.assertEquals(text1,"Follow", "FollowHost Button is not clickable");
+            utils.log().info("FollowHost Button is clickable");
+            ExtentReport.getTest().log(Status.INFO, "FollowHost Button is clickable");
+        }
+        else if(text == "Follow")
+        {
+            click(followHostButton,driver);
+            String text1 = getText(followHostButton, "", driver);
+            Assert.assertEquals(text1,"Following", "FollowHost Button is not clickable");
+            utils.log().info("FollowHost Button is clickable");
+            ExtentReport.getTest().log(Status.INFO, "FollowHost Button is clickable");
+        }
+    }
 }

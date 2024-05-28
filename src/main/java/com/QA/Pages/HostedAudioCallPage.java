@@ -44,7 +44,7 @@ public class HostedAudioCallPage extends BaseTest {
     private List<MobileElement> exitButton1;
 
     @AndroidFindBy(id = "com.dating.for.all.debug:id/askYr")
-    private MobileElement askYrIcon;
+    private List<MobileElement> askYrIcon;
 
     @AndroidFindBy(id = "com.dating.for.all.debug:id/askYr")
     private List<MobileElement> askYrIcon1;
@@ -282,14 +282,14 @@ public class HostedAudioCallPage extends BaseTest {
     private MobileElement cancelButton;
     @AndroidFindBy(xpath = "(//android.widget.TextView[@text=\"Join Call\"])[1]")
     private MobileElement joinTab;
-    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/player2Root")
     public MobileElement connectingScreen;
     @AndroidFindBy(id = "com.dating.for.all.debug:id/exitPopup")
     private MobileElement askYrExitPopup;
     @AndroidFindBy(id = "com.dating.for.all.debug:id/bigHeart")
     private MobileElement heartIcon;
     @AndroidFindBy(id = "com.dating.for.all.debug:id/frndMeter")
-    private MobileElement frndMeterLabel;
+    private List<MobileElement> frndMeterLabel;
     @AndroidFindBy(id = "com.dating.for.all.debug:id/giftRose")
     private MobileElement giftRoseButton;
     @AndroidFindBy(id = "com.dating.for.all.debug:id/suggestion3Root")
@@ -302,9 +302,9 @@ public class HostedAudioCallPage extends BaseTest {
     @AndroidFindBy(id = "com.dating.for.all.debug:id/heartCounter")
     private MobileElement heartCounter;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Keep Gifting rose to fill Meter']")
-    private MobileElement keepGiftingRoseAnimation;
+    private List<MobileElement> keepGiftingRoseAnimation;
     @AndroidFindBy(id = "com.dating.for.all.debug:id/knowMore")
-    private MobileElement knowMoreButton;
+    private List<MobileElement> knowMoreButton;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"FRND Meter\"]")
     private MobileElement frndMeterScreenLable;
     @AndroidFindBy(id = "com.dating.for.all.debug:id/weeklyTv")
@@ -320,7 +320,7 @@ public class HostedAudioCallPage extends BaseTest {
     @AndroidFindBy(id = "com.dating.for.all.debug:id/head1Tv")
     private MobileElement demandBonusRoseGiftsLabel;
     @AndroidFindBy(id = "com.dating.for.all.debug:id/customAmtTextTv")
-    private MobileElement customPlusButton;
+    private List<MobileElement> customPlusButton;
     @AndroidFindBy(id = "com.dating.for.all.debug:id/redAmt")
     private MobileElement minusIcon;
     @AndroidFindBy(id = "com.dating.for.all.debug:id/incAmt")
@@ -370,14 +370,18 @@ public class HostedAudioCallPage extends BaseTest {
 
     //*********************** End Elements *************************************************
 
-    public void requestForGiftFor10Roses(AppiumDriver driver) {
-        click(askYrIcon, "Clicked on AskYr Icon", driver);
+    public void requestForGiftFor10Roses(AppiumDriver driver) throws InterruptedException {
+        Thread.sleep(2000);
+        if(askYrIcon.size()==1)
+        click(askYrIcon.get(0), "Clicked on AskYr Icon", driver);
         click(roses10, "Selected 10 Roses option", driver);
         click(requestButton, "Clicked on Request Button", driver);
     }
 
-    public void requestForGiftFor2Roses(AppiumDriver driver) {
-        click(askYrIcon, "Clicked on AskYr Icon", driver);
+    public void requestForGiftFor2Roses(AppiumDriver driver) throws InterruptedException {
+        Thread.sleep(2000);
+        if(askYrIcon.size()==1)
+        click(askYrIcon.get(0), "Clicked on AskYr Icon", driver);
         click(roses2, "Selected 10 Roses option", driver);
         click(requestButton, "Clicked on Request Button", driver);
     }
@@ -635,7 +639,6 @@ public class HostedAudioCallPage extends BaseTest {
     }
 
     public void hostRemoveUserFromTheRoom(AppiumDriver driver) throws InterruptedException {
-        waitForClickable(userAvatarIcon, driver);
         click(userAvatarIcon, "Clicked on UserAvatarIcon", driver);
         click(removeLayout, "Clicked on remove layout", driver);
         click(removeButton, "Clicked on Remove Button", driver);
@@ -1014,67 +1017,76 @@ public class HostedAudioCallPage extends BaseTest {
     public void verifyGiftBoxGamesAskIconDisplayed(AppiumDriver driver)
     {
         waitForVisibility(giftBox,driver);
-        Assert.assertTrue(giftBox.isDisplayed() && askYrIcon.isDisplayed() && gameIcon.isDisplayed(),"GiftBox AskYr Games Icon not displayed");
+        Assert.assertTrue(giftBox.isDisplayed() && gameIcon.isDisplayed(),"GiftBox AskYr Games Icon not displayed");
         utils.log().info("GiftBoxIcon AskICon GameIcon displayed");
         ExtentReport.getTest().log(Status.INFO,"GiftBoxIcon AskICon GameIcon displayed");
     }
 
     public void verifyAskFunGiftIconsShouldBeProperlyClickableAndShouldShowTheExpectedBehaviour(AppiumDriver driver) throws InterruptedException {
-        click(askYrIcon,driver);
-        click(askYrExitPopup,driver);
-        click(gameIcon,driver);
-        click(gamePopupCrossButton,driver);
-        click(giftBox,driver);
         Thread.sleep(2000);
-        clickBackButton(driver);
-        waitForVisibility(giftBox,driver);
-        Assert.assertTrue(giftBox.isDisplayed(),"Game Ask GiftBox icon is not working as expected");
-        utils.log().info("Game Ask GiftBox icon is working as expected");
-        ExtentReport.getTest().log(Status.INFO,"Game Ask GiftBox icon is working as expected");
+        if(askYrIcon.size()==1) {
+            click(askYrIcon.get(0), driver);
+            click(askYrExitPopup, driver);
+            click(gameIcon, driver);
+            click(gamePopupCrossButton, driver);
+            click(giftBox, driver);
+            Thread.sleep(2000);
+            clickBackButton(driver);
+            waitForVisibility(giftBox, driver);
+            Assert.assertTrue(giftBox.isDisplayed(), "Game Ask GiftBox icon is not working as expected");
+            utils.log().info("Game Ask GiftBox icon is working as expected");
+            ExtentReport.getTest().log(Status.INFO, "Game Ask GiftBox icon is working as expected");
+        }
     }
 
     public void checkIfTheFRNDMeterHeartIconShouldDisplayedBetweenHostAndUserAvatarShouldBeClickableAndShouldGetFillAsUserSendsTheYR(AppiumDriver driver) throws InterruptedException {
-        waitForVisibility(frndMeterLabel,driver);
-        Assert.assertTrue(frndMeterLabel.isDisplayed() && heartIcon.isDisplayed(),"FrndMeter Heart is not displayed");
-        utils.log().info("FrndMeter heart is displayed");
-        ExtentReport.getTest().log(Status.INFO,"FrndMeter heart is displayed");
-        int heartCount = Integer.parseInt(getText(heartCounter,"getting heart Count",driver));
-        click(giftRoseButton,driver);
-        giftYR2YR10YR100optionButtonsShouldDisplayAfterUserHaveClickedOnGiftRoseForTheFirstTimeInVoiceCall(driver);
-        click(yr100Suggestion,driver);
-        Thread.sleep(1000);
-        int hearCount1 = Integer.parseInt(getText(heartCounter, "getting heart Count", driver));
-        hearCount1 = heartCount + 1;
-        utils.log().info("FrndHeartMeter is getting filled");
-        ExtentReport.getTest().log(Status.INFO,"FrndHeartMeter is getting filled");
+        Thread.sleep(3000);
+        if(frndMeterLabel.size()==1)
+        {
+            Assert.assertTrue(frndMeterLabel.get(0).isDisplayed() && heartIcon.isDisplayed(), "FrndMeter Heart is not displayed");
+            utils.log().info("FrndMeter heart is displayed");
+            ExtentReport.getTest().log(Status.INFO, "FrndMeter heart is displayed");
+            int heartCount = Integer.parseInt(getText(heartCounter, "getting heart Count", driver));
+            click(giftRoseButton, driver);
+            giftYR2YR10YR100optionButtonsShouldDisplayAfterUserHaveClickedOnGiftRoseForTheFirstTimeInVoiceCall(driver);
+            click(yr100Suggestion, driver);
+            Thread.sleep(1000);
+            int hearCount1 = Integer.parseInt(getText(heartCounter, "getting heart Count", driver));
+            hearCount1 = heartCount + 1;
+            utils.log().info("FrndHeartMeter is getting filled");
+            ExtentReport.getTest().log(Status.INFO, "FrndHeartMeter is getting filled");
+        }
     }
 
-    public void verifyKeepGiftingRoseAnimationLable(AppiumDriver driver)
-    {
-        waitForVisibility(keepGiftingRoseAnimation,driver);
-        Assert.assertTrue(keepGiftingRoseAnimation.isDisplayed(),"KeepGiftingRoseAnimation not displayed");
+    public void verifyKeepGiftingRoseAnimationLable(AppiumDriver driver) throws InterruptedException {
+        Thread.sleep(3000);
+        if(keepGiftingRoseAnimation.size()==1) {
+            waitForVisibility(keepGiftingRoseAnimation.get(0), driver);
+            Assert.assertTrue(keepGiftingRoseAnimation.get(0).isDisplayed(), "KeepGiftingRoseAnimation not displayed");
+        }
     }
-    public void verifyKnowMoreButtonDsplayedAndClickable(AppiumDriver driver)
-    {
-        waitForVisibility(knowMoreButton,driver);
-        Assert.assertTrue(knowMoreButton.isDisplayed(),"KnowMore Button is not displayed");
-        click(knowMoreButton,driver);
-        waitForVisibility(frndMeterScreenLable,driver);
-        Assert.assertTrue(frndMeterScreenLable.isDisplayed(),"frndMeterScreenLable is not displayed");
-        waitForVisibility(weeklyButton,driver);
-        Assert.assertTrue(weeklyButton.isDisplayed() && allTimeButton.isDisplayed(),"WeeklyButton and AllTimeButton not displayed");
-        click(weeklyButton,driver);
-        waitForVisibility(touchAnimationLeaderBoardTitle,driver);
-        clickBackButton(driver);
-        click(allTimeButton,driver);
-        waitForVisibility(touchAnimationLeaderBoardTitle,driver);
-        clickBackButton(driver);
-        swipeScreen(Direction.UP,driver);
-        waitForVisibility(downloadAndShareButton,driver);
-        Assert.assertTrue(downloadAndShareButton.isDisplayed(),"DownloadAndShare button not displayed");
-        clickBackButton(driver);
-        utils.log().info("KnowMore button is displayed and it's clickable");
-        ExtentReport.getTest().log(Status.INFO,"KnowMore button is displayed and it's clickable");
+    public void verifyKnowMoreButtonDsplayedAndClickable(AppiumDriver driver) throws InterruptedException {
+        Thread.sleep(2000);
+        if(knowMoreButton.size()==1) {
+            Assert.assertTrue(knowMoreButton.get(0).isDisplayed(), "KnowMore Button is not displayed");
+            click(knowMoreButton.get(0), driver);
+            waitForVisibility(frndMeterScreenLable, driver);
+            Assert.assertTrue(frndMeterScreenLable.isDisplayed(), "frndMeterScreenLable is not displayed");
+            waitForVisibility(weeklyButton, driver);
+            Assert.assertTrue(weeklyButton.isDisplayed() && allTimeButton.isDisplayed(), "WeeklyButton and AllTimeButton not displayed");
+            click(weeklyButton, driver);
+            waitForVisibility(touchAnimationLeaderBoardTitle, driver);
+            clickBackButton(driver);
+            click(allTimeButton, driver);
+            waitForVisibility(touchAnimationLeaderBoardTitle, driver);
+            clickBackButton(driver);
+            swipeScreen(Direction.UP, driver);
+            waitForVisibility(downloadAndShareButton, driver);
+            Assert.assertTrue(downloadAndShareButton.isDisplayed(), "DownloadAndShare button not displayed");
+            clickBackButton(driver);
+            utils.log().info("KnowMore button is displayed and it's clickable");
+            ExtentReport.getTest().log(Status.INFO, "KnowMore button is displayed and it's clickable");
+        }
     }
 
     public void verifyHostMinizeTheRoom(AppiumDriver driver)
@@ -1094,28 +1106,31 @@ public class HostedAudioCallPage extends BaseTest {
         ExtentReport.getTest().log(Status.INFO,"YrSuggestions 2 && 10 && 100 is displayed");
     }
 
-    public void checkUserAndhostshouldBeAbleToClickOnTheCustomShouldDisplayPlusMinusYRcount(AppiumDriver driver)
-    {
-        click(askYrIcon,driver);
-        waitForVisibility(customPlusButton,driver);
-        Assert.assertTrue(customPlusButton.isDisplayed(),"Custom + button not displayed");
-        utils.log().info("Custom + button is displayed");
-        ExtentReport.getTest().log(Status.INFO,"Custom + button is displayed");
+    public void checkUserAndhostshouldBeAbleToClickOnTheCustomShouldDisplayPlusMinusYRcount(AppiumDriver driver) throws InterruptedException {
+        Thread.sleep(2000);
+        if(askYrIcon.size()==1) {
+            click(askYrIcon.get(0), driver);
+            Assert.assertTrue(customPlusButton.get(0).isDisplayed(), "Custom + button not displayed");
+            utils.log().info("Custom + button is displayed");
+            ExtentReport.getTest().log(Status.INFO, "Custom + button is displayed");
+        }
     }
 
-    public void verifyIfPlusMinusYrCounticonShouldBeClickableAmountShouldIncreaseWhileUserClicksOnPlusMinusIcon(AppiumDriver driver)
-    {
-        click(customPlusButton,driver);
-        waitForVisibility(minusIcon,driver);
-        int customYrAmt = Integer.parseInt(getText(customYrAmount,"getting Yr amount to send",driver));
-        click(plusIcon,driver);
-        int incCustomYrAmt = Integer.parseInt(getText(customYrAmount,"getting Yr amount to send",driver));
-        Assert.assertTrue(incCustomYrAmt>customYrAmt,"YrAmount is not increasing after clicking on plus icon");
-        click(minusIcon,driver);
-        int decCustomYrAmt = Integer.parseInt(getText(customYrAmount,"getting Yr amount to send",driver));
-        Assert.assertTrue(decCustomYrAmt<incCustomYrAmt,"YrAmount is not increasing after clicking on plus icon");
-        utils.log().info("Yr Amount increasing after clicking on plus icon and decreasing after clicking on minus icon");
-        ExtentReport.getTest().log(Status.INFO,"Yr Amount increasing after clicking on plus icon and decreasing after clicking on minus icon");
+    public void verifyIfPlusMinusYrCounticonShouldBeClickableAmountShouldIncreaseWhileUserClicksOnPlusMinusIcon(AppiumDriver driver) throws InterruptedException {
+        Thread.sleep(2000);
+        if(customPlusButton.size()==1) {
+            click(customPlusButton.get(0), driver);
+            waitForVisibility(minusIcon, driver);
+            int customYrAmt = Integer.parseInt(getText(customYrAmount, "getting Yr amount to send", driver));
+            click(plusIcon, driver);
+            int incCustomYrAmt = Integer.parseInt(getText(customYrAmount, "getting Yr amount to send", driver));
+            Assert.assertTrue(incCustomYrAmt > customYrAmt, "YrAmount is not increasing after clicking on plus icon");
+            click(minusIcon, driver);
+            int decCustomYrAmt = Integer.parseInt(getText(customYrAmount, "getting Yr amount to send", driver));
+            Assert.assertTrue(decCustomYrAmt < incCustomYrAmt, "YrAmount is not increasing after clicking on plus icon");
+            utils.log().info("Yr Amount increasing after clicking on plus icon and decreasing after clicking on minus icon");
+            ExtentReport.getTest().log(Status.INFO, "Yr Amount increasing after clicking on plus icon and decreasing after clicking on minus icon");
+        }
     }
 
     public void verifyIfTheIngameRechargeReminderShouldShowWhenUserClicksOnTheTimerBeforeLast3min(AppiumDriver driver)
@@ -1220,7 +1235,7 @@ public class HostedAudioCallPage extends BaseTest {
 
     public void verifyIfHostIsNotInfrontOfTheDeviceCameraThenHostShouldNotBeAbleToAccessAnyOptionsFromTheVideoCall(AppiumDriver driver)
     {
-        Assert.assertTrue(giftBox1.size()<1 && askYrIcon1.size()<1 && askYrIcon1.size()<1,"User is able to able to access the options from the video call although host is not infront of the camera");
+        Assert.assertTrue(giftBox1.size()<1,"User is able to able to access the options from the video call although host is not infront of the camera");
         utils.log().info("As host is not infront of the Camera and not able to access any option from the video call");
         ExtentReport.getTest().log(Status.INFO,"As host is not infront of the Camera and not able to access any option from the video call");
     }

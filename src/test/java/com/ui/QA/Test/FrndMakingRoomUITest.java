@@ -121,19 +121,25 @@ public class FrndMakingRoomUITest extends BaseTest {
         frndMakingRoomsPage2.checkIfTheJoinRoomOptionButtonDisplayedOnTheActiveUsersCard(getDriver2());
         frndMakingRoomsPage2.verifyfTheHostedRJLanguageShouldBeDisplayedBelowTheAvatar(getDriver2());
         frndMakingRoomsPage2.checkRJProfileShowAvatarImageWithGreenDotOnItIfRJIsActiveWithLanguageNmeRating(getDriver2());
-        frndMakingRoomsPage2.clickOnJoinRoomAndLeave(getDriver2());
+        frndMakingRoomsPage2.joinHostedRoom(getDriver2());
         frndMakingRoomsPage2.checkGiftIconShouldHaveAJumpingAnimationInFMRAndShouldBeProperlyClickable(getDriver2());
         frndMakingRoomsPage2.verifyUserBeAbleToClickOnCoinXXXLeaderboardOptionToOpenLeaderboardScreenOfFMRGame(getDriver2());
-        frndMakingRoomsPage1.verifyThreeDotClickableAndAllIconsPresent(getDriver1());
-        frndMakingRoomsPage1.checkIfUserClicksOnHostAvatarProfileScreenShouldOpenForHostUser(getDriver1());
-        frndMakingRoomsPage1.verifyHostUserClicksOnUserAvatarThenBottomSheetShouldOpenUpWithMuteRemoveBanProfileOptionButton(getDriver1());
-        frndMakingRoomsPage1.verifyMuteRemoveBanProfileOptionsShouldBeClickableAndShouldWorkAsPerExpectedBehaviour(getDriver1());
         frndMakingRoomsPage2.verifyIfJoinWaitlistButtonShouldProperlyClickableAndShouldDisappearsOnceClickedOnIt(getDriver2());
         frndMakingRoomsPage1.CheckOnceUserJoinsWaitlistHostShouldShowOptionOnParticularGenderCardWithAddBoyAndAddGirlButton(getDriver1());
         frndMakingRoomsPage1.checkOnceUserJoinsWaitlistSshouldShowAcommentOnBackgroundAsUsernameJoinedTheWaitlist(getDriver1());
         frndMakingRoomsPage2.verifyUserShouldShowAgiftBottomSheetOnceUserHaveJoinedWaitlist(getDriver2());
         frndMakingRoomsPage2.verifyUserShouldShowSkipWaitlistOptionButtonAfterJoiningWaitlistWithGreenColouredBackground(getDriver2());
         frndMakingRoomsPage2.checkSkipWaitlistOptionButtonShouldclickableAndShouldShowFREEGiftsBottomSheet(getDriver2());
+        frndMakingRoomsPage2.FollowOrFollowingOptionButtonShouldBeShownUnderTheHostAvatarAndNameInFMRRoom(getDriver2());
+        frndMakingRoomsPage2.verifyIfFollowAndFollowingOptionButtonShouldBeClickableAndItShouldChangeToFollowingIfUserClickOnFollowButtonViceVersa(getDriver2());
+        frndMakingRoomsPage1.verifyThreeDotClickableAndAllIconsPresent(getDriver1());
+        frndMakingRoomsPage1.checkTheFollowAndFollowingOptionButtonShouldOnlyBeVsibleOnToUserItShouldNotBeDisplayeOnHostEnd(getDriver1());
+        frndMakingRoomsPage1.clickOnAddUserButton(getDriver1());
+        frndMakingRoomsPage1.clickOnWaitlistAddButton(getDriver1());
+        frndMakingRoomsPage1.verifyUserAddedToGame(true, getDriver1());
+        frndMakingRoomsPage1.checkIfUserClicksOnHostAvatarProfileScreenShouldOpenForHostUser(getDriver1());
+        frndMakingRoomsPage1.verifyHostUserClicksOnUserAvatarThenBottomSheetShouldOpenUpWithMuteRemoveBanProfileOptionButton(getDriver1());
+        frndMakingRoomsPage1.verifyMuteRemoveBanProfileOptionsShouldBeClickableAndShouldWorkAsPerExpectedBehaviour(getDriver1());
     }
 
     @Test(priority = 1, enabled = false, description = "LT-01: Verify User able to Host Voice call")

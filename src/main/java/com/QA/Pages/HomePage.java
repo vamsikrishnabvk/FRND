@@ -77,7 +77,7 @@ public class HomePage extends BaseTest {
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"FRND Making Rooms\"]")
     private MobileElement frndMakingRoom;
-    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"morePackage\"]")
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/moreOptions")
     private MobileElement morePakageOptionButton;
 
     // com.dating.for.all.debug:id/moreOptions
@@ -105,6 +105,8 @@ public class HomePage extends BaseTest {
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Video Room\"]")
     private MobileElement videoRoomButton;
+    @AndroidFindBy(xpath = "com.dating.for.all.debug:id/profileAvatar")
+    private MobileElement profileAvatar;
 
 
 //*********************** End Elements *************************************************
@@ -121,15 +123,16 @@ public class HomePage extends BaseTest {
 
     public void handlingPopup(AppiumDriver driver) throws InterruptedException {
 //        waitForVisibility(crossButton.get(0));
-        Thread.sleep(4000);
-        if (crossButton.size() == 1) {
-            Thread.sleep(1000);
+        Thread.sleep(3000);
+//        if (crossButton.size() == 1) {
+//            Thread.sleep(1000);
             clickBackButton(driver);
-            Thread.sleep(2000);
-            click(cancelButton.get(0), "Clicked on Cancel Button", driver);
-        } else if (cancelButton.size() == 1) {
+//            Thread.sleep(2000);
+//            click(cancelButton.get(0), "Clicked on Cancel Button", driver);
+//        } else if (cancelButton.size() == 1) {
+    //    Thread.sleep(2000);
             clickBackButton(driver);
-        }
+//        }
         Thread.sleep(2000);
         try {
             if (updateCrossButton.isDisplayed()) {
@@ -178,12 +181,16 @@ public class HomePage extends BaseTest {
         utils.log().info("Host have exit the room");
         ExtentReport.getTest().log(Status.INFO, "Host Exit the Room");
     }
-    public void checkFreeMinuteAndConnect(AppiumDriver driver)
-    {
+    public void checkFreeMinuteAndConnect(AppiumDriver driver) throws InterruptedException {
         waitForVisibility(freeMintCall,driver);
         Assert.assertTrue(freeMintCall.isDisplayed(),"Free minute label is not displayed");
         ExtentReport.getTest().log(Status.INFO, "Free Minute Call is Displayed");
         click(callNowButton,"Clicked on call now button",driver);
+        if(audioRecordAllowPopup.size()==1)
+        {
+            click(audioRecordAllowPopup.get(0),"Clicked on Audio record allow popup",driver);
+        }
+        Thread.sleep(2000);
         if(audioRecordAllowPopup.size()==1)
         {
             click(audioRecordAllowPopup.get(0),"Clicked on Audio record allow popup",driver);
@@ -220,10 +227,10 @@ public class HomePage extends BaseTest {
     public void clickOnGroupRoom(AppiumDriver driver) throws InterruptedException {
         swipeElementAndroid(privateTrainingRooms, Direction.LEFT, "swiping left", (AndroidDriver) driver);
         ExtentReport.getTest().log(Status.INFO, "Swiping Left");
-        try {
+        Thread.sleep(2000);
+        if(groupRoom.size()<1)
+        {
             swipeElementAndroid(frndMakingRoom, Direction.LEFT, "swiping left", (AndroidDriver) driver);
-        } catch (Exception e) {
-
         }
         click(groupRoom.get(0), "clicked on GroupRoom", driver);
     }
@@ -257,6 +264,15 @@ public class HomePage extends BaseTest {
     public void clickOnVideoRoomButton(AppiumDriver driver)
     {
         click(videoRoomButton,driver);
+    }
+    public void logOutOfTheApp(AppiumDriver driver)
+    {
+        click(homeTab,driver);
+        click(profileAvatar,driver);
+        click(new ProfilePage(driver).hamburgerMenu,driver);
+        swipeElementAndroid(new ProfilePage(driver).transactionTab,Direction.DOWN,"Swipping Down",(AndroidDriver)driver);
+        click(new ProfilePage(driver).settingIcon,driver);
+        click(new ProfilePage(driver).logOutButton,driver);
     }
 
 }

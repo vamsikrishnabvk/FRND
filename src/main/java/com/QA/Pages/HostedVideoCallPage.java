@@ -212,7 +212,7 @@ public class HostedVideoCallPage extends BaseTest {
         click(mic, "Clicked on Mic", driver);
         Assert.assertTrue(soundOffSymbol.get(0).isDisplayed(), " Mic is not mute");
         click(mic, " Clicked on mic", driver);
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         Assert.assertEquals(soundOffSymbol.size(), 0, "Mic is mute");
         utils.log().info("Mute Unmute functionality working fine");
         ExtentReport.getTest().log(Status.INFO, "Mute unmute functionality working fine");

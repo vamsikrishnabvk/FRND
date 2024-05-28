@@ -11,6 +11,7 @@ import org.testng.annotations.*;
 
 import java.io.InputStream;
 import java.lang.reflect.Method;
+import java.net.MalformedURLException;
 
 public class YrRedeemTest extends BaseTest {
 
@@ -88,7 +89,7 @@ public class YrRedeemTest extends BaseTest {
 //        getDriver().activateApp("com.dating.for.all.debug");
     }
     @Test(priority = 0, enabled = false)
-    public void verifyThatHostAbleToReceiveTheAutoYRInAudioGames() throws InterruptedException {
+    public void verifyThatHostAbleToReceiveTheAutoYRInAudioGames() throws InterruptedException, MalformedURLException {
         String phoneNumber = YrRedeemTest.getJSONObject("YrRedeemTest").getString("phoneNumberDev1");
         String otp = YrRedeemTest.getJSONObject("YrRedeemTest").getString("otp");
         String partialNum = YrRedeemTest.getJSONObject("YrRedeemTest").getString("partialPhNo");
@@ -97,14 +98,21 @@ public class YrRedeemTest extends BaseTest {
         String portNumber = YrRedeemTest.getJSONObject("YrRedeemTest").getString("portNumber");
         String baseUri = YrRedeemTest.getJSONObject("YrRedeemTest").getString("baseUri");
         String endPointFG = YrRedeemTest.getJSONObject("YrRedeemTest").getString("endPointFG");
+//        if(getDriver1() != null && getDriver2()!= null)
+//        {
+//            System.out.println("Drivers are initialized successfully");
+//        }
+//        else {
+//            System.out.println("Drivers are not initialized");
+//            setUp();
+//        }
+
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
         landingPage1.changingPort(portNumber, getDriver1());
-        landingPage2.handlingUpdatePopup(getDriver2());
-        landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
-        landingPage2.changingPort(portNumber, getDriver2());
         int i = getRandomNum();
         String phonNum = partialNum + Integer.toString(i);
+        System.out.println(phonNum);
         landingPage1.clickOnLetsGoButton(getDriver1());
         landingPage1.enterMobileNumber(phonNum, getDriver1());
         landingPage1.clickOnGetOTPButton(getDriver1());
@@ -119,19 +127,22 @@ public class YrRedeemTest extends BaseTest {
         landingPage1.checkCyberManifestoPolicies(getDriver1());
         landingPage1.selectAppLanguage(getDriver1());
         homePage1.handlingPopup(getDriver1());
-        landingPage2.handlingUpdatePopup(getDriver2());
-        landingPage2.loginToApplication(phoneNumber, otp, getDriver2());
         String id = fetchValue.fetchValue(phonNum);
         apiUdateData.videoCallApi(id,true,baseUri,endPointFG,phonNum);
         homePage1.clickOnTrainingTab(getDriver1());
-        homePage2.handlingPopup(getDriver2());
-        String text = homePage2.getAvailableCoin(getDriver2());
-        homePage2.clickOnTrainingTab(getDriver2());
         trainingRoomPage1.clickOnPlusIcon(getDriver1());
         trainingRoomPage1.clickOnCreateRoomIcon(getDriver1());
         trainingRoomPage1.clickOnAudioRoomButton(getDriver1());
         tagScreenPage1.clickOnLoveTag(getDriver1());
         tagScreenPage1.verifyUerAbleToHost(getDriver1());
+        landingPage2.handlingUpdatePopup(getDriver2());
+        landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
+        landingPage2.changingPort(portNumber, getDriver2());
+        landingPage2.handlingUpdatePopup(getDriver2());
+        landingPage2.loginToApplication(phoneNumber, otp, getDriver2());
+        homePage2.handlingPopup(getDriver2());
+        String text = homePage2.getAvailableCoin(getDriver2());
+        homePage2.clickOnTrainingTab(getDriver2());
         trainingRoomPage2.checkCoinAndEnterRoom(text, expectedCoins, getDriver2());
         vivoCallPage1.clickOnGameIcon(getDriver1());
         vivoCallPage1.clickOnGamePopupCrossButton(getDriver1());
@@ -164,6 +175,8 @@ public class YrRedeemTest extends BaseTest {
         profilePage1.clikcOnWinMoneyButton(getDriver1());
         profilePage1.checkRedeemSuccessMessageVisibility(getDriver1());
         profilePage1.verifyYrRedeemSuccess(getDriver1());
+    //    homePage1.logOutOfTheApp(getDriver1());
+    //    homePage2.logOutOfTheApp(getDriver2());
     }
 
     @Test(priority = 1, enabled = false)
@@ -230,9 +243,6 @@ public class YrRedeemTest extends BaseTest {
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
         landingPage1.changingPort(portNumber, getDriver1());
-        landingPage2.handlingUpdatePopup(getDriver2());
-        landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
-        landingPage2.changingPort(portNumber, getDriver2());
         int i = getRandomNum();
         String phonNum = partialNum + Integer.toString(i);
         landingPage1.clickOnLetsGoButton(getDriver1());
@@ -249,17 +259,20 @@ public class YrRedeemTest extends BaseTest {
         landingPage1.checkCyberManifestoPolicies(getDriver1());
         landingPage1.selectAppLanguage(getDriver1());
         homePage1.handlingPopup(getDriver1());
-        landingPage2.handlingUpdatePopup(getDriver2());
-        landingPage2.loginToApplication(phoneNumber, otp, getDriver2());
         homePage1.clickOnTrainingTab(getDriver1());
-        homePage2.handlingPopup(getDriver2());
-        String text = homePage2.getAvailableCoin(getDriver2());
-        homePage2.clickOnTrainingTab(getDriver2());
         trainingRoomPage1.clickOnPlusIcon(getDriver1());
         trainingRoomPage1.clickOnCreateRoomIcon(getDriver1());
         trainingRoomPage1.clickOnAudioRoomButton(getDriver1());
         tagScreenPage1.clickOnLoveTag(getDriver1());
         tagScreenPage1.verifyUerAbleToHost(getDriver1());
+        landingPage2.handlingUpdatePopup(getDriver2());
+        landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
+        landingPage2.changingPort(portNumber, getDriver2());
+        landingPage2.handlingUpdatePopup(getDriver2());
+        landingPage2.loginToApplication(phoneNumber, otp, getDriver2());
+        homePage2.handlingPopup(getDriver2());
+        String text = homePage2.getAvailableCoin(getDriver2());
+        homePage2.clickOnTrainingTab(getDriver2());
         trainingRoomPage2.checkCoinAndEnterRoom(text, expectedCoins, getDriver2());
         vivoCallPage1.clickOnGameIcon(getDriver1());
         vivoCallPage1.clickOnGamePopupCrossButton(getDriver1());
@@ -283,9 +296,6 @@ public class YrRedeemTest extends BaseTest {
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
         landingPage1.changingPort(portNumber, getDriver1());
-        landingPage2.handlingUpdatePopup(getDriver2());
-        landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
-        landingPage2.changingPort(portNumber, getDriver2());
         int i = getRandomNum();
         String phonNum = partialNum + Integer.toString(i);
         landingPage1.clickOnLetsGoButton(getDriver1());
@@ -302,14 +312,9 @@ public class YrRedeemTest extends BaseTest {
         landingPage1.checkCyberManifestoPolicies(getDriver1());
         landingPage1.selectAppLanguage(getDriver1());
         homePage1.handlingPopup(getDriver1());
-        landingPage2.handlingUpdatePopup(getDriver2());
-        landingPage2.loginToApplication(phoneNumber, otp, getDriver2());
         String id = fetchValue.fetchValue(phonNum);
         apiUdateData.videoCallApi(id,true,baseUri,endPointFG,phonNum);
         homePage1.clickOnTrainingTab(getDriver1());
-        homePage2.handlingPopup(getDriver2());
-        String text = homePage2.getAvailableCoin(getDriver2());
-        homePage2.clickOnTrainingTab(getDriver2());
         trainingRoomPage1.clickOnProfileIcon(getDriver1());
         int yRCountAvailable = profilePage1.getTheYellowRoseCount(getDriver1());
         trainingRoomPage1.clickOnPlusIcon(getDriver1());
@@ -317,6 +322,14 @@ public class YrRedeemTest extends BaseTest {
         trainingRoomPage1.clickOnAudioRoomButton(getDriver1());
         tagScreenPage1.clickOnLoveTag(getDriver1());
         tagScreenPage1.verifyUerAbleToHost(getDriver1());
+        landingPage2.handlingUpdatePopup(getDriver2());
+        landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
+        landingPage2.changingPort(portNumber, getDriver2());
+        landingPage2.handlingUpdatePopup(getDriver2());
+        landingPage2.loginToApplication(phoneNumber, otp, getDriver2());
+        homePage2.handlingPopup(getDriver2());
+        String text = homePage2.getAvailableCoin(getDriver2());
+        homePage2.clickOnTrainingTab(getDriver2());
         trainingRoomPage2.checkCoinAndEnterRoom(text, expectedCoins, getDriver2());
         vivoCallPage1.clickOnGameIcon(getDriver1());
         vivoCallPage1.clickOnGamePopupCrossButton(getDriver1());
@@ -408,7 +421,7 @@ public class YrRedeemTest extends BaseTest {
         String expectedCoins = YrRedeemTest.getJSONObject("YrRedeemTest").getString("expectedCoins");
         String nickName = YrRedeemTest.getJSONObject("YrRedeemTest").getString("nickName");
         String portNumber = YrRedeemTest.getJSONObject("YrRedeemTest").getString("portNumber");
-        String phoneNumber4 = YrRedeemTest.getJSONObject("YrRedeemTest").getString("phoneNumber4");
+        String phoneNumber5 = YrRedeemTest.getJSONObject("YrRedeemTest").getString("phoneNumber5");
         String baseUri = YrRedeemTest.getJSONObject("YrRedeemTest").getString("baseUri");
         String endPointFG = YrRedeemTest.getJSONObject("YrRedeemTest").getString("endPointFG");
         String upiId1 = YrRedeemTest.getJSONObject("YrRedeemTest").getString("upiId1");
@@ -431,21 +444,21 @@ public class YrRedeemTest extends BaseTest {
         landingPage1.checkCyberManifestoPolicies(getDriver1());
         landingPage1.selectAppLanguage(getDriver1());
         homePage1.handlingPopup(getDriver1());
-        landingPage2.handlingUpdatePopup(getDriver2());
-        landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
-        landingPage2.changingPort(portNumber, getDriver2());
-        landingPage2.loginToApplication(phoneNumber1, otp, getDriver2());
-        homePage2.handlingPopup(getDriver2());
-        String text = homePage2.getAvailableCoin(getDriver2());
         String id1 = fetchValue.fetchValue(phonNum);
         apiUdateData.videoCallApi(id1,true,baseUri,endPointFG,phonNum);
-        homePage2.clickOnTrainingTab(getDriver2());
         homePage1.clickOnTrainingTab(getDriver1());
         trainingRoomPage1.clickOnPlusIcon(getDriver1());
         trainingRoomPage1.clickOnCreateRoomIcon(getDriver1());
         trainingRoomPage1.clickOnAudioRoomButton(getDriver1());
         tagScreenPage1.clickOnLoveTag(getDriver1());
         tagScreenPage1.verifyUerAbleToHost(getDriver1());
+        landingPage2.handlingUpdatePopup(getDriver2());
+        landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
+        landingPage2.changingPort(portNumber, getDriver2());
+        landingPage2.loginToApplication(phoneNumber1, otp, getDriver2());
+        homePage2.handlingPopup(getDriver2());
+        String text = homePage2.getAvailableCoin(getDriver2());
+        homePage2.clickOnTrainingTab(getDriver2());
         trainingRoomPage2.checkCoinAndEnterRoom(text, expectedCoins, getDriver2());
         vivoCallPage2.clickOnGameIcon(getDriver2());
         vivoCallPage2.clickOnGamePopupCrossButton(getDriver2());
@@ -457,7 +470,7 @@ public class YrRedeemTest extends BaseTest {
         vivoCallPage1.clickOnExitButton(getDriver1());
         trainingRoomPage1.clickOnProfileIcon(getDriver1());
         profilePage1.clikcOnWinMoneyButton(getDriver1());
-        profilePage1.allowYRRedeemIfYRLessThan5Yr1stTime(getDriver1(), 5,phoneNumber4,upiId1);
+        profilePage1.allowYRRedeemIfYRLessThan5Yr1stTime(getDriver1(), 5,phoneNumber5,upiId1);
         profilePage1.verifyMin5RoseRequiredForRedeemForTheSecondTime(getDriver1());
         profilePage1.verifyUserNotWithdrawIfAmountLessThan50(getDriver1());
 
@@ -474,26 +487,26 @@ public class YrRedeemTest extends BaseTest {
         String baseUri = YrRedeemTest.getJSONObject("YrRedeemTest").getString("baseUri");
         String endPointFG = YrRedeemTest.getJSONObject("YrRedeemTest").getString("endPointFG");
         String upiId1 = YrRedeemTest.getJSONObject("YrRedeemTest").getString("upiId1");
-        landingPage2.handlingUpdatePopup(getDriver2());
-        landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
-        landingPage2.changingPort(portNumber, getDriver2());
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
         landingPage1.changingPort(portNumber, getDriver1());
-        landingPage2.loginToApplication(phoneNumber, otp, getDriver2());
         landingPage1.loginToApplication(phoneNumber4, otp, getDriver1());
         String id1 = fetchValue.fetchValue(phoneNumber4);
         apiUdateData.videoCallApi(id1,true,baseUri,endPointFG,phoneNumber4);
-        homePage2.handlingPopup(getDriver2());
         homePage1.handlingPopup(getDriver1());
-        String text = homePage2.getAvailableCoin(getDriver2());
         homePage1.clickOnTrainingTab(getDriver1());
-        homePage2.clickOnTrainingTab(getDriver2());
         trainingRoomPage1.clickOnPlusIcon(getDriver1());
         trainingRoomPage1.clickOnCreateRoomIcon(getDriver1());
         trainingRoomPage1.clickOnVideoRoomButton(getDriver1());
         tagScreenPage1.clickOnLoveTag(getDriver1());
         tagScreenPage1.verifyUerAbleToHost(getDriver1());
+        landingPage2.handlingUpdatePopup(getDriver2());
+        landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
+        landingPage2.changingPort(portNumber, getDriver2());
+        landingPage2.loginToApplication(phoneNumber, otp, getDriver2());
+        homePage2.handlingPopup(getDriver2());
+        String text = homePage2.getAvailableCoin(getDriver2());
+        homePage2.clickOnTrainingTab(getDriver2());
         trainingRoomPage2.checkCoinAndEnterRoom(text, expectedCoins, getDriver2());
       //  vivoCallPage1.requestForGiftFor10Roses(getDriver1());
       //  vivoCallPage2.userSendGiftToHost(getDriver2());
@@ -595,7 +608,7 @@ public class YrRedeemTest extends BaseTest {
        // profilePage2.verifyWithDrawSuccessful(getDriver2(),remainingWithDrawAmount);
     }
 
-    @Test(priority = 12, enabled = true)
+    @Test(priority = 12, enabled = false)
     public void VvrifyThatTDSShouldBeDeduct5PercentWhichUserIsNotDoneKYCVerified() throws InterruptedException {
         String otp = YrRedeemTest.getJSONObject("YrRedeemTest").getString("otp");
         String portNumber = YrRedeemTest.getJSONObject("YrRedeemTest").getString("portNumber");
@@ -647,7 +660,7 @@ public class YrRedeemTest extends BaseTest {
 
     }
 
-    @Test(priority =  14, enabled = false)
+    @Test(priority =  14, enabled = true)
     public void verifyTheUserShouldNotAllowKYCVerificationMoreThanTwoUsersWithSamePANDetails1() throws InterruptedException {
         String otp = YrRedeemTest.getJSONObject("YrRedeemTest").getString("otp");
         String portNumber = YrRedeemTest.getJSONObject("YrRedeemTest").getString("portNumber");

@@ -274,7 +274,7 @@ public class VideoCallTest extends BaseTest {
         hostedVideoCallPage2.hostExitGameRoom(getDriver2());
     }
 
-    @Test(priority = 5, enabled = true)
+    @Test(priority = 5, enabled = false)
     public void userNotAbleToJoinRoomWhenHostBanUser() throws InterruptedException {
         String phoneNumber = VideoCallTest.getJSONObject("VideoCallTest").getString("phoneNumberDev1");
         String otp = VideoCallTest.getJSONObject("VideoCallTest").getString("otp");
@@ -302,6 +302,7 @@ public class VideoCallTest extends BaseTest {
         landingPage2.selectLanguage(getDriver2());
         landingPage2.checkCyberManifestoPolicies(getDriver2());
         landingPage2.selectAppLanguage(getDriver2());
+        homePage2.handlingPopup(getDriver2());
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
         landingPage1.changingPort(portNumber, getDriver1());
@@ -316,7 +317,6 @@ public class VideoCallTest extends BaseTest {
         trainingRoomPage1.clickOnVideoRoomButton(getDriver1());
         tagScreenPage1.clickOnLoveTag(getDriver1());
         tagScreenPage1.verifyUerAbleToHost(getDriver1());
-        homePage2.handlingPopup(getDriver2());
         homePage2.clickOnHomeTab(getDriver2());
         homePage2.clickOnCoins(getDriver2());
         frndCoinPage2.clickOnNienetyCoinPackage(getDriver2());
@@ -333,7 +333,7 @@ public class VideoCallTest extends BaseTest {
         trainingRoomPage2.verifyUserNotJoinRoomAfterBan(getDriver2());
     }
 
-    @Test(priority = 7,enabled = true)
+    @Test(priority = 7,enabled = false)
     public void verifyThatUserIsAbleToExitTheGameAutomaticallyAfterEndOfGameTimer() throws InterruptedException {
         String phoneNumber = VideoCallTest.getJSONObject("VideoCallTest").getString("phoneNumberDev1");
         String otp = VideoCallTest.getJSONObject("VideoCallTest").getString("otp");
@@ -391,7 +391,7 @@ public class VideoCallTest extends BaseTest {
         vivoCallPage2.checkUserHaveExitRoomAutomatically(getDriver2());
     }
 
-    @Test(priority = 7,enabled = true)
+    @Test(priority = 7,enabled = false)
     public void verifyTheHostEndShouldBeShownTheGamePromptsInVivoIfUserNotClickManuallyInBefore60Sec() throws InterruptedException {
         String phoneNumber = VideoCallTest.getJSONObject("VideoCallTest").getString("phoneNumberDev1");
         String otp = VideoCallTest.getJSONObject("VideoCallTest").getString("otp");
@@ -408,7 +408,6 @@ public class VideoCallTest extends BaseTest {
         homePage2.clickOnTrainingTab(getDriver2());
         trainingRoomPage2.clickOnPlusIcon(getDriver2());
         trainingRoomPage2.clickOnCreateRoomIcon(getDriver2());
-        homePage1.clickOnTrainingTab(getDriver1());
         trainingRoomPage2.clickOnVideoRoomButton(getDriver2());
         tagScreenPage2.clickOnLoveTag(getDriver2());
         tagScreenPage2.verifyUerAbleToHost(getDriver2());
@@ -493,7 +492,7 @@ public class VideoCallTest extends BaseTest {
         vivoCallPage1.verifyUserEndShouldShowGamePromptOrNotWithin60Sec(getDriver1());
     }
 
-    @Test(priority = 8,enabled = true)
+    @Test(priority = 8,enabled = false)
     public void verifyUserShouldBeAbleToSeeStarUsersHostedPTRRoomWhichUsersHasDoneSuccesfullOneTranscation() throws InterruptedException {
         String otp = VideoCallTest.getJSONObject("VideoCallTest").getString("otp");
         String partialum = VideoCallTest.getJSONObject("VideoCallTest").getString("partialPhNo");

@@ -113,13 +113,6 @@ public class AudioCallUITest extends BaseTest {
         hostedAudioCallPage1.verifyClickingCoinsInFramesWindowShouldOpenaPaywallScreen(getDriver1());
         hostedAudioCallPage1.hostExitRoom(getDriver1());
         hostedAudioCallPage1.returnToHomePageInGirlsLogin(getDriver1());
-       // hostedAudioCallPage1.clickOnskipCrossButton(getDriver1());
-       // hostedAudioCallPage1.verifyIfUserTapsOnTheHostedCardOrJoinFromHomeScreenShouldTheConnectingScreenWithFillingBarAnimation(getDriver1());
-        homePage1.clickOnCreateButton(getDriver1());
-        homePage1.clickOnAudioRoomButton(getDriver1());
-        tagScreenPage1.clickOnLoveTag(getDriver1());
-        tagScreenPage1.checkGoOnlineButtonEnabled(getDriver1());
-        tagScreenPage1.verifyUerAbleToHost(getDriver1());
         landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
         landingPage2.changingPort("QA", getDriver2());
         landingPage2.loginToApplication("7890134561", "000000", getDriver2());
@@ -127,6 +120,14 @@ public class AudioCallUITest extends BaseTest {
         String text = homePage2.getAvailableCoin(getDriver2());
         homePage2.clickOnTrainingTab(getDriver2());
         homePage2.clickOnTrainingTab(getDriver2());
+       // hostedAudioCallPage1.clickOnskipCrossButton(getDriver1());
+       // hostedAudioCallPage1.verifyIfUserTapsOnTheHostedCardOrJoinFromHomeScreenShouldTheConnectingScreenWithFillingBarAnimation(getDriver1());
+        homePage1.clickOnCreateButton(getDriver1());
+        homePage1.clickOnAudioRoomButton(getDriver1());
+        tagScreenPage1.clickOnLoveTag(getDriver1());
+        tagScreenPage1.checkGoOnlineButtonEnabled(getDriver1());
+        tagScreenPage1.verifyUerAbleToHost(getDriver1());
+
         trainingRoomPage2.checkCoinAndEnterRoom(text, "20", getDriver2());
         hostedAudioCallPage1.clickOnGameIcon(getDriver1());
         hostedAudioCallPage1.clickOnGamePopupCrossButton(getDriver1());
@@ -155,7 +156,7 @@ public class AudioCallUITest extends BaseTest {
         tagScreenPage2.verifyUserRehostTheHostedRoom(getDriver2());
         hostedAudioCallPage2.verifyHostMinizeTheRoom(getDriver2());
     }
-    @Test(priority = 1, enabled = false, description = "LT-01: Verify User able to Host Voice call")
+    @Test(priority = 1, enabled = true, description = "LT-01: Verify User able to Host Voice call")
     public void checkIfInGameRechargeReminderBottomSheetShouldDisplayOnLast3MinsLeftInVoiceCall() throws InterruptedException {
         landingPage2.handlingUpdatePopup(getDriver2());
         landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
@@ -228,7 +229,7 @@ public class AudioCallUITest extends BaseTest {
         trainingRoomPage2.checkIfUserShouldOnlyBeAbleToJoinVideoCallRequestInVoiceCallIfUserHaveTheRequiredCoinBalance(getDriver2(),availableCoins,90);
     }
 
-    @Test(priority = 2, enabled = false, description = "LT-01: Verify User able to Host Voice call")
+    @Test(priority = 2, enabled = true, description = "LT-01: Verify User able to Host Voice call")
     public void verifyIfUserWithHostedVIVOCallOnOneDeviceThenSameUserOnOtherDevicesShouldNotBeAllowedToHostAndJoinFMRFRNDRadioDumsharasVIVO() throws InterruptedException {
         landingPage1.handlingUpdatePopup(getDriver1());
         landingPage1.KEYCODE_VOLUME_DOWN(getDriver1());
@@ -251,18 +252,13 @@ public class AudioCallUITest extends BaseTest {
         homePage2.clickOnFrndTab(getDriver2());
         frndMakingRoomsPage2.verifyFRNDMakingRoomsPageHeader("FRND Making Rooms", getDriver2());
         frndMakingRoomsPage2.clickOnPlusIconAfterJoinRoom(getDriver2());
+        frndMakingRoomsPage2.verifyUserNotAbleToHostFMR(getDriver2());
         // frndMakingRoom1.clickOnCreateNewRoomButton(getDriver1());
-        landingPage2.handlingUpdatePopup(getDriver2());
-        landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());
-        landingPage2.changingPort("QA", getDriver2());
-        landingPage2.loginToApplication("7890134561", "000000", getDriver2());
-        homePage2.handlingPopup(getDriver2());
-        String id1 = fetchValue.fetchValue("7890134561");
-        apiUdateData.frndRadio(id1,true,"http://qa.frndapp.in:8080","/automatedTesting/updateFgGroup","7890134561");
         apiUdateData.frndRadioCohortUpdate(id,true,"http://qa.frndapp.in:8080","/automatedTesting/updateUser","7890134561");
+        homePage2.clickOnHomeTab(getDriver2());
         homePage2.clickOnGroupRoom(getDriver2());
         frndRadioPage2.verifyGroupRoomsPage(true, getDriver2());
-        frndRadioPage2.createGroupRooms(getDriver1());
+        frndRadioPage2.createGroupRooms(getDriver2());
         frndRadioPage2.createRadioRoom("Your live show", "Frnd Radio Room", 1, getDriver2());
         frndRadioPage2.allowAudioRecordAllowPopup(getDriver2());
         frndRadioPage2.verifyUserNotAbleToHostFrndRadioRoom(getDriver2());
@@ -276,7 +272,7 @@ public class AudioCallUITest extends BaseTest {
         trainingRoomPage2.verifyNotAbleToHostPTRroom(getDriver2());
     }
 
-    @Test(priority = 1, enabled = true, description = "LT-01: Verify User able to Host Voice call")
+    @Test(priority = 1, enabled = false, description = "LT-01: Verify User able to Host Voice call")
     public void checkIfInGameRechargeReminderBottonSheetShouldDisplayOnLastThreeMinsLeftIvideoCall() throws InterruptedException {
         landingPage2.handlingUpdatePopup(getDriver2());
         landingPage2.KEYCODE_VOLUME_DOWN(getDriver2());

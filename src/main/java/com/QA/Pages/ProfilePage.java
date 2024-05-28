@@ -94,7 +94,6 @@ public class ProfilePage extends BaseTest {
     @AndroidFindBy(id = "com.dating.for.all.debug:id/title")
     private MobileElement title;
 
-
     @AndroidFindBy(id = "com.dating.for.all.debug:id/walletMoney")
     private MobileElement walletMoney;
 
@@ -111,10 +110,10 @@ public class ProfilePage extends BaseTest {
     private MobileElement walletCoins;
 
     @AndroidFindBy(id = "com.dating.for.all.debug:id/menuBiv")
-    private MobileElement hamburgerMenu;
+    public MobileElement hamburgerMenu;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Transactions\"]")
-    private MobileElement transactionTab;
+    public MobileElement transactionTab;
 
     @AndroidFindBy(xpath = "(//android.widget.TextView[@resource-id=\"com.dating.for.all.debug:id/commentsTv\"]/following-sibling::android.widget.TextView)[1]")
     private MobileElement transactionDiscountPrice;
@@ -151,6 +150,12 @@ public class ProfilePage extends BaseTest {
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Used by another user. Please enter new PAN number.\"]")
     private MobileElement panErrorMessage;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Win money from yellow rose\"]")
+    private List<MobileElement> winMoneyYellowRoseLabel;
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/settings")
+    public MobileElement settingIcon;
+    @AndroidFindBy(id = "com.dating.for.all.debug:id/logoutCl")
+    public MobileElement logOutButton;
 
     //*********************** End Elements *************************************************
 
@@ -213,6 +218,12 @@ public class ProfilePage extends BaseTest {
     public void withDrawMoney(AppiumDriver driver,String phoneNumber,String upiId) throws InterruptedException {
         waitForClickable(okayButton, driver);
         click(okayButton, "Clicked on Okay Button", driver);
+        if(winMoneyYellowRoseLabel.size()==1)
+        {
+            clickBackButton(driver);
+            Thread.sleep(2000);
+            click(walletMoney,driver);
+        }
         waitForVisibility(totalRemainingAmount, driver);
         String text1 = getText(totalRemainingAmount, "get total amount", driver);
         int a = Integer.parseInt(text1.replace("₹", ""));
@@ -284,16 +295,22 @@ public class ProfilePage extends BaseTest {
         if (yellowRosCount > expectedRose) {
             Assert.assertTrue(true, "YellowRoseCount is not more than expected rose count");
             clikcOnWinMoneyButton(driver);
+            Thread.sleep(2000);
             withDrawMoney(driver,phoneNumber,upiId);
             utils.log().info("Allow Yr Redeem for the first time when YR more than 5");
             ExtentReport.getTest().log(Status.INFO, "Allow Yr Redeem for the first time when YR more than 5");
         }
     }
 
-    public void verifyYrRedeemSuccess(AppiumDriver driver) {
+    public void verifyYrRedeemSuccess(AppiumDriver driver) throws InterruptedException {
         waitForClickable(okayButton, driver);
         click(okayButton, "Clicked on Okay Button", driver);
         clickBackButton(driver);
+        Thread.sleep(2000);
+        if(winMoneyYellowRoseLabel.size() == 1)
+        {
+            clickBackButton(driver);
+        }
         while (noRoseCollectedMessage.size() < 1) {
             swipeScreen(Direction.LEFT, driver);
         }
@@ -303,7 +320,7 @@ public class ProfilePage extends BaseTest {
         ExtentReport.getTest().log(Status.INFO, "Redeem is successfully done");
     }
 
-    public void verifyMin5RoseRequiredForRedeemForTheSecondTime(AppiumDriver driver) {
+    public void verifyMin5RoseRequiredForRedeemForTheSecondTime(AppiumDriver driver) throws InterruptedException {
         try {
             if (totalRemainingAmount.isDisplayed()) {
                 clickBackButton(driver);
@@ -323,6 +340,7 @@ public class ProfilePage extends BaseTest {
         waitForVisibility(title, driver);
         Assert.assertTrue(title.isDisplayed());
         utils.log().info(getText(title, "", driver));
+        Thread.sleep(2000);
         clickBackButton(driver);
     }
 
